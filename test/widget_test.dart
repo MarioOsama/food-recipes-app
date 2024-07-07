@@ -7,12 +7,18 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:food_recipes_app/core/routing/app_router.dart';
 import 'package:food_recipes_app/food_recipes_app.dart';
+import 'package:food_recipes_app/prefs/shared_preferences.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
+    bool isFirstTime = await isNewUser;
+
     // Build our app and trigger a frame.
-    await tester.pumpWidget(const FoodRecipesApp());
+    await tester.pumpWidget(FoodRecipesApp(
+      appRouter: AppRouter(isFirstTime: isFirstTime),
+    ));
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);
