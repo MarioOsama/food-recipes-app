@@ -10,21 +10,13 @@ class FoodRecipesApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      title: 'Food Recipes',
       theme: ThemeData(
         useMaterial3: true,
       ),
       initialRoute:
           appRouter.isFirstTime ? AppRoutes.onBoarding : AppRoutes.home,
       onGenerateRoute: appRouter.onGenerateRoute,
-      title: 'Food Recipes',
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Food Recipes'),
-        ),
-        body: const Center(
-          child: Text('Welcome to Food Recipes!'),
-        ),
-      ),
     );
   }
 }
