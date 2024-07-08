@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_recipes_app/core/theming/app_colors.dart';
 import 'package:food_recipes_app/core/theming/app_text_styles.dart';
@@ -18,17 +19,18 @@ class HomeRecipeItem extends StatelessWidget {
           height: 270.h,
           padding: EdgeInsets.symmetric(horizontal: 50.w, vertical: 40.h),
           decoration: _getDecoration(),
-          child: const Column(
+          child: Column(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              Text(
+              const Text(
                 'Veggie tomato mix',
                 style: AppTextStyles.font22BlackRegular,
                 textAlign: TextAlign.center,
                 maxLines: 3,
                 overflow: TextOverflow.ellipsis,
               ),
-              Text(
+              SizedBox(height: 15.h),
+              const Text(
                 '35 minutes',
                 style: AppTextStyles.font17OrangeRegular,
               ),
