@@ -36,6 +36,7 @@ class _HomeSectionsButtonRowState extends State<HomeSectionsButtonRow> {
           isSelected: index == _selectedIndex,
           onPressed: () {
             _onSectionPressed(index);
+            // context.read<HomeCubit>().getRandomFoodRecipes(5);
           }),
     );
   }
