@@ -3,11 +3,14 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_recipes_app/core/theming/app_colors.dart';
 import 'package:food_recipes_app/core/theming/app_text_styles.dart';
+import 'package:food_recipes_app/features/home/data/models/home_recipe_item_model.dart';
 
 class HomeRecipeItem extends StatelessWidget {
-  const HomeRecipeItem({super.key, required this.isFirst});
+  const HomeRecipeItem(
+      {super.key, required this.isFirst, required this.recipe});
 
   final bool isFirst;
+  final HomeRecipeItemModel recipe;
 
   @override
   Widget build(BuildContext context) {
@@ -22,16 +25,16 @@ class HomeRecipeItem extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              const Text(
-                'Veggie tomato mix',
+              Text(
+                recipe.title,
                 style: AppTextStyles.font22BlackRegular,
                 textAlign: TextAlign.center,
                 maxLines: 3,
                 overflow: TextOverflow.ellipsis,
               ),
               SizedBox(height: 15.h),
-              const Text(
-                '35 minutes',
+              Text(
+                recipe.country,
                 style: AppTextStyles.font17OrangeRegular,
               ),
             ],
@@ -39,7 +42,10 @@ class HomeRecipeItem extends StatelessWidget {
         ),
         Padding(
           padding: EdgeInsets.only(bottom: 200.h),
-          child: Image.asset('assets/images/png/test-food-image.png'),
+          child: CircleAvatar(
+            radius: 80.r,
+            backgroundImage: NetworkImage(recipe.imageUrl),
+          ),
         ),
       ],
     );
