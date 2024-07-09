@@ -29,7 +29,7 @@ class HomeRecipeItem extends StatelessWidget {
                 recipe.title,
                 style: AppTextStyles.font22BlackRegular,
                 textAlign: TextAlign.center,
-                maxLines: 3,
+                maxLines: 2,
                 overflow: TextOverflow.ellipsis,
               ),
               SizedBox(height: 15.h),
