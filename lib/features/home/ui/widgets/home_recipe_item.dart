@@ -10,7 +10,7 @@ class HomeRecipeItem extends StatelessWidget {
       {super.key, required this.isFirst, required this.recipe});
 
   final bool isFirst;
-  final HomeRecipeItemModel recipe;
+  final RecipeItemModel recipe;
 
   @override
   Widget build(BuildContext context) {
@@ -65,9 +65,8 @@ class HomeRecipeItem extends StatelessWidget {
       boxShadow: [
         BoxShadow(
           color: AppColors.black.withOpacity(0.1),
-          blurRadius: 20.r,
-          offset: const Offset(5, 10),
-          spreadRadius: 5,
+          blurRadius: 15.r,
+          offset: const Offset(1, 10),
         ),
       ],
     );

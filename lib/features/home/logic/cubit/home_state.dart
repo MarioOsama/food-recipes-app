@@ -7,13 +7,13 @@ final class HomeInitial extends HomeState {}
 final class HomeFoodRecipesSuccess extends HomeState {
   HomeFoodRecipesSuccess({required this.meals});
 
-  final List<HomeRecipeItemModel> meals;
+  final List<RecipeItemModel> meals;
 }
 
 final class HomeCocktailRecipesSuccess extends HomeState {
   HomeCocktailRecipesSuccess({required this.cocktails});
 
-  final List<HomeRecipeItemModel> cocktails;
+  final List<RecipeItemModel> cocktails;
 }
 
 final class HomeFoodRecipesLoading extends HomeState {}
