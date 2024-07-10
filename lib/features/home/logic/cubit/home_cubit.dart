@@ -13,9 +13,9 @@ class HomeCubit extends Cubit<HomeState> {
   // Home sections title
   final List<String> titles = ['Foods', 'Cocktails'];
 
-  List<HomeRecipeItemModel> meals = [];
+  List<RecipeItemModel> meals = [];
 
-  List<HomeRecipeItemModel> cocktails = [];
+  List<RecipeItemModel> cocktails = [];
 
   // Food recipes
   void showRandomFoodRecipes() {
@@ -33,7 +33,7 @@ class HomeCubit extends Cubit<HomeState> {
       // Get and store the random food recipe
       final MealModel randomMeal = await _homeRepo.getRandomFoodRecipe();
       meals.add(
-        HomeRecipeItemModel(
+        RecipeItemModel(
           title: randomMeal.name,
           subtitle: randomMeal.country,
           imageUrl: randomMeal.imageUrl,
@@ -43,7 +43,7 @@ class HomeCubit extends Cubit<HomeState> {
       final CocktailModel randomCocktail =
           await _homeRepo.getRandomCocktailRecipe();
       cocktails.add(
-        HomeRecipeItemModel(
+        RecipeItemModel(
           title: randomCocktail.name,
           subtitle: randomCocktail.category,
           imageUrl: randomCocktail.imageUrl,

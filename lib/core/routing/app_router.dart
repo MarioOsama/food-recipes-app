@@ -4,6 +4,7 @@ import 'package:food_recipes_app/core/di/dependency_injection.dart';
 import 'package:food_recipes_app/core/routing/app_routes.dart';
 import 'package:food_recipes_app/features/home/logic/cubit/home_cubit.dart';
 import 'package:food_recipes_app/features/home/ui/home_screen.dart';
+import 'package:food_recipes_app/features/see_more/ui/see_more.dart';
 
 class AppRouter {
   final bool isFirstTime;
@@ -27,6 +28,10 @@ class AppRouter {
             create: (context) => getIt<HomeCubit>(),
             child: const HomeScreen(),
           ),
+        );
+      case AppRoutes.seeMore:
+        return MaterialPageRoute(
+          builder: (_) => const SeeMoreScreen(),
         );
       case AppRoutes.search:
         return MaterialPageRoute(

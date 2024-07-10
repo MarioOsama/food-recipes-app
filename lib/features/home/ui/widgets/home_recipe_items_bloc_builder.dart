@@ -38,7 +38,7 @@ class HomeRecipeItemsBlocBuilder extends StatelessWidget {
   }
 
   // Generates a list of Widget items based on the provided list of HomeRecipeItemModel.
-  List<Widget> _getRecipeItemsList(List<HomeRecipeItemModel> recipesList) {
+  List<Widget> _getRecipeItemsList(List<RecipeItemModel> recipesList) {
     return List.generate(
       recipesList.length,
       (index) => Padding(
@@ -51,7 +51,7 @@ class HomeRecipeItemsBlocBuilder extends StatelessWidget {
     );
   }
 
-  _setupSuccess(List<HomeRecipeItemModel> mealsModel) {
+  _setupSuccess(List<RecipeItemModel> mealsModel) {
     return Padding(
       padding: EdgeInsets.only(left: 15.w),
       child: SingleChildScrollView(
