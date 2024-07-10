@@ -9,6 +9,6 @@ part 'food_api_services.g.dart';
 abstract class FoodApiServices {
   factory FoodApiServices(Dio dio, {String baseUrl}) = _FoodApiServices;
 
-  @GET(ApiConstant.randomFoodRecipe)
+  @GET(ApiConstant.randomRecipe)
   Future<FoodResponseModel> getRandomRecipeData();
 }

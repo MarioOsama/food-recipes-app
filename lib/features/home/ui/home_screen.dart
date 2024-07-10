@@ -16,7 +16,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Calling Data
-    context.read<HomeCubit>().getRandomFoodRecipes(5);
+    context.read<HomeCubit>().getHomeRecipes(5);
     // Setup UI widgets
     return Scaffold(
       backgroundColor: AppColors.grey,

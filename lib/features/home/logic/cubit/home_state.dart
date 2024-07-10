@@ -10,4 +10,10 @@ final class HomeFoodRecipesSuccess extends HomeState {
   final List<HomeRecipeItemModel> meals;
 }
 
+final class HomeCocktailRecipesSuccess extends HomeState {
+  HomeCocktailRecipesSuccess({required this.cocktails});
+
+  final List<HomeRecipeItemModel> cocktails;
+}
+
 final class HomeFoodRecipesLoading extends HomeState {}
