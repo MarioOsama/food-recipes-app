@@ -19,5 +19,8 @@ void setupGetIt() {
   getIt.registerFactory<HomeCubit>(() => HomeCubit(getIt()));
 
   // Repos
-  getIt.registerLazySingleton<HomeRepo>(() => HomeRepo(getIt()));
+  getIt.registerLazySingleton<HomeRepo>(() => HomeRepo(
+        getIt(),
+        getIt(),
+      ));
 }

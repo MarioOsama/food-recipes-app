@@ -19,6 +19,11 @@ class HomeRecipeItemsBlocBuilder extends StatelessWidget {
             {
               return _setupSuccess(state.meals);
             }
+          case HomeCocktailRecipesSuccess():
+            {
+              return _setupSuccess(state.cocktails);
+            }
+
           case HomeFoodRecipesLoading():
             {
               return _setupLoading();

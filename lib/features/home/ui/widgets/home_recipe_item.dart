@@ -34,7 +34,8 @@ class HomeRecipeItem extends StatelessWidget {
               ),
               SizedBox(height: 15.h),
               Text(
-                recipe.country,
+                recipe.subtitle,
+                overflow: TextOverflow.ellipsis,
                 style: AppTextStyles.font17OrangeRegular,
               ),
             ],

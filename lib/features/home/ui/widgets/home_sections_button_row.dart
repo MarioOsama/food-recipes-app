@@ -13,12 +13,6 @@ class HomeSectionsButtonRow extends StatefulWidget {
 class _HomeSectionsButtonRowState extends State<HomeSectionsButtonRow> {
   int _selectedIndex = 0;
 
-  void _onSectionPressed(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     final List<String> titles = _getSectionButtonTitles();
@@ -35,10 +29,21 @@ class _HomeSectionsButtonRowState extends State<HomeSectionsButtonRow> {
           title: titles[index],
           isSelected: index == _selectedIndex,
           onPressed: () {
-            _onSectionPressed(index);
-            // context.read<HomeCubit>().getRandomFoodRecipes(5);
+            _onSectionPressed(index, titles[index]);
           }),
     );
+  }
+
+  void _onSectionPressed(int index, String title) {
+    if (_selectedIndex == index) return;
+    if (title == 'Foods') {
+      context.read<HomeCubit>().showRandomFoodRecipes();
+    } else {
+      context.read<HomeCubit>().showRandomCocktailRecipes();
+    }
+    setState(() {
+      _selectedIndex = index;
+    });
   }
 
   List<String> _getSectionButtonTitles() {
