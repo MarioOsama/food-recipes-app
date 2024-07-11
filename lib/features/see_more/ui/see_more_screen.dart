@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_recipes_app/core/theming/app_colors.dart';
+import 'package:food_recipes_app/features/see_more/logic/cubit/see_more_cubit.dart';
 import 'package:food_recipes_app/features/see_more/ui/widgets/see_more_header.dart';
 import 'package:food_recipes_app/features/see_more/ui/widgets/see_more_items_container.dart';
 
@@ -9,6 +11,8 @@ class SeeMoreScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Get screen data
+    context.read<SeeMoreCubit>().getFoodCategoriesData();
     return Scaffold(
       backgroundColor: AppColors.grey,
       body: Padding(

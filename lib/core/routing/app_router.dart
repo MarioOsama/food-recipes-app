@@ -5,7 +5,7 @@ import 'package:food_recipes_app/core/routing/app_routes.dart';
 import 'package:food_recipes_app/features/home/logic/cubit/home_cubit.dart';
 import 'package:food_recipes_app/features/home/ui/home_screen.dart';
 import 'package:food_recipes_app/features/see_more/logic/cubit/see_more_cubit.dart';
-import 'package:food_recipes_app/features/see_more/ui/see_more.dart';
+import 'package:food_recipes_app/features/see_more/ui/see_more_screen.dart';
 
 class AppRouter {
   final bool isFirstTime;

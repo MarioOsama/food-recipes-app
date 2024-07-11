@@ -31,8 +31,8 @@ class SeeMoreHeaderListViewItem extends StatelessWidget {
             20.r,
           ),
         ),
-        child: const Text(
-          'See More Screen',
+        child: Text(
+          title,
           style: AppTextStyles.font17BlackRegular,
         ),
       ),
