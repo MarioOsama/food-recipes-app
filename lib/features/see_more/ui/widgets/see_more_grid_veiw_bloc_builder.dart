@@ -5,6 +5,7 @@ import 'package:food_recipes_app/features/see_more/data/models/filtered_recipe_i
 import 'package:food_recipes_app/features/see_more/logic/cubit/see_more_cubit.dart';
 import 'package:food_recipes_app/features/see_more/logic/cubit/see_more_state.dart';
 import 'package:food_recipes_app/features/see_more/ui/widgets/filtered_recipe_item.dart';
+import 'package:food_recipes_app/features/see_more/ui/widgets/shimmer_recipe_item.dart';
 
 class SeeMoreGridViewBlocBuilder extends StatelessWidget {
   const SeeMoreGridViewBlocBuilder({
@@ -14,49 +15,47 @@ class SeeMoreGridViewBlocBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<SeeMoreCubit, SeeMoreState>(
-      buildWhen: (previous, current) =>
-          current is SeeMoreRecipesSuccess ||
-          current is SeeMoreRecipesError ||
-          current is SeeMoreRecipesLoading,
-      builder: (context, state) {
-        return GridView.builder(
-          padding: EdgeInsets.only(top: 40.h, bottom: 40.h),
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            crossAxisSpacing: 25.w,
-            mainAxisSpacing: 35.h,
-            childAspectRatio: 1 / 1.4,
-          ),
-          itemCount: 10,
-          itemBuilder: (ctx, index) {
-            switch (state) {
-              case SeeMoreRecipesLoading():
-                {
-                  return _setupRecipesLoading();
-                }
-              case SeeMoreRecipesSuccess():
-                {
-                  return _setupRecipesSuccess(state.recipes[index]);
-                }
-              case SeeMoreRecipesError():
-                {
-                  return _setupRecipesError(state.message);
-                }
-              default:
-                {
-                  return _setupRecipesLoading();
-                }
-            }
-          },
-        );
-      },
-    );
+        buildWhen: (previous, current) =>
+            current is SeeMoreRecipesSuccess ||
+            current is SeeMoreRecipesError ||
+            current is SeeMoreRecipesLoading,
+        builder: (context, state) {
+          switch (state) {
+            case SeeMoreRecipesLoading():
+              {
+                return _setupRecipesLoading();
+              }
+            case SeeMoreRecipesSuccess():
+              {
+                return _setupRecipesSuccess(state.recipes);
+              }
+            case SeeMoreRecipesError():
+              {
+                return _setupRecipesError(state.message);
+              }
+            default:
+              {
+                return _setupRecipesLoading();
+              }
+          }
+        });
   }
 
-  Widget _setupRecipesSuccess(FilteredRecipeItemModel recipe) {
-    return FilteredRecipeItem(
-      recipe: recipe,
-    );
+  Widget _setupRecipesSuccess(List<FilteredRecipeItemModel> recipes) {
+    return GridView.builder(
+        padding: EdgeInsets.only(top: 40.h, bottom: 40.h),
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          crossAxisSpacing: 25.w,
+          mainAxisSpacing: 35.h,
+          childAspectRatio: 1 / 1.4,
+        ),
+        itemCount: recipes.length,
+        itemBuilder: (ctx, index) {
+          return FilteredRecipeItem(
+            recipe: recipes[index],
+          );
+        });
   }
 
   Widget _setupRecipesError(String errorMessage) {
@@ -64,6 +63,17 @@ class SeeMoreGridViewBlocBuilder extends StatelessWidget {
   }
 
   Widget _setupRecipesLoading() {
-    return const Center(child: CircularProgressIndicator());
+    return GridView.builder(
+        padding: EdgeInsets.only(top: 40.h, bottom: 40.h),
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          crossAxisSpacing: 25.w,
+          mainAxisSpacing: 35.h,
+          childAspectRatio: 1 / 1.4,
+        ),
+        itemCount: 10,
+        itemBuilder: (ctx, index) {
+          return const ShimmerRecipeItem();
+        });
   }
 }

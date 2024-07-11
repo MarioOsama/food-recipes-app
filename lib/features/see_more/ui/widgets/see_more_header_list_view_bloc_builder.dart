@@ -4,6 +4,7 @@ import 'package:food_recipes_app/features/see_more/data/models/category_model.da
 import 'package:food_recipes_app/features/see_more/logic/cubit/see_more_cubit.dart';
 import 'package:food_recipes_app/features/see_more/logic/cubit/see_more_state.dart';
 import 'package:food_recipes_app/features/see_more/ui/widgets/see_more_header_list_veiw_item.dart';
+import 'package:food_recipes_app/features/see_more/ui/widgets/see_more_header_list_view_item_shimmer.dart';
 
 class SeeMoreHeaderListViewBlocBuilder extends StatelessWidget {
   const SeeMoreHeaderListViewBlocBuilder({
@@ -51,6 +52,10 @@ class SeeMoreHeaderListViewBlocBuilder extends StatelessWidget {
   }
 
   Widget _setupCategoriesLoading() {
-    return const Center(child: CircularProgressIndicator());
+    return ListView.builder(
+      scrollDirection: Axis.horizontal,
+      itemCount: 10,
+      itemBuilder: (ctx, index) => const SeeMoreHeaderListViewItemShimmer(),
+    );
   }
 }
