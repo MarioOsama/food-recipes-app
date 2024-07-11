@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_recipes_app/core/theming/app_colors.dart';
-import 'package:food_recipes_app/features/home/data/models/home_recipe_item_model.dart';
+import 'package:food_recipes_app/core/models/recipe_item_model.dart';
 import 'package:food_recipes_app/features/home/logic/cubit/home_cubit.dart';
 import 'package:food_recipes_app/features/home/logic/cubit/home_state.dart';
 import 'package:food_recipes_app/features/home/ui/widgets/home_recipe_item.dart';

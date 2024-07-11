@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:food_recipes_app/features/home/data/models/home_recipe_item_model.dart';
+import 'package:food_recipes_app/core/models/recipe_item_model.dart';
 import 'package:food_recipes_app/features/see_more/ui/widgets/see_more_grid_view_item.dart';
 
 class SeeMoreGridView extends StatelessWidget {

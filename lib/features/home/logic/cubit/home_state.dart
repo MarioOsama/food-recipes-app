@@ -1,4 +1,4 @@
-import 'package:food_recipes_app/features/home/data/models/home_recipe_item_model.dart';
+import 'package:food_recipes_app/core/models/recipe_item_model.dart';
 
 abstract class HomeState {}
 

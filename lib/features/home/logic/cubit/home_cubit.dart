@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:food_recipes_app/core/models/cocktail_response_model.dart';
 import 'package:food_recipes_app/core/models/food_response_model.dart';
-import 'package:food_recipes_app/features/home/data/models/home_recipe_item_model.dart';
+import 'package:food_recipes_app/core/models/recipe_item_model.dart';
 import 'package:food_recipes_app/features/home/data/repos/home_repo.dart';
 import 'package:food_recipes_app/features/home/logic/cubit/home_state.dart';
 
