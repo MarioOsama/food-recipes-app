@@ -1,5 +1,5 @@
 class AppRoutes {
-  static const String onBoarding = '/onBoarding';
+  static const String getStarted = '/';
   static const String auth = '/auth';
   static const String home = '/home';
   static const String allRecipes = '/all recipes';

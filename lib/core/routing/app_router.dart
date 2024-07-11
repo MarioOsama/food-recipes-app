@@ -1,5 +1,8 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:food_recipes_app/core/routing/app_routes.dart';
+import 'package:food_recipes_app/feature/Auth/ui/auth_screen.dart';
+import 'package:food_recipes_app/feature/initial/ui/get_started_screen.dart';
+import 'package:food_recipes_app/feature/settings/preferances_screen.dart';
 
 class AppRouter {
   final bool isFirstTime;
@@ -9,30 +12,12 @@ class AppRouter {
     final args = settings.arguments;
 
     switch (settings.name) {
-      case AppRoutes.onBoarding:
-        return MaterialPageRoute(
-          builder: (_) => const Scaffold(
-            body: Center(
-              child: Text('OnBoarding'),
-            ),
-          ),
-        );
-      case AppRoutes.home:
-        return MaterialPageRoute(
-          builder: (_) => const Scaffold(
-            body: Center(
-              child: Text('Home'),
-            ),
-          ),
-        );
-      case AppRoutes.search:
-        return MaterialPageRoute(
-          builder: (_) => const Scaffold(
-            body: Center(
-              child: Text('Search'),
-            ),
-          ),
-        );
+      case AppRoutes.getStarted:
+        return CupertinoPageRoute(builder: (context) => const GetStartedScreen(),);
+      case AppRoutes.auth:
+        return CupertinoPageRoute(builder: (context) => const AuthScreen(),);
+      case AppRoutes.preferences:
+        return CupertinoPageRoute(builder: (context) => const PreferencesScreen(),);
       default:
         return null;
     }
