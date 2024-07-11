@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:food_recipes_app/core/models/cocktail_response_model.dart';
 import 'package:food_recipes_app/core/networking/api_constant.dart';
+import 'package:food_recipes_app/features/see_more/data/models/category_model.dart';
 import 'package:retrofit/http.dart';
 
 part 'cocktail_api_services.g.dart';
@@ -11,4 +12,9 @@ abstract class CocktailApiServices {
 
   @GET(ApiConstant.randomRecipe)
   Future<CocktailResponseModel> getRandomRecipeData();
+
+  @GET(ApiConstant.list)
+  Future<CocktailCategoriesResponseModel> getCategoriesData(
+    @Query('c') String method,
+  );
 }

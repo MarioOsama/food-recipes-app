@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_recipes_app/core/theming/app_colors.dart';
-import 'package:food_recipes_app/features/see_more/ui/widgets/see_more_header_list_view.dart';
+import 'package:food_recipes_app/features/see_more/ui/widgets/see_more_header_list_view_bloc_builder.dart';
 
 class SeeMoreHeader extends StatelessWidget {
   const SeeMoreHeader({
@@ -22,7 +22,7 @@ class SeeMoreHeader extends StatelessWidget {
         ),
         SizedBox(width: 10.w),
         const Expanded(
-          child: SeeMoreHeaderListView(),
+          child: SeeMoreHeaderListViewBlocBuilder(),
         ),
       ],
     );
