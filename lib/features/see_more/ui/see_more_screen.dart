@@ -12,7 +12,8 @@ class SeeMoreScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Get screen data
-    context.read<SeeMoreCubit>().getFoodCategoriesData();
+    context.read<SeeMoreCubit>().getFoodData();
+
     return Scaffold(
       backgroundColor: AppColors.grey,
       body: Padding(

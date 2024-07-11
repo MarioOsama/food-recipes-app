@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_recipes_app/core/theming/app_colors.dart';
-import 'package:food_recipes_app/features/see_more/ui/widgets/see_more_grid_veiw.dart';
+import 'package:food_recipes_app/features/see_more/ui/widgets/see_more_grid_veiw_bloc_builder.dart';
 
 class SeeMoreItemsContainer extends StatelessWidget {
   const SeeMoreItemsContainer({
@@ -19,7 +19,7 @@ class SeeMoreItemsContainer extends StatelessWidget {
           topRight: Radius.circular(30.r),
         ),
       ),
-      child: const SeeMoreGridView(),
+      child: const SeeMoreGridViewBlocBuilder(),
     );
   }
 }

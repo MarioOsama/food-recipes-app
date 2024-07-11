@@ -13,6 +13,10 @@ class SeeMoreHeaderListViewBlocBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<SeeMoreCubit, SeeMoreState>(
+      buildWhen: (previous, current) =>
+          current is SeeMoreCategoriesSuccess ||
+          current is SeeMoreCategoriesError ||
+          current is SeeMoreCategoriesLoading,
       builder: (context, state) {
         switch (state) {
           case SeeMoreCategoriesSuccess():

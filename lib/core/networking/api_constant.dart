@@ -5,4 +5,5 @@ class ApiConstant {
   static const String randomRecipe = 'random.php';
   static const String categories = 'categories.php';
   static const String list = 'list.php';
+  static const String filter = 'filter.php';
 }
