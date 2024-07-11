@@ -3,7 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_recipes_app/core/theming/app_colors.dart';
 import 'package:food_recipes_app/core/theming/app_text_styles.dart';
-import 'package:food_recipes_app/features/home/data/models/home_recipe_item_model.dart';
+import 'package:food_recipes_app/core/models/recipe_item_model.dart';
 
 class HomeRecipeItem extends StatelessWidget {
   const HomeRecipeItem(
