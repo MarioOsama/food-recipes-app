@@ -1,9 +1,9 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_recipes_app/core/theming/app_colors.dart';
 import 'package:food_recipes_app/core/theming/app_text_styles.dart';
+import 'package:food_recipes_app/features/see_more/logic/cubit/see_more_cubit.dart';
 
 class SeeMoreHeaderListViewItem extends StatelessWidget {
   const SeeMoreHeaderListViewItem({
@@ -17,7 +17,7 @@ class SeeMoreHeaderListViewItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        log(title);
+        context.read<SeeMoreCubit>().getFoodFilteredData(title);
       },
       child: Container(
         margin: EdgeInsets.only(right: 20.w),

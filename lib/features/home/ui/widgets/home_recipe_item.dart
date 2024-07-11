@@ -25,31 +25,49 @@ class HomeRecipeItem extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              Text(
-                recipe.title,
-                style: AppTextStyles.font22BlackRegular,
-                textAlign: TextAlign.center,
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
-              ),
-              SizedBox(height: 15.h),
-              Text(
-                recipe.subtitle,
-                overflow: TextOverflow.ellipsis,
-                style: AppTextStyles.font17OrangeRegular,
-              ),
+              _buildItemTitle(),
+              _buildSubtitle(),
             ],
           ),
         ),
-        Padding(
-          padding: EdgeInsets.only(bottom: 200.h),
-          child: CircleAvatar(
-            radius: 80.r,
-            backgroundImage: NetworkImage(recipe.imageUrl),
-          ),
-        ),
+        _buildItemImage(),
       ],
     );
+  }
+
+  Text _buildItemTitle() {
+    return Text(
+      recipe.title,
+      style: AppTextStyles.font22BlackRegular,
+      textAlign: TextAlign.center,
+      maxLines: 2,
+      overflow: TextOverflow.ellipsis,
+    );
+  }
+
+  Padding _buildItemImage() {
+    return Padding(
+      padding: EdgeInsets.only(bottom: 200.h),
+      child: CircleAvatar(
+        radius: 80.r,
+        backgroundImage: NetworkImage(recipe.imageUrl),
+      ),
+    );
+  }
+
+  _buildSubtitle() {
+    if (recipe.subtitle != null) {
+      return Column(
+        children: [
+          SizedBox(height: 15.h),
+          Text(
+            recipe.subtitle!,
+            overflow: TextOverflow.ellipsis,
+            style: AppTextStyles.font17OrangeRegular,
+          )
+        ],
+      );
+    }
   }
 
   BoxDecoration _getDecoration() {

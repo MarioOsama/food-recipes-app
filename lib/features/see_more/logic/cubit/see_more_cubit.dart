@@ -1,6 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:food_recipes_app/core/models/cocktail_response_model.dart';
-import 'package:food_recipes_app/features/see_more/data/models/category_model.dart';
+import 'package:food_recipes_app/features/see_more/data/models/filtered_recipe_item_model.dart';
 import 'package:food_recipes_app/features/see_more/data/repos/see_more_repo.dart';
 import 'package:food_recipes_app/features/see_more/logic/cubit/see_more_state.dart';
 
@@ -9,6 +8,11 @@ class SeeMoreCubit extends Cubit<SeeMoreState> {
   SeeMoreCubit(this._seeMoreRepo) : super(SeeMoreInitial());
 
   // Food
+  void getFoodData() async {
+    getFoodCategoriesData();
+    getFoodFilteredData('Beef');
+  }
+
   void getFoodCategoriesData() async {
     emit(SeeMoreCategoriesLoading());
     try {
@@ -19,7 +23,24 @@ class SeeMoreCubit extends Cubit<SeeMoreState> {
     }
   }
 
+  void getFoodFilteredData(String category) async {
+    emit(SeeMoreRecipesLoading());
+    try {
+      final filteredData = await _seeMoreRepo.getFoodFilteredData(category);
+      final List<FilteredRecipeItemModel> filteredRecipes =
+          _getRecipes(filteredData.meals);
+      emit(SeeMoreRecipesSuccess(filteredRecipes));
+    } catch (e) {
+      emit(SeeMoreCategoriesError(e.toString()));
+    }
+  }
+
   // Cocktail
+  void getCocktailData() async {
+    getCocktailCategoriesData();
+    getCocktailFilteredData('Ordinary Drink');
+  }
+
   void getCocktailCategoriesData() async {
     emit(SeeMoreCategoriesLoading());
     try {
@@ -28,5 +49,27 @@ class SeeMoreCubit extends Cubit<SeeMoreState> {
     } catch (e) {
       emit(SeeMoreCategoriesError(e.toString()));
     }
+  }
+
+  void getCocktailFilteredData(String category) async {
+    emit(SeeMoreRecipesLoading());
+    try {
+      final filteredData = await _seeMoreRepo.getCocktailFilteredData(category);
+      final List<FilteredRecipeItemModel> filteredRecipes =
+          _getRecipes(filteredData.cocktails);
+      emit(SeeMoreRecipesSuccess(filteredRecipes));
+    } catch (e) {
+      emit(SeeMoreCategoriesError(e.toString()));
+    }
+  }
+
+  List<FilteredRecipeItemModel> _getRecipes(List recipes) {
+    return recipes.map((recipe) {
+      return FilteredRecipeItemModel(
+        id: recipe.id,
+        title: recipe.name,
+        imageUrl: recipe.imageUrl,
+      );
+    }).toList();
   }
 }
