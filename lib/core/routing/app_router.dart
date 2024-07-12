@@ -2,10 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_recipes_app/core/di/dependency_injection.dart';
 import 'package:food_recipes_app/core/routing/app_routes.dart';
+
 import 'package:food_recipes_app/features/home/logic/cubit/home_cubit.dart';
 import 'package:food_recipes_app/features/home/ui/home_screen.dart';
 import 'package:food_recipes_app/features/see_more/logic/cubit/see_more_cubit.dart';
 import 'package:food_recipes_app/features/see_more/ui/see_more_screen.dart';
+
+import '../../features/profile/presentation/pages/edit_profile/edit_profile_view.dart';
+import '../../features/profile/presentation/pages/profile/profile_view.dart';
+import '../../features/profile/presentation/pages/reset_pass/reset_pass_view.dart';
 
 class AppRouter {
   final bool isFirstTime;
@@ -44,6 +49,18 @@ class AppRouter {
               child: Text('Search'),
             ),
           ),
+        );
+      case AppRoutes.profile:
+        return MaterialPageRoute(
+          builder: (_) => const ProfileView(),
+        );
+      case AppRoutes.editProfile:
+        return MaterialPageRoute(
+          builder: (_) => const EditProfileBody(),
+        );
+      case AppRoutes.resetPassword:
+        return MaterialPageRoute(
+          builder: (_) => const ResetPassView(),
         );
       default:
         return null;

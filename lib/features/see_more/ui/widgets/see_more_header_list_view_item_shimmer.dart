@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shimmer/shimmer.dart';
+
 import 'package:food_recipes_app/core/theming/app_colors.dart';
 import 'package:food_recipes_app/core/theming/app_text_styles.dart';
-import 'package:shimmer/shimmer.dart';
 
 class SeeMoreHeaderListViewItemShimmer extends StatelessWidget {
   const SeeMoreHeaderListViewItemShimmer({super.key});
