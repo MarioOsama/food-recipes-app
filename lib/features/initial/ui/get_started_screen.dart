@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:food_recipes_app/core/utils/app_assets/app_assets.dart';
+import 'package:food_recipes_app/core/app_assets/app_assets.dart';
 import 'package:food_recipes_app/features/initial/ui/widgets/custom_get_started_bottom.dart';
 
 class GetStartedScreen extends StatelessWidget {
