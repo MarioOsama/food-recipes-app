@@ -15,7 +15,7 @@ class RecipeCategoryContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return SliverToBoxAdapter(
       child: Container(
-        height: 32.h,
+        height: 35.h,
         width: double.infinity,
         color: AppColors.orange,
         alignment: Alignment.center,

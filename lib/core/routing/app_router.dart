@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:food_recipes_app/core/models/recipe_item_model.dart';
 import 'package:food_recipes_app/features/Auth/ui/auth_screen.dart';
 import 'package:food_recipes_app/features/initial/ui/get_started_screen.dart';
 import 'package:food_recipes_app/features/recipe/ui/recipe_screen.dart';
@@ -41,7 +42,9 @@ class AppRouter {
         );
       case AppRoutes.recipeDetails:
         return MaterialPageRoute(
-          builder: (_) => const RecipeScreen(),
+          builder: (_) => RecipeScreen(
+            recipe: args as RecipeItemModel,
+          ),
         );
       case AppRoutes.seeMore:
         return MaterialPageRoute(
