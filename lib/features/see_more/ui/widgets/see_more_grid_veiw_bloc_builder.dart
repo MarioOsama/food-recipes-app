@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:food_recipes_app/core/widgets/shimmer_recipe_item.dart';
 import 'package:food_recipes_app/features/see_more/data/models/filtered_recipe_item_model.dart';
 import 'package:food_recipes_app/features/see_more/logic/cubit/see_more_cubit.dart';
 import 'package:food_recipes_app/features/see_more/logic/cubit/see_more_state.dart';
 import 'package:food_recipes_app/features/see_more/ui/widgets/filtered_recipe_item.dart';
-import 'package:food_recipes_app/features/see_more/ui/widgets/shimmer_recipe_item.dart';
 
 class SeeMoreGridViewBlocBuilder extends StatelessWidget {
   const SeeMoreGridViewBlocBuilder({
