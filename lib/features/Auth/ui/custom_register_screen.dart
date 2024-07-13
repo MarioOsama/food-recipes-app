@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:food_recipes_app/core/helpers/spacing.dart';
-import 'package:food_recipes_app/core/widgets/custom_bottom.dart';
+import 'package:food_recipes_app/core/utils/spacing.dart';
+import 'package:food_recipes_app/core/utils/widgets/custom_bottom.dart';
 import 'package:food_recipes_app/features/Auth/ui/widgets/custom_text_form_field.dart';
 import 'package:iconsax/iconsax.dart';
 

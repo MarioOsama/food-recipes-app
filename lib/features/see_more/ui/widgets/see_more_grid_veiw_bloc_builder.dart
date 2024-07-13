@@ -5,7 +5,7 @@ import 'package:food_recipes_app/features/see_more/data/models/filtered_recipe_i
 import 'package:food_recipes_app/features/see_more/logic/cubit/see_more_cubit.dart';
 import 'package:food_recipes_app/features/see_more/logic/cubit/see_more_state.dart';
 import 'package:food_recipes_app/features/see_more/ui/widgets/filtered_recipe_item.dart';
-import 'package:food_recipes_app/core/widgets/shimmer_recipe_item.dart';
+import 'package:food_recipes_app/features/see_more/ui/widgets/shimmer_recipe_item.dart';
 
 class SeeMoreGridViewBlocBuilder extends StatelessWidget {
   const SeeMoreGridViewBlocBuilder({
