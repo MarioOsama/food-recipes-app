@@ -11,7 +11,6 @@ import 'package:food_recipes_app/features/home/ui/home_screen.dart';
 import 'package:food_recipes_app/features/see_more/logic/cubit/see_more_cubit.dart';
 import 'package:food_recipes_app/features/see_more/ui/see_more_screen.dart';
 
-
 class AppRouter {
   final bool isFirstTime;
   const AppRouter({required this.isFirstTime});
@@ -20,20 +19,17 @@ class AppRouter {
     final args = settings.arguments;
 
     switch (settings.name) {
-
       case AppRoutes.getStarted:
-        return CupertinoPageRoute(builder: (context) => const GetStartedScreen(),);
+        return CupertinoPageRoute(
+          builder: (context) => const GetStartedScreen(),
+        );
       case AppRoutes.auth:
-        return CupertinoPageRoute(builder: (context) => const AuthScreen(),);
+        return CupertinoPageRoute(
+          builder: (context) => const AuthScreen(),
+        );
       case AppRoutes.preferences:
-        return CupertinoPageRoute(builder: (context) => const PreferencesScreen(),);
-      case AppRoutes.onBoarding:
-        return MaterialPageRoute(
-          builder: (_) => const Scaffold(
-            body: Center(
-              child: Text('OnBoarding'),
-            ),
-          ),
+        return CupertinoPageRoute(
+          builder: (context) => const PreferencesScreen(),
         );
       case AppRoutes.home:
         return MaterialPageRoute(
