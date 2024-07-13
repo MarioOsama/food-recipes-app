@@ -17,7 +17,7 @@ class SeeMoreHeaderListViewItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.read<SeeMoreCubit>().getFoodFilteredData(title);
+        _onSectionTap(context);
       },
       child: Container(
         margin: EdgeInsets.only(right: 20.w),
@@ -37,5 +37,15 @@ class SeeMoreHeaderListViewItem extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void _onSectionTap(BuildContext context) {
+    final String currentCategoryName =
+        context.read<SeeMoreCubit>().categoryName;
+    if (currentCategoryName == 'food') {
+      context.read<SeeMoreCubit>().getFoodFilteredData(title);
+    } else if (currentCategoryName == 'cocktail') {
+      context.read<SeeMoreCubit>().getCocktailFilteredData(title);
+    }
   }
 }

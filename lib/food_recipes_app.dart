@@ -20,7 +20,7 @@ class FoodRecipesApp extends StatelessWidget {
           useMaterial3: true,
         ),
         initialRoute:
-            appRouter.isFirstTime ? AppRoutes.onBoarding : AppRoutes.seeMore,
+            appRouter.isFirstTime ? AppRoutes.onBoarding : AppRoutes.home,
         onGenerateRoute: appRouter.onGenerateRoute,
       ),
     );
