@@ -1,3 +1,7 @@
+import 'package:flutter/cupertino.dart';
+import 'package:food_recipes_app/feature/Auth/ui/auth_screen.dart';
+import 'package:food_recipes_app/feature/initial/ui/get_started_screen.dart';
+import 'package:food_recipes_app/feature/settings/preferances_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_recipes_app/core/di/dependency_injection.dart';
@@ -7,6 +11,7 @@ import 'package:food_recipes_app/features/home/ui/home_screen.dart';
 import 'package:food_recipes_app/features/see_more/logic/cubit/see_more_cubit.dart';
 import 'package:food_recipes_app/features/see_more/ui/see_more_screen.dart';
 
+
 class AppRouter {
   final bool isFirstTime;
   const AppRouter({required this.isFirstTime});
@@ -15,6 +20,13 @@ class AppRouter {
     final args = settings.arguments;
 
     switch (settings.name) {
+
+      case AppRoutes.getStarted:
+        return CupertinoPageRoute(builder: (context) => const GetStartedScreen(),);
+      case AppRoutes.auth:
+        return CupertinoPageRoute(builder: (context) => const AuthScreen(),);
+      case AppRoutes.preferences:
+        return CupertinoPageRoute(builder: (context) => const PreferencesScreen(),);
       case AppRoutes.onBoarding:
         return MaterialPageRoute(
           builder: (_) => const Scaffold(
