@@ -4,7 +4,10 @@ import 'package:food_recipes_app/core/theming/app_colors.dart';
 import 'package:shimmer/shimmer.dart';
 
 class ShimmerRecipeItem extends StatelessWidget {
-  const ShimmerRecipeItem({super.key});
+  const ShimmerRecipeItem({super.key, this.baseColor, this.highlightColor});
+
+  final Color? baseColor;
+  final Color? highlightColor;
 
   @override
   Widget build(BuildContext context) {
@@ -14,8 +17,8 @@ class ShimmerRecipeItem extends StatelessWidget {
         Padding(
           padding: EdgeInsets.only(top: 25.h),
           child: Shimmer.fromColors(
-            baseColor: AppColors.grey,
-            highlightColor: AppColors.white,
+            baseColor: baseColor ?? AppColors.grey,
+            highlightColor: highlightColor ?? AppColors.white,
             child: Container(
               width: 160.w,
               padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 20.h),
