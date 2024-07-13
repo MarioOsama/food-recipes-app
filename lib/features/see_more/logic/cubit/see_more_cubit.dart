@@ -7,6 +7,8 @@ class SeeMoreCubit extends Cubit<SeeMoreState> {
   final SeeMoreRepo _seeMoreRepo;
   SeeMoreCubit(this._seeMoreRepo) : super(SeeMoreInitial());
 
+  String categoryName = 'food';
+
   // Food
   void getFoodData() async {
     getFoodCategoriesData();
@@ -60,6 +62,16 @@ class SeeMoreCubit extends Cubit<SeeMoreState> {
       emit(SeeMoreRecipesSuccess(filteredRecipes));
     } catch (e) {
       emit(SeeMoreCategoriesError(e.toString()));
+    }
+  }
+
+  // Helper
+  void getSeeMoreData(String categoryName) {
+    this.categoryName = categoryName;
+    if (categoryName == 'food') {
+      getFoodData();
+    } else if (categoryName == 'cocktail') {
+      getCocktailData();
     }
   }
 
