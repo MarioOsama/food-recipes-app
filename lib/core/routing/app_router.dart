@@ -46,7 +46,9 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => BlocProvider(
             create: (context) => getIt<SeeMoreCubit>(),
-            child: const SeeMoreScreen(),
+            child: SeeMoreScreen(
+              categoryName: args as String,
+            ),
           ),
         );
       case AppRoutes.search:
