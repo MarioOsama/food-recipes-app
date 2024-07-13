@@ -32,6 +32,12 @@ abstract class AppTextStyles {
     fontWeight: FontWeight.normal,
     fontFamily: 'Actor',
   );
+  static const TextStyle font18WhiteRegular = TextStyle(
+    fontSize: 18,
+    color: AppColors.white,
+    fontWeight: FontWeight.normal,
+    fontFamily: 'Actor',
+  );
   static const TextStyle font17BlackRegular = TextStyle(
     fontSize: 17,
     color: AppColors.black,
