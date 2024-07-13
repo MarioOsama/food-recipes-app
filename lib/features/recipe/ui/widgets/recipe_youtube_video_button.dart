@@ -10,9 +10,11 @@ class RecipeYoutubeVideoButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return SliverToBoxAdapter(
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 30.h),
+        padding: EdgeInsets.only(left: 30.w, right: 30.w, bottom: 30.h),
         child: GestureDetector(
-          onTap: () {},
+          onTap: () {
+            // TODO: Add the logic to open the video in the youtube app.
+          },
           child: Container(
             height: 70.h,
             decoration: BoxDecoration(

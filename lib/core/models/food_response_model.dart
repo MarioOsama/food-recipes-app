@@ -54,7 +54,7 @@ class MealModel {
     final List<String> ingredientsList = [];
     for (int i = 1; i <= 20; i++) {
       final ingredient = json['strIngredient$i'].toString();
-      if (ingredient.trim().isNotEmpty) {
+      if (ingredient != 'null' && ingredient.trim().isNotEmpty) {
         ingredientsList.add(ingredient);
       }
     }
@@ -65,7 +65,7 @@ class MealModel {
     final List<String> ingredientsList = [];
     for (int i = 1; i <= 20; i++) {
       final ingredient = json['strMeasure$i'].toString();
-      if (ingredient.trim().isNotEmpty) {
+      if (ingredient != 'null' && ingredient.trim().isNotEmpty) {
         ingredientsList.add(ingredient);
       }
     }

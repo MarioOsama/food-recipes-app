@@ -18,10 +18,19 @@ class RecipeIngredientsList extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: 40.w),
           child: RecipeIngredientsItem(
             ingredientName: ingredients[index],
-            ingredientAmount: amounts[index],
+            ingredientAmount: _getIngredientAmount(index),
           ),
         );
       },
     );
+  }
+
+  // To handle the case where the ingredients list is longer than the amounts list.
+  String _getIngredientAmount(int index) {
+    try {
+      return amounts[index];
+    } catch (e) {
+      return '-';
+    }
   }
 }
