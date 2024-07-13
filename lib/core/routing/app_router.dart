@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
-import 'package:food_recipes_app/feature/Auth/ui/auth_screen.dart';
-import 'package:food_recipes_app/feature/initial/ui/get_started_screen.dart';
-import 'package:food_recipes_app/feature/settings/preferances_screen.dart';
+import 'package:food_recipes_app/features/Auth/ui/auth_screen.dart';
+import 'package:food_recipes_app/features/initial/ui/get_started_screen.dart';
+import 'package:food_recipes_app/features/settings/preferances_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_recipes_app/core/di/dependency_injection.dart';

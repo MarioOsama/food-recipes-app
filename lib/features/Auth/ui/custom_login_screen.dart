@@ -3,7 +3,7 @@ import 'package:food_recipes_app/core/routing/app_routes.dart';
 import 'package:food_recipes_app/core/theming/app_text_styles.dart';
 import 'package:food_recipes_app/core/utils/spacing.dart';
 import 'package:food_recipes_app/core/utils/widgets/custom_bottom.dart';
-import 'package:food_recipes_app/feature/Auth/ui/widgets/custom_text_form_field.dart';
+import 'package:food_recipes_app/features/Auth/ui/widgets/custom_text_form_field.dart';
 import 'package:iconsax/iconsax.dart';
 
 class CustomLoginScreen extends StatefulWidget {
@@ -76,9 +76,11 @@ class _CustomLoginScreenState extends State<CustomLoginScreen> {
               ],
             ),
             const Expanded(child: SizedBox()),
-            CustomBottom(text: 'Login now', onPressed: () {
-              Navigator.pushNamed(context, AppRoutes.preferences);
-            })
+            CustomBottom(
+                text: 'Login now',
+                onPressed: () {
+                  Navigator.pushNamed(context, AppRoutes.preferences);
+                })
           ],
         ),
       ),

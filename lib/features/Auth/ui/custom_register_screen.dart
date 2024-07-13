@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_recipes_app/core/utils/spacing.dart';
 import 'package:food_recipes_app/core/utils/widgets/custom_bottom.dart';
-import 'package:food_recipes_app/feature/Auth/ui/widgets/custom_text_form_field.dart';
+import 'package:food_recipes_app/features/Auth/ui/widgets/custom_text_form_field.dart';
 import 'package:iconsax/iconsax.dart';
 
 class CustomRegisterScreen extends StatefulWidget {
@@ -77,7 +77,7 @@ class _CustomRegisterScreenState extends State<CustomRegisterScreen> {
                 },
                 controller: passwordController),
             const Expanded(child: SizedBox()),
-            CustomBottom(text: 'Register now', onPressed: (){})
+            CustomBottom(text: 'Register now', onPressed: () {})
           ],
         ),
       ),

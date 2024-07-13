@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:food_recipes_app/core/theming/app_colors.dart';
 import 'package:food_recipes_app/core/theming/app_text_styles.dart';
 import 'package:food_recipes_app/core/utils/app_assets/app_assets.dart';
-import 'package:food_recipes_app/feature/Auth/ui/custom_login_screen.dart';
-import 'package:food_recipes_app/feature/Auth/ui/custom_register_screen.dart';
+import 'package:food_recipes_app/features/Auth/ui/custom_login_screen.dart';
+import 'package:food_recipes_app/features/Auth/ui/custom_register_screen.dart';
 
 class AuthScreen extends StatelessWidget {
   const AuthScreen({super.key});

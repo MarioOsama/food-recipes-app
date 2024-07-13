@@ -3,6 +3,7 @@ import 'package:food_recipes_app/core/theming/app_colors.dart';
 import 'package:food_recipes_app/core/theming/app_text_styles.dart';
 import 'package:iconsax/iconsax.dart';
 
+// ignore: must_be_immutable
 class CustomTextFormField extends StatefulWidget {
   final String labelName;
   final IconData icon;
@@ -55,7 +56,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
               ),
         focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
-            borderSide: const BorderSide(color: AppColors.black)),
+            borderSide: const BorderSide(color: AppColors.darkGrey)),
         enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
             borderSide: const BorderSide(color: AppColors.grey)),
