@@ -36,6 +36,9 @@ dependencies:
   flutter_screenutil: ^5.9.3
   iconsax:
   firebase_core: ^3.2.0
+  firebase_auth:
+  cloud_firestore: ^5.1.0
+  loading_animation_widget:
 
 
   # The following adds the Cupertino Icons font to your application.

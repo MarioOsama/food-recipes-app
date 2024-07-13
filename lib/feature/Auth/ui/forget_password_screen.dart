@@ -10,27 +10,22 @@ import 'package:food_recipes_app/feature/Auth/ui/widgets/custom_text_form_field.
 import 'package:iconsax/iconsax.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 
-class CustomLoginScreen extends StatefulWidget {
-  const CustomLoginScreen({super.key});
+class ForgetPasswordScreen extends StatefulWidget {
+  const ForgetPasswordScreen({super.key});
 
   @override
-  State<CustomLoginScreen> createState() => _CustomLoginScreenState();
+  State<ForgetPasswordScreen> createState() => _ForgetPasswordScreenState();
 }
 
-class _CustomLoginScreenState extends State<CustomLoginScreen> {
-  final phoneController = TextEditingController();
-
-  final emailController = TextEditingController();
-
-  final passwordController = TextEditingController();
-
+class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
+  final forgetPassController = TextEditingController();
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
-        if (state is AuthLoginLoading) {
+        if (state is ForgetPassLoading) {
           showDialog(
             context: context,
             builder: (context) {
@@ -49,7 +44,7 @@ class _CustomLoginScreenState extends State<CustomLoginScreen> {
             },
           );
         }
-        if (state is AuthLoginSuccess) {
+        if (state is ForgetPassSuccess) {
           Navigator.pop(context);
           showDialog(
             context: context,
@@ -58,7 +53,7 @@ class _CustomLoginScreenState extends State<CustomLoginScreen> {
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12)),
                 title: Text(
-                  'Login is Success',
+                  'Link sent to your email',
                   style: AppTextStyles.font65WhiteRegular
                       .copyWith(fontSize: 20, color: AppColors.black),
                   textAlign: TextAlign.center,
@@ -66,10 +61,10 @@ class _CustomLoginScreenState extends State<CustomLoginScreen> {
                 content: SizedBox(
                   height: MediaQuery.of(context).size.height * .08,
                   child: CustomBottom(
-                    text: 'Lets Get Started',
+                    text: 'Okay',
                     onPressed: () {
                       Navigator.pop(context);
-                      Navigator.pushReplacementNamed(context, AppRoutes.home);
+                      Navigator.pushReplacementNamed(context, AppRoutes.auth);
                     },
                   ),
                 ),
@@ -77,7 +72,7 @@ class _CustomLoginScreenState extends State<CustomLoginScreen> {
             },
           );
         }
-        if (state is AuthLoginError) {
+        if (state is ForgetPassError) {
           Navigator.pop(context);
           showDialog(
             context: context,
@@ -86,7 +81,7 @@ class _CustomLoginScreenState extends State<CustomLoginScreen> {
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12)),
                 title: Text(
-                  'Login is Failed',
+                  'Link not sent to your email',
                   style: AppTextStyles.font65WhiteRegular
                       .copyWith(fontSize: 20, color: AppColors.black),
                   textAlign: TextAlign.center,
@@ -106,71 +101,68 @@ class _CustomLoginScreenState extends State<CustomLoginScreen> {
         }
       },
       builder: (context, state) {
-        return Padding(
-          padding: const EdgeInsets.all(15.0),
-          child: Form(
-            key: formKey,
+        return Scaffold(
+          backgroundColor: AppColors.lightGrey,
+          body: Padding(
+            padding: const EdgeInsets.all(15.0),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                verticalSpace(MediaQuery.of(context).size.height * 0.08),
-                CustomTextFormField(
-                    isObscured: false,
-                    obscurePassword: false,
-                    labelName: 'Email address',
-                    icon: Iconsax.personalcard,
-                    validator: (value) {
-                      if (value == null || value.trim().isEmpty) {
-                        return 'Please Enter your Email ';
-                      }
-                      var emailValid = RegExp(
-                              r"^[a-zA-Z0-9.a-zA-Z0-9!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-                          .hasMatch(value);
-                      if (!emailValid) {
-                        return 'Please enter your real email address';
-                      }
-                      return null;
-                    },
-                    controller: emailController),
-                verticalSpace(20),
-                CustomTextFormField(
-                    isObscured: true,
-                    obscurePassword: true,
-                    labelName: 'Password',
-                    icon: Iconsax.password_check,
-                    validator: (value) {
-                      if (value!.length < 8) {
-                        return 'Password must be longer than 8 characters';
-                      }
-                      return null;
-                    },
-                    controller: passwordController),
-                verticalSpace(7),
-                Row(
-                  children: [
-                    const Spacer(),
-                    TextButton(
-                        onPressed: () {
-                          Navigator.pushNamed(
-                              context, AppRoutes.forgetPassword);
-                        },
-                        child: Text(
-                          'Forgot password ?',
-                          style: AppTextStyles.font22OrangeRegular
-                              .copyWith(fontSize: 15),
-                        ))
-                  ],
+                verticalSpace(30),
+                IconButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  icon: const Icon(Icons.arrow_back_ios_rounded,
+                      color: AppColors.black, size: 20),
                 ),
-                const Expanded(child: SizedBox()),
-                CustomBottom(
-                    text: 'Login now',
-                    onPressed: () {
-                      if (formKey.currentState!.validate()) {
-                        formKey.currentState!.save();
-                        BlocProvider.of<AuthCubit>(context).logInAuth(
-                            emailController: emailController,
-                            passwordController: passwordController);
-                      }
-                    })
+                verticalSpace(10),
+                const Padding(
+                  padding: EdgeInsets.only(left: 15.0),
+                  child: Text('Forget password',
+                      style: AppTextStyles.font34BlackRegular),
+                ),
+                verticalSpace(20),
+                Form(
+                  key: formKey,
+                  child: Column(
+                    children: [
+                      CustomTextFormField(
+                          isObscured: false,
+                          obscurePassword: false,
+                          labelName: 'Email address',
+                          icon: Iconsax.personalcard,
+                          validator: (value) {
+                            if (value == null || value
+                                .trim()
+                                .isEmpty) {
+                              return 'Please Enter your Email ';
+                            }
+                            var emailValid = RegExp(
+                                r"^[a-zA-Z0-9.a-zA-Z0-9!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                                .hasMatch(value);
+                            if (!emailValid) {
+                              return 'Please enter your real email address';
+                            }
+                            return null;
+                          },
+                          controller: forgetPassController),
+                      verticalSpace(20),
+                      Center(
+                          child: CustomBottom(
+                              text: 'Send Link',
+                              onPressed: () {
+                                if (formKey.currentState!.validate()) {
+                                  formKey.currentState!.save();
+                                  BlocProvider.of<AuthCubit>(context)
+                                      .forgotPassword(
+                                      emailController: forgetPassController);
+                                }
+                              }))
+                    ],
+                  ),
+                ),
+
               ],
             ),
           ),

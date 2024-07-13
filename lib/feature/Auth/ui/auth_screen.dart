@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:food_recipes_app/core/theming/app_colors.dart';
 import 'package:food_recipes_app/core/theming/app_text_styles.dart';
 import 'package:food_recipes_app/core/utils/app_assets/app_assets.dart';
@@ -14,8 +15,10 @@ class AuthScreen extends StatelessWidget {
     return DefaultTabController(
       length: 2,
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         backgroundColor: AppColors.lightGrey,
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           centerTitle: true,
           title: Image.asset(AppAssets.appLogo),
           toolbarHeight: MediaQuery.of(context).size.height * 0.25,
