@@ -34,9 +34,16 @@ class HomeCubit extends Cubit<HomeState> {
       final MealModel randomMeal = await _homeRepo.getRandomFoodRecipe();
       meals.add(
         RecipeItemModel(
+          id: randomMeal.id,
           title: randomMeal.name,
           subtitle: randomMeal.country,
           imageUrl: randomMeal.imageUrl,
+          category: randomMeal.category,
+          steps: randomMeal.steps,
+          ingredients: randomMeal.ingredientsList,
+          measures: randomMeal.measuresList,
+          youTubeVideoUrl: randomMeal.youTubeVideoUrl,
+          tags: randomMeal.tags,
         ),
       );
       // Get and store the random cocktail recipe
@@ -44,9 +51,17 @@ class HomeCubit extends Cubit<HomeState> {
           await _homeRepo.getRandomCocktailRecipe();
       cocktails.add(
         RecipeItemModel(
+          id: randomCocktail.id,
           title: randomCocktail.name,
           subtitle: randomCocktail.category,
           imageUrl: randomCocktail.imageUrl,
+          category: randomCocktail.category,
+          steps: randomCocktail.steps,
+          ingredients: randomCocktail.ingredientsList,
+          measures: randomCocktail.measuresList,
+          youTubeVideoUrl: randomCocktail.youTubeVideoUrl,
+          tags: randomCocktail.tags,
+          glass: randomCocktail.glass,
         ),
       );
     }

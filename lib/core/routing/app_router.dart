@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:food_recipes_app/features/Auth/ui/auth_screen.dart';
 import 'package:food_recipes_app/features/initial/ui/get_started_screen.dart';
+import 'package:food_recipes_app/features/recipe/ui/recipe_screen.dart';
 import 'package:food_recipes_app/features/settings/preferances_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -20,15 +21,15 @@ class AppRouter {
 
     switch (settings.name) {
       case AppRoutes.getStarted:
-        return CupertinoPageRoute(
+        return MaterialPageRoute(
           builder: (context) => const GetStartedScreen(),
         );
       case AppRoutes.auth:
-        return CupertinoPageRoute(
+        return MaterialPageRoute(
           builder: (context) => const AuthScreen(),
         );
       case AppRoutes.preferences:
-        return CupertinoPageRoute(
+        return MaterialPageRoute(
           builder: (context) => const PreferencesScreen(),
         );
       case AppRoutes.home:
@@ -37,6 +38,10 @@ class AppRouter {
             create: (context) => getIt<HomeCubit>(),
             child: const HomeScreen(),
           ),
+        );
+      case AppRoutes.recipeDetails:
+        return MaterialPageRoute(
+          builder: (_) => const RecipeScreen(),
         );
       case AppRoutes.seeMore:
         return MaterialPageRoute(
