@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:food_recipes_app/core/network/meal_api_service.dart';
+import 'package:food_recipes_app/features/favourite/data/repos/favourite_repo.dart';
 import 'package:food_recipes_app/features/search/data/repos/meals_repo.dart';
 import 'package:food_recipes_app/features/search/logic/cubit/search_cubit.dart';
 import 'package:food_recipes_app/core/networking/cocktail_api_services.dart';
@@ -21,7 +22,7 @@ Future<void> setupGetIt() async {
   getIt.registerLazySingleton<FoodApiServices>(() => FoodApiServices(dio));
   getIt.registerLazySingleton<CocktailApiServices>(
       () => CocktailApiServices(dio));
-
+//search
   getIt.registerLazySingleton<MealApiService>(() => MealApiService(dio));
   getIt.registerLazySingleton<MealsRepo>(() => MealsRepo(getIt()));
   getIt.registerFactory<SearchCubit>(() => SearchCubit(getIt()));
@@ -38,4 +39,6 @@ Future<void> setupGetIt() async {
       ));
   getIt.registerLazySingleton<SeeMoreRepo>(() => SeeMoreRepo(getIt(), getIt()));
   getIt.registerLazySingleton<RecipeRepo>(() => RecipeRepo(getIt(), getIt()));
+// favourite
+  getIt.registerLazySingleton<FavouriteRepo>(() => FavouriteRepo(getIt()));
 }

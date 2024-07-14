@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'search_state.dart';
+part of 'favourite_state.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,12 +15,12 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$SearchState<T> {
+mixin _$FavouriteState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(T data) success,
+    required TResult Function(List<Meals> data) success,
     required TResult Function(String message) failure,
   }) =>
       throw _privateConstructorUsedError;
@@ -28,7 +28,7 @@ mixin _$SearchState<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(T data)? success,
+    TResult? Function(List<Meals> data)? success,
     TResult? Function(String message)? failure,
   }) =>
       throw _privateConstructorUsedError;
@@ -36,49 +36,49 @@ mixin _$SearchState<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(T data)? success,
+    TResult Function(List<Meals> data)? success,
     TResult Function(String message)? failure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial<T> value) initial,
-    required TResult Function(Loading<T> value) loading,
-    required TResult Function(Success<T> value) success,
-    required TResult Function(Failure<T> value) failure,
+    required TResult Function(_Initial value) initial,
+    required TResult Function(FavouriteLoading value) loading,
+    required TResult Function(FavouriteSuccess value) success,
+    required TResult Function(FavouriteError value) failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(Loading<T> value)? loading,
-    TResult? Function(Success<T> value)? success,
-    TResult? Function(Failure<T> value)? failure,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(FavouriteLoading value)? loading,
+    TResult? Function(FavouriteSuccess value)? success,
+    TResult? Function(FavouriteError value)? failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial<T> value)? initial,
-    TResult Function(Loading<T> value)? loading,
-    TResult Function(Success<T> value)? success,
-    TResult Function(Failure<T> value)? failure,
+    TResult Function(_Initial value)? initial,
+    TResult Function(FavouriteLoading value)? loading,
+    TResult Function(FavouriteSuccess value)? success,
+    TResult Function(FavouriteError value)? failure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $SearchStateCopyWith<T, $Res> {
-  factory $SearchStateCopyWith(
-          SearchState<T> value, $Res Function(SearchState<T>) then) =
-      _$SearchStateCopyWithImpl<T, $Res, SearchState<T>>;
+abstract class $FavouriteStateCopyWith<$Res> {
+  factory $FavouriteStateCopyWith(
+          FavouriteState value, $Res Function(FavouriteState) then) =
+      _$FavouriteStateCopyWithImpl<$Res, FavouriteState>;
 }
 
 /// @nodoc
-class _$SearchStateCopyWithImpl<T, $Res, $Val extends SearchState<T>>
-    implements $SearchStateCopyWith<T, $Res> {
-  _$SearchStateCopyWithImpl(this._value, this._then);
+class _$FavouriteStateCopyWithImpl<$Res, $Val extends FavouriteState>
+    implements $FavouriteStateCopyWith<$Res> {
+  _$FavouriteStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -87,35 +87,35 @@ class _$SearchStateCopyWithImpl<T, $Res, $Val extends SearchState<T>>
 }
 
 /// @nodoc
-abstract class _$$InitialImplCopyWith<T, $Res> {
+abstract class _$$InitialImplCopyWith<$Res> {
   factory _$$InitialImplCopyWith(
-          _$InitialImpl<T> value, $Res Function(_$InitialImpl<T>) then) =
-      __$$InitialImplCopyWithImpl<T, $Res>;
+          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
+      __$$InitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$InitialImplCopyWithImpl<T, $Res>
-    extends _$SearchStateCopyWithImpl<T, $Res, _$InitialImpl<T>>
-    implements _$$InitialImplCopyWith<T, $Res> {
+class __$$InitialImplCopyWithImpl<$Res>
+    extends _$FavouriteStateCopyWithImpl<$Res, _$InitialImpl>
+    implements _$$InitialImplCopyWith<$Res> {
   __$$InitialImplCopyWithImpl(
-      _$InitialImpl<T> _value, $Res Function(_$InitialImpl<T>) _then)
+      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$InitialImpl<T> implements _Initial<T> {
+class _$InitialImpl implements _Initial {
   const _$InitialImpl();
 
   @override
   String toString() {
-    return 'SearchState<$T>.initial()';
+    return 'FavouriteState.initial()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$InitialImpl<T>);
+        (other.runtimeType == runtimeType && other is _$InitialImpl);
   }
 
   @override
@@ -126,7 +126,7 @@ class _$InitialImpl<T> implements _Initial<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(T data) success,
+    required TResult Function(List<Meals> data) success,
     required TResult Function(String message) failure,
   }) {
     return initial();
@@ -137,7 +137,7 @@ class _$InitialImpl<T> implements _Initial<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(T data)? success,
+    TResult? Function(List<Meals> data)? success,
     TResult? Function(String message)? failure,
   }) {
     return initial?.call();
@@ -148,7 +148,7 @@ class _$InitialImpl<T> implements _Initial<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(T data)? success,
+    TResult Function(List<Meals> data)? success,
     TResult Function(String message)? failure,
     required TResult orElse(),
   }) {
@@ -161,10 +161,10 @@ class _$InitialImpl<T> implements _Initial<T> {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial<T> value) initial,
-    required TResult Function(Loading<T> value) loading,
-    required TResult Function(Success<T> value) success,
-    required TResult Function(Failure<T> value) failure,
+    required TResult Function(_Initial value) initial,
+    required TResult Function(FavouriteLoading value) loading,
+    required TResult Function(FavouriteSuccess value) success,
+    required TResult Function(FavouriteError value) failure,
   }) {
     return initial(this);
   }
@@ -172,10 +172,10 @@ class _$InitialImpl<T> implements _Initial<T> {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(Loading<T> value)? loading,
-    TResult? Function(Success<T> value)? success,
-    TResult? Function(Failure<T> value)? failure,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(FavouriteLoading value)? loading,
+    TResult? Function(FavouriteSuccess value)? success,
+    TResult? Function(FavouriteError value)? failure,
   }) {
     return initial?.call(this);
   }
@@ -183,10 +183,10 @@ class _$InitialImpl<T> implements _Initial<T> {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial<T> value)? initial,
-    TResult Function(Loading<T> value)? loading,
-    TResult Function(Success<T> value)? success,
-    TResult Function(Failure<T> value)? failure,
+    TResult Function(_Initial value)? initial,
+    TResult Function(FavouriteLoading value)? loading,
+    TResult Function(FavouriteSuccess value)? success,
+    TResult Function(FavouriteError value)? failure,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -196,40 +196,40 @@ class _$InitialImpl<T> implements _Initial<T> {
   }
 }
 
-abstract class _Initial<T> implements SearchState<T> {
-  const factory _Initial() = _$InitialImpl<T>;
+abstract class _Initial implements FavouriteState {
+  const factory _Initial() = _$InitialImpl;
 }
 
 /// @nodoc
-abstract class _$$LoadingImplCopyWith<T, $Res> {
-  factory _$$LoadingImplCopyWith(
-          _$LoadingImpl<T> value, $Res Function(_$LoadingImpl<T>) then) =
-      __$$LoadingImplCopyWithImpl<T, $Res>;
+abstract class _$$FavouriteLoadingImplCopyWith<$Res> {
+  factory _$$FavouriteLoadingImplCopyWith(_$FavouriteLoadingImpl value,
+          $Res Function(_$FavouriteLoadingImpl) then) =
+      __$$FavouriteLoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$LoadingImplCopyWithImpl<T, $Res>
-    extends _$SearchStateCopyWithImpl<T, $Res, _$LoadingImpl<T>>
-    implements _$$LoadingImplCopyWith<T, $Res> {
-  __$$LoadingImplCopyWithImpl(
-      _$LoadingImpl<T> _value, $Res Function(_$LoadingImpl<T>) _then)
+class __$$FavouriteLoadingImplCopyWithImpl<$Res>
+    extends _$FavouriteStateCopyWithImpl<$Res, _$FavouriteLoadingImpl>
+    implements _$$FavouriteLoadingImplCopyWith<$Res> {
+  __$$FavouriteLoadingImplCopyWithImpl(_$FavouriteLoadingImpl _value,
+      $Res Function(_$FavouriteLoadingImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$LoadingImpl<T> implements Loading<T> {
-  const _$LoadingImpl();
+class _$FavouriteLoadingImpl implements FavouriteLoading {
+  const _$FavouriteLoadingImpl();
 
   @override
   String toString() {
-    return 'SearchState<$T>.loading()';
+    return 'FavouriteState.loading()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$LoadingImpl<T>);
+        (other.runtimeType == runtimeType && other is _$FavouriteLoadingImpl);
   }
 
   @override
@@ -240,7 +240,7 @@ class _$LoadingImpl<T> implements Loading<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(T data) success,
+    required TResult Function(List<Meals> data) success,
     required TResult Function(String message) failure,
   }) {
     return loading();
@@ -251,7 +251,7 @@ class _$LoadingImpl<T> implements Loading<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(T data)? success,
+    TResult? Function(List<Meals> data)? success,
     TResult? Function(String message)? failure,
   }) {
     return loading?.call();
@@ -262,7 +262,7 @@ class _$LoadingImpl<T> implements Loading<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(T data)? success,
+    TResult Function(List<Meals> data)? success,
     TResult Function(String message)? failure,
     required TResult orElse(),
   }) {
@@ -275,10 +275,10 @@ class _$LoadingImpl<T> implements Loading<T> {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial<T> value) initial,
-    required TResult Function(Loading<T> value) loading,
-    required TResult Function(Success<T> value) success,
-    required TResult Function(Failure<T> value) failure,
+    required TResult Function(_Initial value) initial,
+    required TResult Function(FavouriteLoading value) loading,
+    required TResult Function(FavouriteSuccess value) success,
+    required TResult Function(FavouriteError value) failure,
   }) {
     return loading(this);
   }
@@ -286,10 +286,10 @@ class _$LoadingImpl<T> implements Loading<T> {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(Loading<T> value)? loading,
-    TResult? Function(Success<T> value)? success,
-    TResult? Function(Failure<T> value)? failure,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(FavouriteLoading value)? loading,
+    TResult? Function(FavouriteSuccess value)? success,
+    TResult? Function(FavouriteError value)? failure,
   }) {
     return loading?.call(this);
   }
@@ -297,10 +297,10 @@ class _$LoadingImpl<T> implements Loading<T> {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial<T> value)? initial,
-    TResult Function(Loading<T> value)? loading,
-    TResult Function(Success<T> value)? success,
-    TResult Function(Failure<T> value)? failure,
+    TResult Function(_Initial value)? initial,
+    TResult Function(FavouriteLoading value)? loading,
+    TResult Function(FavouriteSuccess value)? success,
+    TResult Function(FavouriteError value)? failure,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -310,78 +310,84 @@ class _$LoadingImpl<T> implements Loading<T> {
   }
 }
 
-abstract class Loading<T> implements SearchState<T> {
-  const factory Loading() = _$LoadingImpl<T>;
+abstract class FavouriteLoading implements FavouriteState {
+  const factory FavouriteLoading() = _$FavouriteLoadingImpl;
 }
 
 /// @nodoc
-abstract class _$$SuccessImplCopyWith<T, $Res> {
-  factory _$$SuccessImplCopyWith(
-          _$SuccessImpl<T> value, $Res Function(_$SuccessImpl<T>) then) =
-      __$$SuccessImplCopyWithImpl<T, $Res>;
+abstract class _$$FavouriteSuccessImplCopyWith<$Res> {
+  factory _$$FavouriteSuccessImplCopyWith(_$FavouriteSuccessImpl value,
+          $Res Function(_$FavouriteSuccessImpl) then) =
+      __$$FavouriteSuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({T data});
+  $Res call({List<Meals> data});
 }
 
 /// @nodoc
-class __$$SuccessImplCopyWithImpl<T, $Res>
-    extends _$SearchStateCopyWithImpl<T, $Res, _$SuccessImpl<T>>
-    implements _$$SuccessImplCopyWith<T, $Res> {
-  __$$SuccessImplCopyWithImpl(
-      _$SuccessImpl<T> _value, $Res Function(_$SuccessImpl<T>) _then)
+class __$$FavouriteSuccessImplCopyWithImpl<$Res>
+    extends _$FavouriteStateCopyWithImpl<$Res, _$FavouriteSuccessImpl>
+    implements _$$FavouriteSuccessImplCopyWith<$Res> {
+  __$$FavouriteSuccessImplCopyWithImpl(_$FavouriteSuccessImpl _value,
+      $Res Function(_$FavouriteSuccessImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = freezed,
+    Object? data = null,
   }) {
-    return _then(_$SuccessImpl<T>(
-      freezed == data
-          ? _value.data
+    return _then(_$FavouriteSuccessImpl(
+      null == data
+          ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
-              as T,
+              as List<Meals>,
     ));
   }
 }
 
 /// @nodoc
 
-class _$SuccessImpl<T> implements Success<T> {
-  const _$SuccessImpl(this.data);
+class _$FavouriteSuccessImpl implements FavouriteSuccess {
+  const _$FavouriteSuccessImpl(final List<Meals> data) : _data = data;
 
+  final List<Meals> _data;
   @override
-  final T data;
+  List<Meals> get data {
+    if (_data is EqualUnmodifiableListView) return _data;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_data);
+  }
 
   @override
   String toString() {
-    return 'SearchState<$T>.success(data: $data)';
+    return 'FavouriteState.success(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SuccessImpl<T> &&
-            const DeepCollectionEquality().equals(other.data, data));
+            other is _$FavouriteSuccessImpl &&
+            const DeepCollectionEquality().equals(other._data, _data));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SuccessImplCopyWith<T, _$SuccessImpl<T>> get copyWith =>
-      __$$SuccessImplCopyWithImpl<T, _$SuccessImpl<T>>(this, _$identity);
+  _$$FavouriteSuccessImplCopyWith<_$FavouriteSuccessImpl> get copyWith =>
+      __$$FavouriteSuccessImplCopyWithImpl<_$FavouriteSuccessImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(T data) success,
+    required TResult Function(List<Meals> data) success,
     required TResult Function(String message) failure,
   }) {
     return success(data);
@@ -392,7 +398,7 @@ class _$SuccessImpl<T> implements Success<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(T data)? success,
+    TResult? Function(List<Meals> data)? success,
     TResult? Function(String message)? failure,
   }) {
     return success?.call(data);
@@ -403,7 +409,7 @@ class _$SuccessImpl<T> implements Success<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(T data)? success,
+    TResult Function(List<Meals> data)? success,
     TResult Function(String message)? failure,
     required TResult orElse(),
   }) {
@@ -416,10 +422,10 @@ class _$SuccessImpl<T> implements Success<T> {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial<T> value) initial,
-    required TResult Function(Loading<T> value) loading,
-    required TResult Function(Success<T> value) success,
-    required TResult Function(Failure<T> value) failure,
+    required TResult Function(_Initial value) initial,
+    required TResult Function(FavouriteLoading value) loading,
+    required TResult Function(FavouriteSuccess value) success,
+    required TResult Function(FavouriteError value) failure,
   }) {
     return success(this);
   }
@@ -427,10 +433,10 @@ class _$SuccessImpl<T> implements Success<T> {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(Loading<T> value)? loading,
-    TResult? Function(Success<T> value)? success,
-    TResult? Function(Failure<T> value)? failure,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(FavouriteLoading value)? loading,
+    TResult? Function(FavouriteSuccess value)? success,
+    TResult? Function(FavouriteError value)? failure,
   }) {
     return success?.call(this);
   }
@@ -438,10 +444,10 @@ class _$SuccessImpl<T> implements Success<T> {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial<T> value)? initial,
-    TResult Function(Loading<T> value)? loading,
-    TResult Function(Success<T> value)? success,
-    TResult Function(Failure<T> value)? failure,
+    TResult Function(_Initial value)? initial,
+    TResult Function(FavouriteLoading value)? loading,
+    TResult Function(FavouriteSuccess value)? success,
+    TResult Function(FavouriteError value)? failure,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -451,30 +457,31 @@ class _$SuccessImpl<T> implements Success<T> {
   }
 }
 
-abstract class Success<T> implements SearchState<T> {
-  const factory Success(final T data) = _$SuccessImpl<T>;
+abstract class FavouriteSuccess implements FavouriteState {
+  const factory FavouriteSuccess(final List<Meals> data) =
+      _$FavouriteSuccessImpl;
 
-  T get data;
+  List<Meals> get data;
   @JsonKey(ignore: true)
-  _$$SuccessImplCopyWith<T, _$SuccessImpl<T>> get copyWith =>
+  _$$FavouriteSuccessImplCopyWith<_$FavouriteSuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$FailureImplCopyWith<T, $Res> {
-  factory _$$FailureImplCopyWith(
-          _$FailureImpl<T> value, $Res Function(_$FailureImpl<T>) then) =
-      __$$FailureImplCopyWithImpl<T, $Res>;
+abstract class _$$FavouriteErrorImplCopyWith<$Res> {
+  factory _$$FavouriteErrorImplCopyWith(_$FavouriteErrorImpl value,
+          $Res Function(_$FavouriteErrorImpl) then) =
+      __$$FavouriteErrorImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String message});
 }
 
 /// @nodoc
-class __$$FailureImplCopyWithImpl<T, $Res>
-    extends _$SearchStateCopyWithImpl<T, $Res, _$FailureImpl<T>>
-    implements _$$FailureImplCopyWith<T, $Res> {
-  __$$FailureImplCopyWithImpl(
-      _$FailureImpl<T> _value, $Res Function(_$FailureImpl<T>) _then)
+class __$$FavouriteErrorImplCopyWithImpl<$Res>
+    extends _$FavouriteStateCopyWithImpl<$Res, _$FavouriteErrorImpl>
+    implements _$$FavouriteErrorImplCopyWith<$Res> {
+  __$$FavouriteErrorImplCopyWithImpl(
+      _$FavouriteErrorImpl _value, $Res Function(_$FavouriteErrorImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -482,7 +489,7 @@ class __$$FailureImplCopyWithImpl<T, $Res>
   $Res call({
     Object? message = null,
   }) {
-    return _then(_$FailureImpl<T>(
+    return _then(_$FavouriteErrorImpl(
       null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -493,22 +500,22 @@ class __$$FailureImplCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$FailureImpl<T> implements Failure<T> {
-  const _$FailureImpl(this.message);
+class _$FavouriteErrorImpl implements FavouriteError {
+  const _$FavouriteErrorImpl(this.message);
 
   @override
   final String message;
 
   @override
   String toString() {
-    return 'SearchState<$T>.failure(message: $message)';
+    return 'FavouriteState.failure(message: $message)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FailureImpl<T> &&
+            other is _$FavouriteErrorImpl &&
             (identical(other.message, message) || other.message == message));
   }
 
@@ -518,15 +525,16 @@ class _$FailureImpl<T> implements Failure<T> {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FailureImplCopyWith<T, _$FailureImpl<T>> get copyWith =>
-      __$$FailureImplCopyWithImpl<T, _$FailureImpl<T>>(this, _$identity);
+  _$$FavouriteErrorImplCopyWith<_$FavouriteErrorImpl> get copyWith =>
+      __$$FavouriteErrorImplCopyWithImpl<_$FavouriteErrorImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(T data) success,
+    required TResult Function(List<Meals> data) success,
     required TResult Function(String message) failure,
   }) {
     return failure(message);
@@ -537,7 +545,7 @@ class _$FailureImpl<T> implements Failure<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(T data)? success,
+    TResult? Function(List<Meals> data)? success,
     TResult? Function(String message)? failure,
   }) {
     return failure?.call(message);
@@ -548,7 +556,7 @@ class _$FailureImpl<T> implements Failure<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(T data)? success,
+    TResult Function(List<Meals> data)? success,
     TResult Function(String message)? failure,
     required TResult orElse(),
   }) {
@@ -561,10 +569,10 @@ class _$FailureImpl<T> implements Failure<T> {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial<T> value) initial,
-    required TResult Function(Loading<T> value) loading,
-    required TResult Function(Success<T> value) success,
-    required TResult Function(Failure<T> value) failure,
+    required TResult Function(_Initial value) initial,
+    required TResult Function(FavouriteLoading value) loading,
+    required TResult Function(FavouriteSuccess value) success,
+    required TResult Function(FavouriteError value) failure,
   }) {
     return failure(this);
   }
@@ -572,10 +580,10 @@ class _$FailureImpl<T> implements Failure<T> {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(Loading<T> value)? loading,
-    TResult? Function(Success<T> value)? success,
-    TResult? Function(Failure<T> value)? failure,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(FavouriteLoading value)? loading,
+    TResult? Function(FavouriteSuccess value)? success,
+    TResult? Function(FavouriteError value)? failure,
   }) {
     return failure?.call(this);
   }
@@ -583,10 +591,10 @@ class _$FailureImpl<T> implements Failure<T> {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial<T> value)? initial,
-    TResult Function(Loading<T> value)? loading,
-    TResult Function(Success<T> value)? success,
-    TResult Function(Failure<T> value)? failure,
+    TResult Function(_Initial value)? initial,
+    TResult Function(FavouriteLoading value)? loading,
+    TResult Function(FavouriteSuccess value)? success,
+    TResult Function(FavouriteError value)? failure,
     required TResult orElse(),
   }) {
     if (failure != null) {
@@ -596,11 +604,11 @@ class _$FailureImpl<T> implements Failure<T> {
   }
 }
 
-abstract class Failure<T> implements SearchState<T> {
-  const factory Failure(final String message) = _$FailureImpl<T>;
+abstract class FavouriteError implements FavouriteState {
+  const factory FavouriteError(final String message) = _$FavouriteErrorImpl;
 
   String get message;
   @JsonKey(ignore: true)
-  _$$FailureImplCopyWith<T, _$FailureImpl<T>> get copyWith =>
+  _$$FavouriteErrorImplCopyWith<_$FavouriteErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
