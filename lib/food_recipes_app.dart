@@ -11,30 +11,18 @@ class FoodRecipesApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-        designSize: const Size(414, 896),
+      designSize: const Size(414, 896),
       minTextAdapt: true,
       splitScreenMode: true,
-      child: MaterialApp(
+      builder: (_, child) => MaterialApp(
         debugShowCheckedModeBanner: false,
+        title: 'Food Recipes',
         theme: ThemeData(
           useMaterial3: true,
-          scaffoldBackgroundColor: AppColors.lightGrey,
-          appBarTheme: const AppBarTheme(
-            backgroundColor: AppColors.lightGrey
-          ),
         ),
         initialRoute:
-            appRouter.isFirstTime ? AppRoutes.onBoarding : AppRoutes.search,
+            appRouter.isFirstTime ? AppRoutes.getStarted : AppRoutes.home,
         onGenerateRoute: appRouter.onGenerateRoute,
-        title: 'Food Recipes',
-        home: Scaffold(
-          appBar: AppBar(
-            title: const Text('Food Recipes'),
-          ),
-          body: const Center(
-            child: Text('Welcome to Food Recipes!'),
-          ),
-        ),
       ),
     );
   }
