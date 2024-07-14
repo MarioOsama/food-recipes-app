@@ -7,32 +7,30 @@ class RecipeScreenHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SliverToBoxAdapter(
-      child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 20.w),
-        child: Row(
-          children: [
-            IconButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              icon: Icon(
-                Icons.keyboard_arrow_left_sharp,
-                size: 32.r,
-                color: AppColors.black,
-              ),
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 20.w),
+      child: Row(
+        children: [
+          IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: Icon(
+              Icons.keyboard_arrow_left_sharp,
+              size: 32.r,
+              color: AppColors.black,
             ),
-            const Spacer(),
-            IconButton(
-              onPressed: () {},
-              icon: Icon(
-                Icons.favorite_border,
-                size: 28.r,
-                color: AppColors.black,
-              ),
+          ),
+          const Spacer(),
+          IconButton(
+            onPressed: () {},
+            icon: Icon(
+              Icons.favorite_border,
+              size: 28.r,
+              color: AppColors.black,
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

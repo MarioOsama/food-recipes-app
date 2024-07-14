@@ -21,4 +21,9 @@ abstract class FoodApiServices {
   Future<FoodFilterResponseModel> getFilteredData(
     @Query('c') String category,
   );
+
+  @GET(ApiConstant.search)
+  Future<FoodResponseModel> getByID(
+    @Query('i') String id,
+  );
 }

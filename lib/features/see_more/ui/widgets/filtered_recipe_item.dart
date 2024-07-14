@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:food_recipes_app/core/helpers/extensions.dart';
+import 'package:food_recipes_app/core/models/recipe_item_model.dart';
+import 'package:food_recipes_app/core/routing/app_routes.dart';
 import 'package:food_recipes_app/core/theming/app_colors.dart';
 import 'package:food_recipes_app/core/theming/app_text_styles.dart';
 import 'package:food_recipes_app/features/see_more/data/models/filtered_recipe_item_model.dart';
+import 'package:food_recipes_app/features/see_more/logic/cubit/see_more_cubit.dart';
 
 class FilteredRecipeItem extends StatelessWidget {
   const FilteredRecipeItem({super.key, required this.recipe});
@@ -11,25 +16,30 @@ class FilteredRecipeItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      alignment: Alignment.topCenter,
-      children: [
-        Padding(
-          padding: EdgeInsets.only(top: 25.h),
-          child: Container(
-            width: 160.w,
-            padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 20.h),
-            decoration: _getDecoration(),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                _buildItemTitle(),
-              ],
+    return GestureDetector(
+      onTap: () {
+        _onRecipeTap(context);
+      },
+      child: Stack(
+        alignment: Alignment.topCenter,
+        children: [
+          Padding(
+            padding: EdgeInsets.only(top: 25.h),
+            child: Container(
+              width: 160.w,
+              padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 20.h),
+              decoration: _getDecoration(),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  _buildItemTitle(),
+                ],
+              ),
             ),
           ),
-        ),
-        _buildItemImage(),
-      ],
+          _buildItemImage(),
+        ],
+      ),
     );
   }
 
@@ -66,5 +76,12 @@ class FilteredRecipeItem extends StatelessWidget {
         ),
       ],
     );
+  }
+
+  void _onRecipeTap(BuildContext context) {
+    final String categoryName = context.read<SeeMoreCubit>().categoryName;
+    final recipeFromId =
+        RecipeItemModel.fromId(id: recipe.id, section: categoryName);
+    context.pushNamed(AppRoutes.recipeDetails, arguments: recipeFromId);
   }
 }

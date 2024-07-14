@@ -30,10 +30,14 @@ class RecipeIngredientsItem extends StatelessWidget {
           style: AppTextStyles.font17DarkestGreyRegular,
         ),
         trailing: Text(
-          ingredientAmount,
+          _getIngredientAmount(),
           style: AppTextStyles.font17DarkestGreyRegular,
         ),
       ),
     );
+  }
+
+  String _getIngredientAmount() {
+    return ingredientAmount.split(' ').first;
   }
 }

@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:food_recipes_app/core/models/recipe_item_model.dart';
 import 'package:food_recipes_app/features/Auth/ui/auth_screen.dart';
 import 'package:food_recipes_app/features/initial/ui/get_started_screen.dart';
+import 'package:food_recipes_app/features/recipe/logic/cubit/recipe_cubit.dart';
 import 'package:food_recipes_app/features/recipe/ui/recipe_screen.dart';
 import 'package:food_recipes_app/features/settings/preferances_screen.dart';
 import 'package:flutter/material.dart';
@@ -42,8 +43,11 @@ class AppRouter {
         );
       case AppRoutes.recipeDetails:
         return MaterialPageRoute(
-          builder: (_) => RecipeScreen(
-            recipe: args as RecipeItemModel,
+          builder: (_) => BlocProvider<RecipeCubit>(
+            create: (context) => getIt<RecipeCubit>(),
+            child: RecipeScreen(
+              recipe: args as RecipeItemModel,
+            ),
           ),
         );
       case AppRoutes.seeMore:
