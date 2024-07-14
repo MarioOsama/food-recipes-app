@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:food_recipes_app/features/recipe/logic/cubit/recipe_cubit.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class RecipeYoutubeVideoButton extends StatelessWidget {
   const RecipeYoutubeVideoButton({super.key, required this.videoUrl});
@@ -13,7 +16,7 @@ class RecipeYoutubeVideoButton extends StatelessWidget {
         padding: EdgeInsets.only(left: 30.w, right: 30.w, bottom: 30.h),
         child: GestureDetector(
           onTap: () {
-            // TODO: Add the logic to open the video in the youtube app.
+            _launchURL(context);
           },
           child: Container(
             height: 70.h,
@@ -30,5 +33,12 @@ class RecipeYoutubeVideoButton extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Future<void> _launchURL(BuildContext context) async {
+    final Uri url = Uri.parse(videoUrl);
+    if (!await launchUrl(url)) {
+      context.read<RecipeCubit>().emitError('Could not launch this video');
+    }
   }
 }

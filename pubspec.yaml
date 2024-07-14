@@ -45,6 +45,7 @@ dependencies:
   freezed: ^2.5.2
   freezed_annotation: ^2.4.3
   loading_animation_widget: ^1.2.1
+  url_launcher: ^6.3.0
  
 
 dev_dependencies:

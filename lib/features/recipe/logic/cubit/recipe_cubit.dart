@@ -90,4 +90,9 @@ class RecipeCubit extends Cubit<RecipeState> {
     final bool isFavorite = favorites.contains(recipeId);
     return isFavorite;
   }
+
+  // Error handling
+  void emitError(String message) {
+    emit(RecipeError(message));
+  }
 }
