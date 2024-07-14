@@ -8,8 +8,9 @@ class RecipeItemModel {
   final List<String> measures;
   final String? subtitle;
   final String? tags;
-  final String? glass;
   final String? youTubeVideoUrl;
+  String? glass;
+  String? section;
 
   RecipeItemModel({
     required this.id,
@@ -19,6 +20,21 @@ class RecipeItemModel {
     required this.steps,
     required this.ingredients,
     required this.measures,
+    this.subtitle,
+    this.tags,
+    this.glass,
+    this.youTubeVideoUrl,
+  });
+
+  RecipeItemModel.fromId({
+    required this.id,
+    required this.section,
+    this.title = '',
+    this.imageUrl = '',
+    this.category = '',
+    this.steps = '',
+    this.ingredients = const [],
+    this.measures = const [],
     this.subtitle,
     this.tags,
     this.glass,
