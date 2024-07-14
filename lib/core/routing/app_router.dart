@@ -9,10 +9,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_recipes_app/core/di/dependency_injection.dart';
 import 'package:food_recipes_app/core/routing/app_routes.dart';
+import 'package:food_recipes_app/features/contact_us/ui/contact_us_screen.dart';
+import 'package:food_recipes_app/features/favourite/ui/favourite_screen.dart';
+import 'package:food_recipes_app/features/search/logic/cubit/search_cubit.dart';
+import 'package:food_recipes_app/features/search/ui/search_screen.dart';
 import 'package:food_recipes_app/features/home/logic/cubit/home_cubit.dart';
 import 'package:food_recipes_app/features/home/ui/home_screen.dart';
 import 'package:food_recipes_app/features/see_more/logic/cubit/see_more_cubit.dart';
 import 'package:food_recipes_app/features/see_more/ui/see_more_screen.dart';
+
 
 class AppRouter {
   final bool isFirstTime;
@@ -61,12 +66,15 @@ class AppRouter {
         );
       case AppRoutes.search:
         return MaterialPageRoute(
-          builder: (_) => const Scaffold(
-            body: Center(
-              child: Text('Search'),
-            ),
-          ),
-        );
+            builder: (_) => BlocProvider(
+                  create: (context) => getIt<SearchCubit>(),
+                  child: const SearchScreen(),
+                ));
+      case AppRoutes.favorites:
+        return MaterialPageRoute(builder: (_) => const FavouriteScreen());
+      case AppRoutes.contactUs:
+        return MaterialPageRoute(builder: (_) => const ContactUsScreen());
+
       default:
         return null;
     }
