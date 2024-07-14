@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:bloc/bloc.dart';
 import 'package:food_recipes_app/core/models/cocktail_response_model.dart';
 import 'package:food_recipes_app/core/models/food_response_model.dart';
@@ -12,20 +14,22 @@ class RecipeCubit extends Cubit<RecipeState> {
 
   void setupScreenData(RecipeItemModel recipe) async {
     // If the received recipe data not completed (From SeeMore screen)
+    final bool isFavorite = await checkIfRecipeIsFavorite(recipe.id);
     if (recipe.section != null) {
       emit(RecipeLoading());
-
-      final RecipeItemModel recipeData = await getRecipeDataById(recipe);
-      emit(RecipeSuccess(recipeData));
-
-      // emit(RecipeError(e.toString()));
-
+      try {
+        final RecipeItemModel recipeData = await getRecipeDataById(recipe);
+        emit(RecipeSuccess(recipeData, isFavorite));
+      } catch (e) {
+        emit(RecipeError(e.toString()));
+      }
       // If the received recipe data is completed (From Home screen)
     } else {
-      emit(RecipeSuccess(recipe));
+      emit(RecipeSuccess(recipe, isFavorite));
     }
   }
 
+  // Fetch data by id
   Future<RecipeItemModel> _getFoodDataById(String id) async {
     final MealModel meal = await _recipeRepo.getFoodDataById(id);
     return RecipeItemModel(
@@ -65,5 +69,29 @@ class RecipeCubit extends Cubit<RecipeState> {
     } else {
       return await _getCocktailDataById(recipe.id);
     }
+  }
+
+  // Favorites
+  void toggleFavorites(String recipeId) async {
+    final List<String> favorites =
+        await _recipeRepo.getFavoritesFromSharedPrefs();
+    if (favorites.contains(recipeId)) {
+      await _recipeRepo.removeRecipeFromSharedPrefs(recipeId);
+    } else {
+      await _recipeRepo.saveRecipeToSharedPrefs(recipeId);
+    }
+    final List<String> updatedFavorites =
+        await _recipeRepo.getFavoritesFromSharedPrefs();
+    emit((state as RecipeSuccess)
+        .copyWith(isFavorite: updatedFavorites.contains(recipeId)));
+    log('Favorites: $favorites');
+    log('Favorites List: $updatedFavorites');
+  }
+
+  Future<bool> checkIfRecipeIsFavorite(String recipeId) async {
+    final List<String> favorites =
+        await _recipeRepo.getFavoritesFromSharedPrefs();
+    final bool isFavorite = favorites.contains(recipeId);
+    return isFavorite;
   }
 }

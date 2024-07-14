@@ -28,9 +28,7 @@ class RecipeScreenBody extends StatelessWidget {
         padding: EdgeInsets.only(top: 60.h),
         child: CustomScrollView(
           slivers: [
-            const SliverToBoxAdapter(
-              child: RecipeScreenHeader(),
-            ),
+            const RecipeScreenHeader(),
             verticalSliverSpace(25),
             RecipeImage(
               imageUrl: recipe.imageUrl,

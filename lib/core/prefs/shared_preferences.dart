@@ -10,3 +10,24 @@ Future<bool> get isNewUser async {
   }
   return isFirstTime;
 }
+
+// Favorites
+Future<void> setFavorite(String recipeId) async {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  List<String> favorites = prefs.getStringList('favorites') ?? [];
+  favorites.add(recipeId);
+  prefs.setStringList('favorites', favorites);
+}
+
+Future<void> removeFavorite(String recipeId) async {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  List<String> favorites = prefs.getStringList('favorites') ?? [];
+  favorites.remove(recipeId);
+  prefs.setStringList('favorites', favorites);
+}
+
+Future<List<String>> getFavorites() async {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  List<String> favorites = prefs.getStringList('favorites') ?? [];
+  return favorites;
+}

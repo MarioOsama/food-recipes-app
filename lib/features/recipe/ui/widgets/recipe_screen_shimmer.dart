@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_recipes_app/core/helpers/spacing.dart';
 import 'package:food_recipes_app/core/theming/app_colors.dart';
-import 'package:food_recipes_app/features/recipe/ui/widgets/recipe_screen_header.dart';
 import 'package:food_recipes_app/features/recipe/ui/widgets/shimmer_item.dart';
 
 class RecipeScreenShimmer extends StatelessWidget {
@@ -16,7 +15,19 @@ class RecipeScreenShimmer extends StatelessWidget {
         padding: EdgeInsets.only(top: 60.h, left: 20.w, right: 20.w),
         child: Column(
           children: [
-            const RecipeScreenHeader(),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: IconButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                icon: Icon(
+                  Icons.keyboard_arrow_left_sharp,
+                  size: 32.r,
+                  color: AppColors.black,
+                ),
+              ),
+            ),
             verticalSpace(30),
             const ShimmerItem(width: 200, height: 200, isCircular: true),
             verticalSpace(50),
