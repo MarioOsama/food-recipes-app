@@ -31,7 +31,7 @@ class RecipeScreenError extends StatelessWidget {
               ),
             ),
             verticalSpace(25),
-            const Center(
+            Center(
               child: Text(
                 'An error occurred while loading the recipe.',
                 style: AppTextStyles.font28BlackRegular,

@@ -3,10 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:food_recipes_app/core/di/dependency_injection.dart';
 import 'package:food_recipes_app/core/routing/app_router.dart';
 import 'package:food_recipes_app/food_recipes_app.dart';
-import 'package:food_recipes_app/core/helpers/shared_preferences.dart';
 import 'package:food_recipes_app/core/networking/firebase/firebase_options.dart';
-import 'package:food_recipes_app/core/routing/app_router.dart';
-import 'package:food_recipes_app/food_recipes_app.dart';
 import 'package:food_recipes_app/core/prefs/shared_preferences.dart';
 
 void main() async {

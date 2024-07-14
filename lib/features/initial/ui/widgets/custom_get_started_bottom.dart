@@ -13,7 +13,7 @@ class CustomGetStartedBottom extends StatelessWidget {
         onPressed: () {
           Navigator.pushReplacementNamed(context, AppRoutes.auth);
         },
-        child: const Text(
+        child: Text(
           'Get Started',
           style: AppTextStyles.font17OrangeRegular,
         ),

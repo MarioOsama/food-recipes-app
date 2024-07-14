@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:bloc/bloc.dart';
 import 'package:food_recipes_app/core/models/cocktail_response_model.dart';
 import 'package:food_recipes_app/core/models/food_response_model.dart';
@@ -84,8 +82,6 @@ class RecipeCubit extends Cubit<RecipeState> {
         await _recipeRepo.getFavoritesFromSharedPrefs();
     emit((state as RecipeSuccess)
         .copyWith(isFavorite: updatedFavorites.contains(recipeId)));
-    log('Favorites: $favorites');
-    log('Favorites List: $updatedFavorites');
   }
 
   Future<bool> checkIfRecipeIsFavorite(String recipeId) async {

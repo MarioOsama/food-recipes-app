@@ -26,14 +26,14 @@ class AuthScreen extends StatelessWidget {
               bottomRight: Radius.circular(30),
             ),
           ),
-          bottom: const TabBar(
-            tabs: [
+          bottom: TabBar(
+            tabs: const [
               Tab(text: 'Login'),
               Tab(text: 'Register'),
             ],
             labelStyle: AppTextStyles.font17BlackRegular,
             dividerColor: Colors.transparent,
-            indicator: UnderlineTabIndicator(
+            indicator: const UnderlineTabIndicator(
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(10),
                 topRight: Radius.circular(10),

@@ -18,7 +18,7 @@ class SeeMoreButton extends StatelessWidget {
       onTap: () {
         _onSeeMoreTap(context);
       },
-      child: const Text(
+      child: Text(
         AppString.seeMore,
         style: AppTextStyles.font15OrangeRegular,
       ),

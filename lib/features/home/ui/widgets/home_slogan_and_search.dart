@@ -14,7 +14,7 @@ class HomeSloganAndSearch extends StatelessWidget {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text(
+        Text(
           AppString.deliciousFood,
           style: AppTextStyles.font34BlackRegular,
         ),

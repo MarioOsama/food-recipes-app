@@ -35,8 +35,8 @@ class _PreferencesScreenState extends State<PreferencesScreen> {
                   color: AppColors.black, size: 20),
             ),
             verticalSpace(10),
-            const Padding(
-              padding: EdgeInsets.only(left: 15.0),
+            Padding(
+              padding: const EdgeInsets.only(left: 15.0),
               child:
                   Text('Preferences', style: AppTextStyles.font34BlackRegular),
             ),
@@ -54,7 +54,7 @@ class _PreferencesScreenState extends State<PreferencesScreen> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const Text('Dark Mode',
+                      Text('Dark Mode',
                           style: AppTextStyles.font17BlackRegular),
                       Switch(
                         value: darkMode,

@@ -15,16 +15,16 @@ import 'package:get_it/get_it.dart';
 
 final getIt = GetIt.instance;
 
-Future<void> setupGetIt() async{
-  getIt.registerLazySingleton<MealApiService>(() => MealApiService(dio));
-  getIt.registerLazySingleton<MealsRepo>(() => MealsRepo(getIt()));
-  getIt.registerFactory<SearchCubit>(()=> SearchCubit(getIt()));
-
+Future<void> setupGetIt() async {
   // Dio & ApiServices
   Dio dio = DioFactory.getDio();
   getIt.registerLazySingleton<FoodApiServices>(() => FoodApiServices(dio));
   getIt.registerLazySingleton<CocktailApiServices>(
       () => CocktailApiServices(dio));
+
+  getIt.registerLazySingleton<MealApiService>(() => MealApiService(dio));
+  getIt.registerLazySingleton<MealsRepo>(() => MealsRepo(getIt()));
+  getIt.registerFactory<SearchCubit>(() => SearchCubit(getIt()));
 
   // Cubits
   getIt.registerFactory<HomeCubit>(() => HomeCubit(getIt()));

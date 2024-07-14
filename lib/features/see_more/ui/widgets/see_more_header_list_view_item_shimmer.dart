@@ -24,7 +24,7 @@ class SeeMoreHeaderListViewItemShimmer extends StatelessWidget {
             20.r,
           ),
         ),
-        child: const Text(
+        child: Text(
           'title',
           style: AppTextStyles.font17BlackRegular,
         ),
