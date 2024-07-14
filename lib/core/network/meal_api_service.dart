@@ -6,8 +6,12 @@ part 'meal_api_service.g.dart';
 
 @RestApi(baseUrl: Apiconstant.mealBaseUrl)
 abstract class MealApiService {
-  factory MealApiService(Dio dio, {String baseUrl}) = _MealApiService;
+  factory MealApiService(Dio dio, ) = _MealApiService;
 
   @GET(Apiconstant.search)
   Future<MealsResponse> getSearch(@Query("s") String query );
+
+   @GET(Apiconstant.searchById)
+  Future<MealsResponse> getSearchById(@Query("i") int query );
+
 }

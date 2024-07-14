@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:food_recipes_app/core/models/recipe_item_model.dart';
 import 'package:food_recipes_app/features/Auth/ui/auth_screen.dart';
+import 'package:food_recipes_app/features/favourite/data/logic/cubit/favourite_cubit.dart';
 import 'package:food_recipes_app/features/initial/ui/get_started_screen.dart';
 import 'package:food_recipes_app/features/recipe/logic/cubit/recipe_cubit.dart';
 import 'package:food_recipes_app/features/recipe/ui/recipe_screen.dart';
@@ -17,7 +18,6 @@ import 'package:food_recipes_app/features/home/logic/cubit/home_cubit.dart';
 import 'package:food_recipes_app/features/home/ui/home_screen.dart';
 import 'package:food_recipes_app/features/see_more/logic/cubit/see_more_cubit.dart';
 import 'package:food_recipes_app/features/see_more/ui/see_more_screen.dart';
-
 
 class AppRouter {
   final bool isFirstTime;
@@ -71,7 +71,11 @@ class AppRouter {
                   child: const SearchScreen(),
                 ));
       case AppRoutes.favorites:
-        return MaterialPageRoute(builder: (_) => const FavouriteScreen());
+        return MaterialPageRoute(
+            builder: (_) => BlocProvider(
+                  create: (context) => FavouriteCubit(getIt())..getFavouriteMeals(),
+                  child: const FavouriteScreen(),
+                ));
       case AppRoutes.contactUs:
         return MaterialPageRoute(builder: (_) => const ContactUsScreen());
 

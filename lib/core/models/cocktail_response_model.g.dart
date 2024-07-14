@@ -30,8 +30,8 @@ CocktailModel _$CocktailModelFromJson(Map<String, dynamic> json) =>
       json['strDrinkThumb'] as String,
       json['strTags'] as String?,
       json['strGlass'] as String?,
-      CocktailModel._ingredientsListFromJson(json),
-      CocktailModel._measuresListFromJson(json),
+      CocktailModel._ingredientsListFromJson(json['ingredientsList']),
+      CocktailModel._measuresListFromJson(json['measuresList']),
       json['strVideo'] as String?,
     );
 
