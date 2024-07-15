@@ -23,8 +23,8 @@ class FavouriteScreen extends StatelessWidget {
         ),
         centerTitle: true,
         leading: IconButton(
-            onPressed: ()  {
-          
+            onPressed: () async {
+        await  context.read<FavouriteCubit>().getFavouriteMeals();
             },
             icon: const Icon(Icons.arrow_back_ios)),
       ),

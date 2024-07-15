@@ -12,6 +12,6 @@ abstract class MealApiService {
   Future<MealsResponse> getSearch(@Query("s") String query );
 
    @GET(Apiconstant.searchById)
-  Future<MealsResponse> getSearchById(@Query("i") int query );
+  Future<MealsResponse> getSearchById(@Query("i") String query );
 
 }

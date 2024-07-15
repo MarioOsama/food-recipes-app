@@ -48,7 +48,7 @@ class _MealApiService implements MealApiService {
   }
 
   @override
-  Future<MealsResponse> getSearchById(int query) async {
+  Future<MealsResponse> getSearchById(String query) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'i': query};
     final _headers = <String, dynamic>{};
