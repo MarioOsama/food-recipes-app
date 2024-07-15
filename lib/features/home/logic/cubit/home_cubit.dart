@@ -1,5 +1,6 @@
-
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:food_recipes_app/core/helpers/app_string.dart';
 import 'package:food_recipes_app/core/models/cocktail_response_model.dart';
 import 'package:food_recipes_app/core/models/food_response_model.dart';
 import 'package:food_recipes_app/core/models/recipe_item_model.dart';
@@ -12,7 +13,7 @@ class HomeCubit extends Cubit<HomeState> {
   final HomeRepo _homeRepo;
 
   // Home sections title
-  final List<String> titles = ['Foods', 'Cocktails'];
+  final List<String> titles = [AppString.foods.tr(), AppString.cocktails.tr()];
 
   List<RecipeItemModel> meals = [];
 

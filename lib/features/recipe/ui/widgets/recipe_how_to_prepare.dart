@@ -14,7 +14,7 @@ class RecipeHowToPrepare extends StatelessWidget {
   Widget build(BuildContext context) {
     return SliverToBoxAdapter(
       child: Padding(
-        padding: EdgeInsets.only(left: 55.w, right: 20.w),
+        padding: EdgeInsetsDirectional.only(start: 55.w, end: 20.w),
         child: Text(
           description,
           style: TextStyle(

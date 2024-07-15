@@ -1,5 +1,7 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:food_recipes_app/core/helpers/app_string.dart';
 import 'package:food_recipes_app/core/helpers/spacing.dart';
 import 'package:food_recipes_app/core/models/recipe_item_model.dart';
 import 'package:food_recipes_app/core/theming/app_colors.dart';
@@ -43,13 +45,13 @@ class RecipeScreenBody extends StatelessWidget {
               subtitle: recipe.subtitle ?? '',
             ),
             verticalSliverSpace(40),
-            const RecipeScreenSectionHeader(title: 'Ingredients'),
+            RecipeScreenSectionHeader(title: AppString.ingredients.tr()),
             RecipeIngredientsList(
               ingredients: recipe.ingredients,
               amounts: recipe.measures,
             ),
             verticalSliverSpace(40),
-            const RecipeScreenSectionHeader(title: 'How to prepare'),
+            RecipeScreenSectionHeader(title: AppString.steps.tr()),
             RecipeHowToPrepare(
               description: recipe.steps,
             ),

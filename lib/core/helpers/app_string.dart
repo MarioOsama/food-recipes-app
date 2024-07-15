@@ -4,4 +4,8 @@ class AppString {
   static const String foods = 'Foods';
   static const String cocktails = 'Cocktails';
   static const String seeMore = 'See More';
+
+  // Recipe Screen
+  static const String ingredients = 'Ingredients';
+  static const String steps = 'steps';
 }

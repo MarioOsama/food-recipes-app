@@ -1,4 +1,6 @@
 import 'package:bloc/bloc.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:food_recipes_app/core/helpers/app_string.dart';
 import 'package:food_recipes_app/core/models/cocktail_response_model.dart';
 import 'package:food_recipes_app/core/models/food_response_model.dart';
 import 'package:food_recipes_app/core/models/recipe_item_model.dart';
@@ -62,7 +64,7 @@ class RecipeCubit extends Cubit<RecipeState> {
   }
 
   Future<RecipeItemModel> getRecipeDataById(RecipeItemModel recipe) async {
-    if (recipe.section == 'food') {
+    if (recipe.section == AppString.foods.tr()) {
       return await _getFoodDataById(recipe.id);
     } else {
       return await _getCocktailDataById(recipe.id);
