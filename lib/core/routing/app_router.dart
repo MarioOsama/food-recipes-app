@@ -5,6 +5,7 @@ import 'package:food_recipes_app/core/routing/app_routes.dart';
 
 import 'package:food_recipes_app/features/home/logic/cubit/home_cubit.dart';
 import 'package:food_recipes_app/features/home/ui/home_screen.dart';
+import 'package:food_recipes_app/features/profile/presentation/pages/delete_user/delete_user_view.dart';
 import 'package:food_recipes_app/features/see_more/logic/cubit/see_more_cubit.dart';
 import 'package:food_recipes_app/features/see_more/ui/see_more_screen.dart';
 
@@ -56,11 +57,15 @@ class AppRouter {
         );
       case AppRoutes.editProfile:
         return MaterialPageRoute(
-          builder: (_) => const EditProfileBody(),
+          builder: (_) => const EditProfileView(),
         );
       case AppRoutes.resetPassword:
         return MaterialPageRoute(
           builder: (_) => const ResetPassView(),
+        );
+      case AppRoutes.deleteUser:
+        return MaterialPageRoute(
+          builder: (_) => const DeleteUserView(),
         );
       default:
         return null;
