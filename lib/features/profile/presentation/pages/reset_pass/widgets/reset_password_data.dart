@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:food_recipes_app/features/profile/presentation/cubit/profile_cubit.dart';
 import '../../../../../../core/validators/app_validators.dart';
 import '../../../widgets/custom_text_filed.dart';
 
@@ -8,31 +9,41 @@ class ResetPasswordData extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       children: [
-        // TODO : confirm pass
+        // * Current Password Text Form Filed
         CustomTextFiled(
           label: "Current Password",
-          initialValue: "Thelma Sara-bear",
-        ),
-        SizedBox(
-          height: 25,
-        ),
-        CustomTextFiled(
-          label: "New Password",
-          initialValue: "+233 54138989",
           isPass: true,
           validator: AppValidators.checkPass,
+          onSaved: (value) =>
+              context.read<ProfileCubit>().changeOldPassword(value!),
         ),
-        SizedBox(
+        const SizedBox(
           height: 25,
         ),
-        // TODO : confirm pass
+        // * New Password Text Form Filed
+        CustomTextFiled(
+          label: "New Password",
+          isPass: true,
+          validator: AppValidators.checkPass,
+          onChanged: (p0) => context.read<ProfileCubit>().changeCurrentPass(p0),
+        ),
+        const SizedBox(
+          height: 25,
+        ),
+        // * Re-New Password Text Form Filed
         CustomTextFiled(
           label: "Re-New Password",
-          initialValue: "+233 54138989",
           isPass: true,
-        )
+          validator: (value) => AppValidators.checkConfirmPass(
+              value, context.read<ProfileCubit>().currentPass),
+          onSaved: (value) =>
+              context.read<ProfileCubit>().changeNewPassword(value!),
+        ),
+        const SizedBox(
+          height: 25,
+        ),
       ],
     );
   }

@@ -1,52 +1,35 @@
 import 'package:flutter/material.dart';
-
-import '../../../../../../core/theming/app_colors.dart';
-import '../../../../../../core/theming/app_text_styles.dart';
-import '../../../widgets/custom_btn.dart';
+import '../../../widgets/custom_app_bar.dart';
+import 'custom_btn_ress_pass_bloc_consumer.dart';
 import 'reset_password_data.dart';
 
 class ResetPassViewBody extends StatelessWidget {
   const ResetPassViewBody({super.key});
+  static final GlobalKey<FormState> keyForm = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 15),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const Padding(
-            padding: EdgeInsets.only(top: 40, bottom: 30),
-            child: Icon(
-              Icons.chevron_left,
-              size: 40,
+      child: Form(
+        key: keyForm,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // * App Bar
+            const CustomAppBar(
+              title: "Reset Password",
             ),
-          ),
-          Text(
-            "Reset Password",
-            style: AppTextStyles.font10BlackRegular.copyWith(fontSize: 34),
-          ),
-          const ResetPasswordData(),
-          const SizedBox(
-            height: 20,
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          const Expanded(child: SizedBox()),
-          const Row(
-            children: [
-              Expanded(
-                  child: Padding(
-                padding: EdgeInsets.only(bottom: 30),
-                child: CustomBtn(title: "Delete Profile", color: AppColors.red),
-              )),
-            ],
-          )
-        ],
+            // * Reset Password Data Field
+            const ResetPasswordData(),
+            const Expanded(child: SizedBox()),
+            // * Custom Btn Reset Password Bloc Consumer
+            CustomBtnRessPassBlocConsumer(keyForm: keyForm),
+            const SizedBox(
+              height: 20,
+            ),
+          ],
+        ),
       ),
     );
   }
