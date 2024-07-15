@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/validators/app_validators.dart';
+import '../../data/models/m_user_data_edit.dart';
+import '../cubit/profile_cubit.dart';
 import 'custom_text_filed.dart';
 
 class UserData extends StatelessWidget {
@@ -8,30 +10,42 @@ class UserData extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
-      children: [
-        CustomTextFiled(
-          label: "User Name",
-          initialValue: "Thelma Sara-bear",
-          validator: AppValidators.isEmpty,
-        ),
-        SizedBox(
-          height: 25,
-        ),
-        CustomTextFiled(
-          label: "Email",
-          initialValue: "thelma_sara-bear@gmail.com",
-          validator: AppValidators.isEmail,
-        ),
-        SizedBox(
-          height: 25,
-        ),
-        CustomTextFiled(
-          label: "Phone Number",
-          initialValue: "+233 54138989",
-          validator: AppValidators.isEmpty,
-        )
-      ],
+    UserDataForEditModel userDataForModel =
+        context.read<ProfileCubit>().userDataForEditModel;
+    return BlocBuilder<ProfileCubit, ProfileState>(
+      builder: (context, state) {
+        if (state is ProfileSuccess) {
+          return Column(
+            children: [
+              CustomTextFiled(
+                label: "User Name",
+                initialValue: state.userData.userName!,
+                validator: AppValidators.isEmpty,
+                onSaved: userDataForModel.setUserName,
+              ),
+              const SizedBox(
+                height: 25,
+              ),
+              CustomTextFiled(
+                label: "Email",
+                initialValue: state.userData.email!,
+                onSaved: userDataForModel.setEmail,
+                validator: AppValidators.isEmail,
+              ),
+              const SizedBox(
+                height: 25,
+              ),
+              CustomTextFiled(
+                label: "Phone Number",
+                initialValue: state.userData.phone!,
+                validator: AppValidators.isEmpty,
+                onSaved: userDataForModel.setPhoneNum,
+              )
+            ],
+          );
+        }
+        return Container();
+      },
     );
   }
 }
