@@ -1,50 +1,100 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../../../../core/routing/app_routes.dart';
 import '../../../../../../core/theming/app_colors.dart';
 import '../../../../../../core/theming/app_text_styles.dart';
+import '../../../cubit/profile_cubit.dart';
+import '../../../widgets/custom_app_bar.dart';
 import '../../../widgets/custom_btn.dart';
 import '../../../widgets/user_data.dart';
-import '../../profile/widgets/personal_details.dart';
+import 'personal_details_edit_profile.dart';
 
-class EditProfileViewBody extends StatelessWidget {
+class EditProfileViewBody extends StatefulWidget {
   const EditProfileViewBody({super.key});
+
+  @override
+  State<EditProfileViewBody> createState() => _EditProfileViewBodyState();
+}
+
+class _EditProfileViewBodyState extends State<EditProfileViewBody> {
+  @override
+  void initState() {
+    super.initState();
+    _fetchUserData();
+  }
+
+  void _fetchUserData() async {
+    await context.read<ProfileCubit>().getUserData();
+  }
+
+  static final GlobalKey<FormState> keyForm = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 15),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const Padding(
-            padding: EdgeInsets.only(top: 40, bottom: 30),
-            child: Icon(
-              Icons.chevron_left,
-              size: 40,
+      child: Form(
+        key: keyForm,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // * App Bar
+            const CustomAppBar(
+              title: "My profile",
             ),
-          ),
-          Text(
-            "My profile",
-            style: AppTextStyles.font10BlackRegular.copyWith(fontSize: 34),
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          const PersonalDetails(),
-          const SizedBox(
-            height: 50,
-          ),
-          const UserData(),
-          const SizedBox(
-            height: 60,
-          ),
-          const Row(
-            children: [
-              Expanded(
-                  child: CustomBtn(
-                      title: "Save Changes", color: AppColors.orange)),
-            ],
-          )
-        ],
+            // * Personal Details Edit Profile Section
+            const PersonalDetailsEditProfile(),
+            const SizedBox(
+              height: 50,
+            ),
+            // * User Data (Have Name, phone, email of user )
+            const UserData(),
+            const Expanded(
+              child: SizedBox(
+                height: 60,
+              ),
+            ),
+            Row(
+              children: [
+                Expanded(
+                    child: BlocConsumer<ProfileCubit, ProfileState>(
+                  listener: (context, state) {
+                    if (state is EditProfileSuccess) {
+                      log("Profile Success");
+                      Navigator.pop(context, AppRoutes.profile);
+                    }
+                    if (state is EditProfileFailure) {
+                      log("Profile Failure");
+
+                      // TODO :  AppSnackBar.snackBarError(msg: state.errMessage);
+                    }
+                  },
+                  builder: (context, state) {
+                    return CustomBtn(
+                      isLoading: state is EditProfileLoading ? true : false,
+                      title: "Save Changes",
+                      color: AppColors.orange,
+                      onTap: () {
+                        if (keyForm.currentState?.validate() ?? false) {
+                          // ✅
+                          log("validate ✅");
+                          keyForm.currentState?.save();
+                          log("save ✅");
+                          context.read<ProfileCubit>().updateUserData();
+                        }
+                      },
+                    );
+                  },
+                )),
+              ],
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+          ],
+        ),
       ),
     );
   }
