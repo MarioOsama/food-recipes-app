@@ -1,4 +1,6 @@
 import 'package:bloc/bloc.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:food_recipes_app/core/helpers/app_string.dart';
 import 'package:food_recipes_app/features/see_more/data/models/filtered_recipe_item_model.dart';
 import 'package:food_recipes_app/features/see_more/data/repos/see_more_repo.dart';
 import 'package:food_recipes_app/features/see_more/logic/cubit/see_more_state.dart';
@@ -7,7 +9,7 @@ class SeeMoreCubit extends Cubit<SeeMoreState> {
   final SeeMoreRepo _seeMoreRepo;
   SeeMoreCubit(this._seeMoreRepo) : super(SeeMoreInitial());
 
-  String categoryName = 'food';
+  String categoryName = AppString.foods.tr();
 
   // Food
   void getFoodData() async {
@@ -68,9 +70,9 @@ class SeeMoreCubit extends Cubit<SeeMoreState> {
   // Helper
   void getSeeMoreData(String categoryName) {
     this.categoryName = categoryName;
-    if (categoryName == 'food') {
+    if (categoryName == AppString.foods.tr()) {
       getFoodData();
-    } else if (categoryName == 'cocktail') {
+    } else if (categoryName == AppString.cocktails.tr()) {
       getCocktailData();
     }
   }

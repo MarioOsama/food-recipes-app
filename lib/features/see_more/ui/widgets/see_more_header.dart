@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_recipes_app/core/helpers/extensions.dart';
@@ -11,6 +12,7 @@ class SeeMoreHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final String language = context.locale.languageCode;
     return Row(
       children: [
         IconButton(
@@ -18,7 +20,9 @@ class SeeMoreHeader extends StatelessWidget {
             context.pop();
           },
           icon: Icon(
-            Icons.keyboard_arrow_left_sharp,
+            language == 'ar'
+                ? Icons.keyboard_arrow_right_sharp
+                : Icons.keyboard_arrow_left_sharp,
             size: 32.r,
             color: AppColors.black,
           ),

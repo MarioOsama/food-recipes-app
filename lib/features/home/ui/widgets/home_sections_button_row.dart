@@ -1,5 +1,7 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:food_recipes_app/core/helpers/app_string.dart';
 import 'package:food_recipes_app/features/home/logic/cubit/home_cubit.dart';
 import 'package:food_recipes_app/features/home/ui/widgets/home_section_button.dart';
 
@@ -36,7 +38,7 @@ class _HomeSectionsButtonRowState extends State<HomeSectionsButtonRow> {
 
   void _onSectionPressed(int index, String title) {
     if (_selectedIndex == index) return;
-    if (title == 'Foods') {
+    if (title == AppString.foods.tr()) {
       context.read<HomeCubit>().showRandomFoodRecipes();
     } else {
       context.read<HomeCubit>().showRandomCocktailRecipes();

@@ -27,8 +27,8 @@ MealModel _$MealModelFromJson(Map<String, dynamic> json) => MealModel(
       json['strMealThumb'] as String,
       json['strTags'] as String?,
       json['strYoutube'] as String?,
-      MealModel._ingredientsListFromJson(json['ingredientsList']),
-      MealModel._measuresListFromJson(json['measuresList']),
+      MealModel._ingredientsListFromJson(json),
+      MealModel._measuresListFromJson(json),
     );
 
 Map<String, dynamic> _$MealModelToJson(MealModel instance) => <String, dynamic>{

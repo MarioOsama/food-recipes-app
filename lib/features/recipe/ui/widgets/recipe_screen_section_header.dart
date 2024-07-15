@@ -11,7 +11,7 @@ class RecipeScreenSectionHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return SliverToBoxAdapter(
       child: Padding(
-        padding: EdgeInsets.only(bottom: 8.h, left: 40.w),
+        padding: EdgeInsetsDirectional.only(bottom: 8.h, start: 40.w),
         child: Text(
           title,
           style: AppTextStyles.font22BlackRegular,
