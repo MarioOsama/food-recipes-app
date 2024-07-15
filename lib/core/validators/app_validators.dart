@@ -15,13 +15,9 @@ class AppValidators {
 
   static String? checkPass(String? value) => templateValidator(
       value, !validators.isLength(value ?? '', 6, 12), messageCorrectPass);
+
   static String? isEmpty(String? value) => templateValidator(
-      value,
-      !validators.isLength(
-        value ?? '',
-        0,
-      ),
-      messageCorrectPass);
+      value, !validators.isLength(value ?? '', 0, 100), messageCorrectPass);
 
   static String? checkConfirmPass(String? value, String? pass) =>
       templateValidator(
