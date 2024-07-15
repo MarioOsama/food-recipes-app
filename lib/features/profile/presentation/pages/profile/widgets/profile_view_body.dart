@@ -1,12 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../../../../core/routing/app_routes.dart';
 import '../../../../../../core/theming/app_colors.dart';
-import '../../../../../../core/theming/app_text_styles.dart';
+import '../../../cubit/profile_cubit.dart';
+import '../../../widgets/custom_app_bar.dart';
 import '../../../widgets/custom_btn.dart';
 import 'my_profile_sections.dart';
-import 'personal_details.dart';
+import 'personal_details_profile.dart';
 
-class ProfileViewBody extends StatelessWidget {
+class ProfileViewBody extends StatefulWidget {
   const ProfileViewBody({super.key});
+
+  @override
+  State<ProfileViewBody> createState() => _ProfileViewBodyState();
+}
+
+class _ProfileViewBodyState extends State<ProfileViewBody> {
+  @override
+  void initState() {
+    super.initState();
+    _fetchUserData();
+  }
+
+  void _fetchUserData() async {
+    //   await context.read<ProfileCubit>().signInWithEmailAndPassword();
+    await context.read<ProfileCubit>().getUserData();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -15,35 +34,33 @@ class ProfileViewBody extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Padding(
-            padding: EdgeInsets.only(top: 40, bottom: 30),
-            child: Icon(
-              Icons.chevron_left,
-              size: 40,
-            ),
+          // * App Bar
+          const CustomAppBar(
+            title: "My profile",
           ),
-          Text(
-            "My profile",
-            style: AppTextStyles.font10BlackRegular.copyWith(fontSize: 34),
-          ),
+          // * Personal Details Profile Section
+          const Expanded(child: PersonalDetailsProfile()),
           const SizedBox(
             height: 20,
           ),
-          const PersonalDetails(),
-          const SizedBox(
-            height: 20,
-          ),
-          const MyProfileSections(),
-          const SizedBox(
-            height: 20,
-          ),
-          const Row(
+          // * My Profile Sections (Buttons For go To The My Profile Sections)
+          const Expanded(flex: 2, child: MyProfileSections()),
+          // * Delete Profile Btn (For Go To The Delete Profile Page)
+          Row(
             children: [
               Expanded(
-                  child:
-                      CustomBtn(title: "Delete Profile", color: AppColors.red)),
+                  child: CustomBtn(
+                title: "Delete Profile",
+                color: AppColors.red,
+                onTap: () {
+                  Navigator.pushNamed(context, AppRoutes.deleteUser);
+                },
+              )),
             ],
-          )
+          ),
+          const SizedBox(
+            height: 20,
+          ),
         ],
       ),
     );
