@@ -1,8 +1,10 @@
 import 'dart:developer';
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../../core/helpers/app_string.dart';
 import '../../../../../../core/theming/app_colors.dart';
 import '../../../cubit/profile_cubit.dart';
 import '../../../widgets/custom_btn.dart';
@@ -38,7 +40,7 @@ class CustomBtnRessPassBlocConsumer extends StatelessWidget {
           builder: (context, state) {
             return CustomBtn(
               isLoading: state is ResetPasswordLoading ? true : false,
-              title: "Save Changes",
+              title: AppString.saveChanges.tr(),
               color: AppColors.orange,
               onTap: () {
                 if (keyForm.currentState?.validate() ?? false) {
