@@ -24,7 +24,7 @@ class FoodRecipesApp extends StatelessWidget {
         supportedLocales: context.supportedLocales,
         locale: context.locale,
         initialRoute:
-            appRouter.isFirstTime ? AppRoutes.getStarted : AppRoutes.favorites,
+            appRouter.isFirstTime ? AppRoutes.getStarted : AppRoutes.search,
         onGenerateRoute: appRouter.onGenerateRoute,
       ),
     );

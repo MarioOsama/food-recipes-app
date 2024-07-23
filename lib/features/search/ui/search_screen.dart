@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_recipes_app/core/helpers/extensions.dart';
 import 'package:food_recipes_app/core/helpers/spacing.dart';
 import 'package:food_recipes_app/core/theming/app_colors.dart';
+import 'package:food_recipes_app/features/favourite/ui/widgets/FavouriteShimmerItem.dart';
 import 'package:food_recipes_app/features/search/logic/cubit/search_cubit.dart';
 import 'package:food_recipes_app/features/search/logic/cubit/search_state.dart';
 import 'package:food_recipes_app/features/search/ui/widgets/app_search_bar.dart';
@@ -22,25 +23,14 @@ class SearchScreen extends StatelessWidget {
       body: SafeArea(
         child: SingleChildScrollView(
             child: BlocConsumer<SearchCubit, SearchState>(
-          listenWhen: (previous, current) =>
-              current is Loading || current is Success || current is Failure,
           buildWhen: (previous, current) =>
               current is Loading || current is Success || current is Failure,
           listener: (BuildContext context, SearchState<dynamic> state) {
             state.whenOrNull(
               loading: () {
-                showDialog(
-                  context: context,
-                  builder: (context) =>  Center(
-                    child:  LoadingAnimationWidget.inkDrop(
-        color: AppColors.orange,
-        size: 50.r,
-      ),
-                  ),
-                );
+                widget = setupLoading(context);
               },
               success: (data) {
-                context.pop();
                 if (data.meals.isEmpty) {
                   widget = const ItemsNotFound();
                 } else {
@@ -50,7 +40,6 @@ class SearchScreen extends StatelessWidget {
                 }
               },
               failure: (message) {
-                context.pop();              
                 widget = const ItemsNotFound();
               },
             );
@@ -67,7 +56,7 @@ class SearchScreen extends StatelessWidget {
                     horizontalSpace(15),
                     AppSearchBar(
                       onSubmitted: (text) async {
-                        if(text.isEmpty) return;
+                        if (text.isEmpty) return;
                         await context.read<SearchCubit>().emitSearch(text);
                       },
                     ),
@@ -83,4 +72,16 @@ class SearchScreen extends StatelessWidget {
   }
 }
 
+Widget getShimmerItems() {
+  return ListView.builder(
+      itemCount: 10, itemBuilder: (context, index) => FavouriteShimmerItem());
+}
 
+Widget setupLoading(context) {
+  return Padding(
+    padding: EdgeInsets.symmetric(horizontal: 20.w),
+    child: SizedBox(
+        height: MediaQuery.of(context).size.height * 0.8,
+        child: getShimmerItems()),
+  );
+}
