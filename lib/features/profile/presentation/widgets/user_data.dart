@@ -1,5 +1,7 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../../core/helpers/app_string.dart';
 import '../../../../core/validators/app_validators.dart';
 import '../../data/models/m_user_data_edit.dart';
 import '../cubit/profile_cubit.dart';
@@ -18,7 +20,7 @@ class UserData extends StatelessWidget {
           return Column(
             children: [
               CustomTextFiled(
-                label: "User Name",
+                label: AppString.userName.tr(),
                 initialValue: state.userData.userName!,
                 validator: AppValidators.isEmpty,
                 onSaved: userDataForModel.setUserName,
@@ -27,7 +29,7 @@ class UserData extends StatelessWidget {
                 height: 25,
               ),
               CustomTextFiled(
-                label: "Email",
+                label: AppString.email.tr(),
                 initialValue: state.userData.email!,
                 onSaved: userDataForModel.setEmail,
                 validator: AppValidators.isEmail,
@@ -36,7 +38,7 @@ class UserData extends StatelessWidget {
                 height: 25,
               ),
               CustomTextFiled(
-                label: "Phone Number",
+                label: AppString.phoneNumber.tr(),
                 initialValue: state.userData.phone!,
                 validator: AppValidators.isEmpty,
                 onSaved: userDataForModel.setPhoneNum,
