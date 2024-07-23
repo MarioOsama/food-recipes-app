@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:food_recipes_app/core/models/recipe_item_model.dart';
 import 'package:food_recipes_app/features/Auth/ui/auth_screen.dart';
+import 'package:food_recipes_app/features/Auth/ui/forget_password_screen.dart';
 import 'package:food_recipes_app/features/favourite/data/logic/cubit/favourite_cubit.dart';
 import 'package:food_recipes_app/features/initial/ui/get_started_screen.dart';
 import 'package:food_recipes_app/features/recipe/logic/cubit/recipe_cubit.dart';
@@ -18,11 +19,7 @@ import 'package:food_recipes_app/features/home/logic/cubit/home_cubit.dart';
 import 'package:food_recipes_app/features/home/ui/home_screen.dart';
 import 'package:food_recipes_app/features/see_more/logic/cubit/see_more_cubit.dart';
 import 'package:food_recipes_app/features/see_more/ui/see_more_screen.dart';
-import 'package:food_recipes_app/feature/Auth/logic/auth_cubit.dart';
-import 'package:food_recipes_app/feature/Auth/ui/auth_screen.dart';
-import 'package:food_recipes_app/feature/Auth/ui/forget_password_screen.dart';
-import 'package:food_recipes_app/feature/initial/ui/get_started_screen.dart';
-import 'package:food_recipes_app/feature/settings/preferances_screen.dart';
+import 'package:food_recipes_app/features/auth/logic/auth_cubit.dart';
 
 class AppRouter {
   final bool isFirstTime;
@@ -38,7 +35,10 @@ class AppRouter {
         );
       case AppRoutes.auth:
         return MaterialPageRoute(
-          builder: (context) => const AuthScreen(),
+          builder: (context) => BlocProvider<AuthCubit>(
+            create: (context) => getIt<AuthCubit>(),
+            child: const AuthScreen(),
+          ),
         );
       case AppRoutes.preferences:
         return MaterialPageRoute(

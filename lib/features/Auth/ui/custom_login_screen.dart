@@ -6,8 +6,7 @@ import 'package:food_recipes_app/core/theming/app_text_styles.dart';
 import 'package:food_recipes_app/core/helpers/spacing.dart';
 import 'package:food_recipes_app/core/widgets/custom_bottom.dart';
 import 'package:food_recipes_app/features/Auth/ui/widgets/custom_text_form_field.dart';
-import 'package:food_recipes_app/feature/Auth/logic/auth_cubit.dart';
-import 'package:food_recipes_app/feature/Auth/ui/widgets/custom_text_form_field.dart';
+import 'package:food_recipes_app/features/auth/logic/auth_cubit.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 
@@ -19,8 +18,6 @@ class CustomLoginScreen extends StatefulWidget {
 }
 
 class _CustomLoginScreenState extends State<CustomLoginScreen> {
-  final phoneController = TextEditingController();
-
   final emailController = TextEditingController();
 
   final passwordController = TextEditingController();
@@ -51,31 +48,8 @@ class _CustomLoginScreenState extends State<CustomLoginScreen> {
       }
       if (state is AuthLoginSuccess) {
         Navigator.pop(context);
-        showDialog(
-          context: context,
-          builder: (context) {
-            return AlertDialog(
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12)),
-              title: Text(
-                'Login is Success',
-                style: AppTextStyles.font65WhiteRegular
-                    .copyWith(fontSize: 20, color: AppColors.black),
-                textAlign: TextAlign.center,
-              ),
-              content: SizedBox(
-                height: MediaQuery.of(context).size.height * .08,
-                child: CustomBottom(
-                  text: 'Lets Get Started',
-                  onPressed: () {
-                    Navigator.pop(context);
-                    Navigator.pushReplacementNamed(context, AppRoutes.home);
-                  },
-                ),
-              ),
-            );
-          },
-        );
+        FocusManager.instance.primaryFocus?.unfocus();
+        Navigator.pushReplacementNamed(context, AppRoutes.home);
       }
       if (state is AuthLoginError) {
         Navigator.pop(context);
@@ -164,21 +138,22 @@ class _CustomLoginScreenState extends State<CustomLoginScreen> {
                   onPressed: () {
                     if (formKey.currentState!.validate()) {
                       formKey.currentState!.save();
-                      BlocProvider.of<AuthCubit>(context).logInAuth(
+                      context.read<AuthCubit>().logInAuth(
                           emailController: emailController,
                           passwordController: passwordController);
                     }
                   }),
-              const Expanded(child: SizedBox()),
-              CustomBottom(
-                  text: 'Login now',
-                  onPressed: () {
-                    Navigator.pushNamed(context, AppRoutes.preferences);
-                  })
             ],
           ),
         ),
       );
     });
+  }
+
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
   }
 }

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:food_recipes_app/core/helpers/spacing.dart';
 import 'package:food_recipes_app/core/routing/app_routes.dart';
 import 'package:food_recipes_app/core/theming/app_colors.dart';
 import 'package:food_recipes_app/core/theming/app_text_styles.dart';
-import 'package:food_recipes_app/core/utils/spacing.dart';
-import 'package:food_recipes_app/core/utils/widgets/custom_bottom.dart';
-import 'package:food_recipes_app/feature/Auth/logic/auth_cubit.dart';
-import 'package:food_recipes_app/feature/Auth/ui/widgets/custom_text_form_field.dart';
+import 'package:food_recipes_app/core/widgets/custom_bottom.dart';
+import 'package:food_recipes_app/features/auth/logic/auth_cubit.dart';
+import 'package:food_recipes_app/features/auth/ui/widgets/custom_text_form_field.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 
@@ -117,8 +117,8 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                       color: AppColors.black, size: 20),
                 ),
                 verticalSpace(10),
-                const Padding(
-                  padding: EdgeInsets.only(left: 15.0),
+                Padding(
+                  padding: const EdgeInsets.only(left: 15.0),
                   child: Text('Forget password',
                       style: AppTextStyles.font34BlackRegular),
                 ),
@@ -133,13 +133,11 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                           labelName: 'Email address',
                           icon: Iconsax.personalcard,
                           validator: (value) {
-                            if (value == null || value
-                                .trim()
-                                .isEmpty) {
+                            if (value == null || value.trim().isEmpty) {
                               return 'Please Enter your Email ';
                             }
                             var emailValid = RegExp(
-                                r"^[a-zA-Z0-9.a-zA-Z0-9!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                                    r"^[a-zA-Z0-9.a-zA-Z0-9!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
                                 .hasMatch(value);
                             if (!emailValid) {
                               return 'Please enter your real email address';
@@ -154,15 +152,13 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                               onPressed: () {
                                 if (formKey.currentState!.validate()) {
                                   formKey.currentState!.save();
-                                  BlocProvider.of<AuthCubit>(context)
-                                      .forgotPassword(
+                                  context.read<AuthCubit>().forgotPassword(
                                       emailController: forgetPassController);
                                 }
                               }))
                     ],
                   ),
                 ),
-
               ],
             ),
           ),

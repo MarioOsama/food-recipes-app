@@ -2,8 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:food_recipes_app/feature/Auth/data/user_model.dart';
-import 'package:meta/meta.dart';
+import 'package:food_recipes_app/features/Auth/data/user_model.dart';
 
 part 'auth_state.dart';
 
@@ -63,7 +62,8 @@ class AuthCubit extends Cubit<AuthState> {
     }
   }
 
-  Future<void> forgotPassword({required TextEditingController emailController}) async {
+  Future<void> forgotPassword(
+      {required TextEditingController emailController}) async {
     emit(ForgetPassLoading());
     try {
       await FirebaseAuth.instance
