@@ -1,4 +1,6 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:food_recipes_app/core/helpers/app_string.dart';
 import 'package:food_recipes_app/core/theming/app_colors.dart';
 import 'package:food_recipes_app/core/theming/app_text_styles.dart';
 import 'package:food_recipes_app/core/app_assets/app_assets.dart';
@@ -28,9 +30,9 @@ class AuthScreen extends StatelessWidget {
             ),
           ),
           bottom: TabBar(
-            tabs: const [
-              Tab(text: 'Login'),
-              Tab(text: 'Register'),
+            tabs: [
+              Tab(text: AppString.login.tr()),
+              Tab(text: AppString.register.tr()),
             ],
             labelStyle: AppTextStyles.font17BlackRegular,
             dividerColor: Colors.transparent,

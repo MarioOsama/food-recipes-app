@@ -1,4 +1,6 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:food_recipes_app/core/helpers/app_string.dart';
 import 'package:food_recipes_app/core/helpers/spacing.dart';
 import 'package:food_recipes_app/core/widgets/custom_bottom.dart';
 import 'package:food_recipes_app/features/Auth/logic/auth_cubit.dart';
@@ -64,7 +66,7 @@ class _CustomRegisterScreenState extends State<CustomRegisterScreen> {
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12)),
               title: Text(
-                'Register is Failed',
+                AppString.registerFailed.tr(),
                 style: AppTextStyles.font65WhiteRegular
                     .copyWith(fontSize: 20, color: AppColors.black),
                 textAlign: TextAlign.center,
@@ -72,7 +74,7 @@ class _CustomRegisterScreenState extends State<CustomRegisterScreen> {
               content: SizedBox(
                 height: MediaQuery.of(context).size.height * .08,
                 child: CustomBottom(
-                  text: 'Try Again',
+                  text: AppString.tryAgain.tr(),
                   onPressed: () {
                     Navigator.pop(context);
                   },
@@ -94,11 +96,11 @@ class _CustomRegisterScreenState extends State<CustomRegisterScreen> {
                 isObscured: false,
                 obscurePassword: false,
                 controller: nameController,
-                labelName: 'Name',
+                labelName: AppString.name.tr(),
                 icon: Iconsax.user,
                 validator: (value) {
                   if (value == null || value.trim().isEmpty) {
-                    return 'Enter your name';
+                    return AppString.enterValidName.tr();
                   }
                   return null;
                 },
@@ -108,13 +110,13 @@ class _CustomRegisterScreenState extends State<CustomRegisterScreen> {
                 isObscured: false,
                 obscurePassword: false,
                 controller: phoneController,
-                labelName: 'Phone number',
+                labelName: AppString.phoneNumber.tr(),
                 icon: Iconsax.call,
                 validator: (value) {
                   String pattern = r'^(?:[+0][1-9]|0)[0-9]{8,12}$';
                   RegExp regex = RegExp(pattern);
                   if (!regex.hasMatch(value!)) {
-                    return 'Enter your phone number';
+                    return AppString.enterValidPhone.tr();
                   }
                   return null;
                 },
@@ -123,17 +125,17 @@ class _CustomRegisterScreenState extends State<CustomRegisterScreen> {
               CustomTextFormField(
                   isObscured: false,
                   obscurePassword: false,
-                  labelName: 'Email address',
+                  labelName: AppString.emailAddress.tr(),
                   icon: Iconsax.personalcard,
                   validator: (value) {
                     if (value == null || value.trim().isEmpty) {
-                      return 'Please Enter your Email ';
+                      return AppString.enterValidEmail.tr();
                     }
                     var emailValid = RegExp(
                             r"^[a-zA-Z0-9.a-zA-Z0-9!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
                         .hasMatch(value);
                     if (!emailValid) {
-                      return 'Please enter your real email address';
+                      return AppString.enterValidEmail.tr();
                     }
                     return null;
                   },
@@ -142,18 +144,18 @@ class _CustomRegisterScreenState extends State<CustomRegisterScreen> {
               CustomTextFormField(
                   isObscured: true,
                   obscurePassword: true,
-                  labelName: 'Password',
+                  labelName: AppString.password.tr(),
                   icon: Iconsax.password_check,
                   validator: (value) {
                     if (value!.length < 8) {
-                      return 'Password must be longer than 8 characters';
+                      return AppString.enterCorrectPass.tr();
                     }
                     return null;
                   },
                   controller: passwordController),
               const Expanded(child: SizedBox()),
               CustomBottom(
-                  text: 'Register now',
+                  text: AppString.register.tr(),
                   onPressed: () {
                     if (formKey.currentState!.validate()) {
                       formKey.currentState!.save();

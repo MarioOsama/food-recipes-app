@@ -1,4 +1,6 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:food_recipes_app/core/helpers/app_string.dart';
 import 'package:food_recipes_app/core/helpers/spacing.dart';
 import 'package:food_recipes_app/core/theming/app_colors.dart';
 import 'package:food_recipes_app/core/theming/app_text_styles.dart';
@@ -13,9 +15,12 @@ class PreferencesScreen extends StatefulWidget {
 
 class _PreferencesScreenState extends State<PreferencesScreen> {
   bool darkMode = false;
-  String selectedLanguage = 'English';
+  String selectedLanguage = AppString.english.tr();
 
-  final List<String> languages = ['English', 'Arabic'];
+  final List<String> languages = [
+    AppString.english.tr(),
+    AppString.arabic.tr()
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -37,8 +42,8 @@ class _PreferencesScreenState extends State<PreferencesScreen> {
             verticalSpace(10),
             Padding(
               padding: const EdgeInsets.only(left: 15.0),
-              child:
-                  Text('Preferences', style: AppTextStyles.font34BlackRegular),
+              child: Text(AppString.preferances.tr(),
+                  style: AppTextStyles.font34BlackRegular),
             ),
             verticalSpace(20),
             Center(
@@ -54,7 +59,7 @@ class _PreferencesScreenState extends State<PreferencesScreen> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text('Dark Mode',
+                      Text(AppString.darkMode.tr(),
                           style: AppTextStyles.font17BlackRegular),
                       Switch(
                         value: darkMode,
@@ -108,7 +113,8 @@ class _PreferencesScreenState extends State<PreferencesScreen> {
             ),
             const Expanded(child: SizedBox()),
             Center(
-                child: CustomBottom(text: 'Save preferences', onPressed: () {}))
+                child: CustomBottom(
+                    text: AppString.savePreferences.tr(), onPressed: () {}))
           ],
         ),
       ),
