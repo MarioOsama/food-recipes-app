@@ -1,5 +1,7 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:food_recipes_app/core/helpers/app_string.dart';
 import 'package:food_recipes_app/core/routing/app_routes.dart';
 import 'package:food_recipes_app/core/theming/app_colors.dart';
 import 'package:food_recipes_app/core/theming/app_text_styles.dart';
@@ -60,7 +62,7 @@ class _CustomLoginScreenState extends State<CustomLoginScreen> {
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12)),
               title: Text(
-                'Login is Failed',
+                AppString.loginFailed.tr(),
                 style: AppTextStyles.font65WhiteRegular
                     .copyWith(fontSize: 20, color: AppColors.black),
                 textAlign: TextAlign.center,
@@ -68,7 +70,7 @@ class _CustomLoginScreenState extends State<CustomLoginScreen> {
               content: SizedBox(
                 height: MediaQuery.of(context).size.height * .08,
                 child: CustomBottom(
-                  text: 'Try Again',
+                  text: AppString.tryAgain.tr(),
                   onPressed: () {
                     Navigator.pop(context);
                   },
@@ -89,17 +91,17 @@ class _CustomLoginScreenState extends State<CustomLoginScreen> {
               CustomTextFormField(
                   isObscured: false,
                   obscurePassword: false,
-                  labelName: 'Email address',
+                  labelName: AppString.emailAddress.tr(),
                   icon: Iconsax.personalcard,
                   validator: (value) {
                     if (value == null || value.trim().isEmpty) {
-                      return 'Please Enter your Email ';
+                      return AppString.enterValidEmail.tr();
                     }
                     var emailValid = RegExp(
                             r"^[a-zA-Z0-9.a-zA-Z0-9!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
                         .hasMatch(value);
                     if (!emailValid) {
-                      return 'Please enter your real email address';
+                      return AppString.enterValidEmail.tr();
                     }
                     return null;
                   },
@@ -108,11 +110,11 @@ class _CustomLoginScreenState extends State<CustomLoginScreen> {
               CustomTextFormField(
                   isObscured: true,
                   obscurePassword: true,
-                  labelName: 'Password',
+                  labelName: AppString.password.tr(),
                   icon: Iconsax.password_check,
                   validator: (value) {
                     if (value!.length < 8) {
-                      return 'Password must be longer than 8 characters';
+                      return AppString.enterCorrectPass.tr();
                     }
                     return null;
                   },
@@ -126,7 +128,7 @@ class _CustomLoginScreenState extends State<CustomLoginScreen> {
                         Navigator.pushNamed(context, AppRoutes.forgetPassword);
                       },
                       child: Text(
-                        'Forgot password ?',
+                        AppString.forgetPassword.tr(),
                         style: AppTextStyles.font22OrangeRegular
                             .copyWith(fontSize: 15),
                       ))
@@ -134,7 +136,7 @@ class _CustomLoginScreenState extends State<CustomLoginScreen> {
               ),
               const Expanded(child: SizedBox()),
               CustomBottom(
-                  text: 'Login now',
+                  text: AppString.login.tr(),
                   onPressed: () {
                     if (formKey.currentState!.validate()) {
                       formKey.currentState!.save();

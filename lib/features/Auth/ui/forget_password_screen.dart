@@ -1,5 +1,7 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:food_recipes_app/core/helpers/app_string.dart';
 import 'package:food_recipes_app/core/helpers/spacing.dart';
 import 'package:food_recipes_app/core/routing/app_routes.dart';
 import 'package:food_recipes_app/core/theming/app_colors.dart';
@@ -53,7 +55,7 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12)),
                 title: Text(
-                  'Link sent to your email',
+                  AppString.sendLinkSuccess.tr(),
                   style: AppTextStyles.font65WhiteRegular
                       .copyWith(fontSize: 20, color: AppColors.black),
                   textAlign: TextAlign.center,
@@ -61,7 +63,7 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                 content: SizedBox(
                   height: MediaQuery.of(context).size.height * .08,
                   child: CustomBottom(
-                    text: 'Okay',
+                    text: AppString.letStart.tr(),
                     onPressed: () {
                       Navigator.pop(context);
                       Navigator.pushReplacementNamed(context, AppRoutes.auth);
@@ -81,7 +83,7 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12)),
                 title: Text(
-                  'Link not sent to your email',
+                  AppString.sendLinkFailed.tr(),
                   style: AppTextStyles.font65WhiteRegular
                       .copyWith(fontSize: 20, color: AppColors.black),
                   textAlign: TextAlign.center,
@@ -89,7 +91,7 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                 content: SizedBox(
                   height: MediaQuery.of(context).size.height * .08,
                   child: CustomBottom(
-                    text: 'Try Again',
+                    text: AppString.tryAgain.tr(),
                     onPressed: () {
                       Navigator.pop(context);
                     },
@@ -119,7 +121,7 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                 verticalSpace(10),
                 Padding(
                   padding: const EdgeInsets.only(left: 15.0),
-                  child: Text('Forget password',
+                  child: Text(AppString.forgetPassword.tr(),
                       style: AppTextStyles.font34BlackRegular),
                 ),
                 verticalSpace(20),
@@ -130,17 +132,17 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                       CustomTextFormField(
                           isObscured: false,
                           obscurePassword: false,
-                          labelName: 'Email address',
+                          labelName: AppString.emailAddress.tr(),
                           icon: Iconsax.personalcard,
                           validator: (value) {
                             if (value == null || value.trim().isEmpty) {
-                              return 'Please Enter your Email ';
+                              return AppString.enterValidEmail.tr();
                             }
                             var emailValid = RegExp(
                                     r"^[a-zA-Z0-9.a-zA-Z0-9!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
                                 .hasMatch(value);
                             if (!emailValid) {
-                              return 'Please enter your real email address';
+                              return AppString.enterValidEmail.tr();
                             }
                             return null;
                           },
@@ -148,7 +150,7 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                       verticalSpace(20),
                       Center(
                           child: CustomBottom(
-                              text: 'Send Link',
+                              text: AppString.sendLink.tr(),
                               onPressed: () {
                                 if (formKey.currentState!.validate()) {
                                   formKey.currentState!.save();
