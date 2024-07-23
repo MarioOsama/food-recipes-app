@@ -1,5 +1,7 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../../../../core/helpers/app_string.dart';
 import '../../../../../../core/routing/app_routes.dart';
 import '../../../../../../core/theming/app_colors.dart';
 import '../../../cubit/profile_cubit.dart';
@@ -35,8 +37,8 @@ class _ProfileViewBodyState extends State<ProfileViewBody> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // * App Bar
-          const CustomAppBar(
-            title: "My profile",
+          CustomAppBar(
+            title: AppString.myProfile.tr(),
           ),
           // * Personal Details Profile Section
           const Expanded(child: PersonalDetailsProfile()),
@@ -50,7 +52,7 @@ class _ProfileViewBodyState extends State<ProfileViewBody> {
             children: [
               Expanded(
                   child: CustomBtn(
-                title: "Delete Profile",
+                title: AppString.deleteProfile.tr(),
                 color: AppColors.red,
                 onTap: () {
                   Navigator.pushNamed(context, AppRoutes.deleteUser);
