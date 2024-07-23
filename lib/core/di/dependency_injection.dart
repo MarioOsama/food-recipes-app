@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:food_recipes_app/core/network/meal_api_service.dart';
-import 'package:food_recipes_app/features/auth/logic/auth_cubit.dart';
+import 'package:food_recipes_app/features/Auth/logic/auth_cubit.dart';
 import 'package:food_recipes_app/features/favourite/data/repos/favourite_repo.dart';
 import 'package:food_recipes_app/features/search/data/repos/meals_repo.dart';
 import 'package:food_recipes_app/features/search/logic/cubit/search_cubit.dart';

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:food_recipes_app/core/models/recipe_item_model.dart';
+import 'package:food_recipes_app/features/Auth/logic/auth_cubit.dart';
 import 'package:food_recipes_app/features/Auth/ui/auth_screen.dart';
 import 'package:food_recipes_app/features/Auth/ui/forget_password_screen.dart';
 import 'package:food_recipes_app/features/favourite/data/logic/cubit/favourite_cubit.dart';
@@ -19,7 +20,6 @@ import 'package:food_recipes_app/features/home/logic/cubit/home_cubit.dart';
 import 'package:food_recipes_app/features/home/ui/home_screen.dart';
 import 'package:food_recipes_app/features/see_more/logic/cubit/see_more_cubit.dart';
 import 'package:food_recipes_app/features/see_more/ui/see_more_screen.dart';
-import 'package:food_recipes_app/features/auth/logic/auth_cubit.dart';
 
 class AppRouter {
   final bool isFirstTime;

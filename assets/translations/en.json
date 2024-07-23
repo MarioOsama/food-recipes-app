@@ -4,5 +4,12 @@
     "Cocktails": "Cocktails",
     "See More": "See More",
     "Ingredients": "Ingredients",
-    "steps": "How to prepare"
+    "steps": "How to prepare",
+    "Itemnotfound": "Item not found",
+    "Favourite": "Favourite",
+    "Nothaveanyfavourites": "Not have any favourites",
+    "Deleteallitems": "Delete all items",
+    "Search": "Search",
+    "Trysearchingtheitemwithadifferentkeyword": "Try searching the item with a different keyword.",
+    "Startyoursearch": "Start your search"
 }

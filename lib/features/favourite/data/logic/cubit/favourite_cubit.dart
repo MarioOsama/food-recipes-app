@@ -9,8 +9,7 @@ class FavouriteCubit extends Cubit<FavouriteState> {
   FavouriteCubit(this.mealApiService) : super(const FavouriteState.initial());
   List<Meals> favouriteMeals = [];
 
-  Future<void> getFavouriteMeals() async {  
-    await setFavoritesIds("52795");
+  Future<void> getFavouriteMeals() async {
     emit(const FavouriteState.loading());
     try {
       for (String i in await getFavoritesIds()) {

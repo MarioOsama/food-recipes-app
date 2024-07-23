@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:food_recipes_app/core/helpers/spacing.dart';
 import 'package:food_recipes_app/core/models/meals_response.dart';
@@ -13,7 +14,7 @@ class AppFavouriteBody extends StatelessWidget {
       verticalSpace(50),
        AppFavouriteListView(meals: meals,),
       verticalSpace(30),
-      AppButton(text: "Delete all items", onTap: () async {})
+      AppButton(text: "Deleteallitems".tr(), onTap: () async {})
     ]);
   }
 }

@@ -1,7 +1,9 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_recipes_app/core/theming/app_colors.dart';
 import 'package:food_recipes_app/core/theming/app_text_styles.dart';
+
 
 class AppSearchBar extends StatelessWidget {
   const AppSearchBar({super.key, this.onSubmitted});
@@ -17,7 +19,7 @@ class AppSearchBar extends StatelessWidget {
         ),
         onSubmitted: onSubmitted,
         decoration: InputDecoration(
-          hintText: 'Search',
+          hintText: 'Search'.tr(),
           hintStyle: AppTextStyles.font15DarkGreyRegular,
           prefixIcon:const Icon(Icons.search),
           fillColor: AppColors.lightGrey,

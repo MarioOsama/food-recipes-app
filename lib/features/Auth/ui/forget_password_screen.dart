@@ -5,8 +5,8 @@ import 'package:food_recipes_app/core/routing/app_routes.dart';
 import 'package:food_recipes_app/core/theming/app_colors.dart';
 import 'package:food_recipes_app/core/theming/app_text_styles.dart';
 import 'package:food_recipes_app/core/widgets/custom_bottom.dart';
-import 'package:food_recipes_app/features/auth/logic/auth_cubit.dart';
-import 'package:food_recipes_app/features/auth/ui/widgets/custom_text_form_field.dart';
+import 'package:food_recipes_app/features/Auth/logic/auth_cubit.dart';
+import 'package:food_recipes_app/features/Auth/ui/widgets/custom_text_form_field.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 
