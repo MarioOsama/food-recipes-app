@@ -18,6 +18,11 @@ import 'package:food_recipes_app/features/home/logic/cubit/home_cubit.dart';
 import 'package:food_recipes_app/features/home/ui/home_screen.dart';
 import 'package:food_recipes_app/features/see_more/logic/cubit/see_more_cubit.dart';
 import 'package:food_recipes_app/features/see_more/ui/see_more_screen.dart';
+import 'package:food_recipes_app/feature/Auth/logic/auth_cubit.dart';
+import 'package:food_recipes_app/feature/Auth/ui/auth_screen.dart';
+import 'package:food_recipes_app/feature/Auth/ui/forget_password_screen.dart';
+import 'package:food_recipes_app/feature/initial/ui/get_started_screen.dart';
+import 'package:food_recipes_app/feature/settings/preferances_screen.dart';
 
 class AppRouter {
   final bool isFirstTime;
@@ -73,12 +78,19 @@ class AppRouter {
       case AppRoutes.favorites:
         return MaterialPageRoute(
             builder: (_) => BlocProvider(
-                  create: (context) => FavouriteCubit(getIt())..getFavouriteMeals(),
+                  create: (context) =>
+                      FavouriteCubit(getIt())..getFavouriteMeals(),
                   child: const FavouriteScreen(),
                 ));
       case AppRoutes.contactUs:
         return MaterialPageRoute(builder: (_) => const ContactUsScreen());
-
+      case AppRoutes.forgetPassword:
+        return CupertinoPageRoute(
+          builder: (context) => BlocProvider(
+            create: (context) => AuthCubit(),
+            child: const ForgetPasswordScreen(),
+          ),
+        );
       default:
         return null;
     }
