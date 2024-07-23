@@ -1,10 +1,10 @@
 import 'dart:developer';
-
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../../../../core/helpers/app_string.dart';
 import '../../../../../../core/routing/app_routes.dart';
 import '../../../../../../core/theming/app_colors.dart';
-import '../../../../../../core/theming/app_text_styles.dart';
 import '../../../cubit/profile_cubit.dart';
 import '../../../widgets/custom_app_bar.dart';
 import '../../../widgets/custom_btn.dart';
@@ -41,8 +41,8 @@ class _EditProfileViewBodyState extends State<EditProfileViewBody> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // * App Bar
-            const CustomAppBar(
-              title: "My profile",
+            CustomAppBar(
+              title: AppString.myProfile.tr(),
             ),
             // * Personal Details Edit Profile Section
             const PersonalDetailsEditProfile(),
@@ -74,7 +74,7 @@ class _EditProfileViewBodyState extends State<EditProfileViewBody> {
                   builder: (context, state) {
                     return CustomBtn(
                       isLoading: state is EditProfileLoading ? true : false,
-                      title: "Save Changes",
+                      title: AppString.saveChanges.tr(),
                       color: AppColors.orange,
                       onTap: () {
                         if (keyForm.currentState?.validate() ?? false) {
