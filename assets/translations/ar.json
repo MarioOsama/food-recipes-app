@@ -5,6 +5,22 @@
     "See More": "المزيد",
     "Ingredients": "المكونات",
     "steps": "طريقة التحضير",
+    "resetPassword": "إعادة تعيين كلمة المرور",
+    "deleteProfile": "حذف الحساب",
+    "currentPassword": "كلمة المرور الحالية",
+    "newPassword": "كلمة المرور الجديدة",
+    "reNewPassword": "تأكيد كلمة المرور الجديدة",
+    "myprofile": "ملفي الشخصي",
+    "personalDetails": "تفاصيل شخصية",
+    "editProfile": "تعديل الملف الشخصي",
+    "preferences": "التفضيلات",
+    "contactUs": "اتصل بنا",
+    "myProfile": "ملفي الشخصي",
+    "userName": "اسم المستخدم",
+    "email": "البريد الإلكتروني",
+    "phoneNumber": "رقم الهاتف",
+    "saveChanges": "حفظ التغييرات",
+    "warningUser": "هل أنت متأكد أنك تريد حذف حسابك؟ لا يمكن التراجع عن هذه العملية."
     "Favourite": "المفضلة",
     "Nothaveanyfavourites": "ليس لديك اي مفضلة",
     "Deleteallitems": "حذف جميع العناصر",
@@ -38,6 +54,4 @@
     "language": "اللغة",
     "preferances": "المفضلات",
     "Save preferences": "حفظ المفضلات"
-}
-
 }

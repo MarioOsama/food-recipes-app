@@ -12,4 +12,5 @@ class AppRoutes {
   static const String preferences = '/preferences';
   static const String resetPassword = '/reset password';
   static const String contactUs = '/contact us';
+  static const String deleteUser = '/delete user';
 }

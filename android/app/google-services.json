@@ -7,6 +7,25 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:566952110829:android:e24c5f173d3b0a603ffae4",
+        "android_client_info": {
+          "package_name": "com.example.food_recipes"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAVOyTc0Zany8OJNiSnTWKpWoDmrx5m6yM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:566952110829:android:7375c19c7e0d82bf3ffae4",
         "android_client_info": {
           "package_name": "com.example.food_recipes_app"
