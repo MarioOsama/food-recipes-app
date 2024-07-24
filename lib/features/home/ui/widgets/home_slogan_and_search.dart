@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_recipes_app/core/helpers/app_string.dart';
@@ -14,8 +15,8 @@ class HomeSloganAndSearch extends StatelessWidget {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text(
-          AppString.deliciousFood,
+        Text(
+          AppString.deliciousFood.tr(),
           style: AppTextStyles.font34BlackRegular,
         ),
         const Spacer(),

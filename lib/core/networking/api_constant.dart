@@ -6,4 +6,5 @@ class ApiConstant {
   static const String categories = 'categories.php';
   static const String list = 'list.php';
   static const String filter = 'filter.php';
+  static const String search = 'lookup.php';
 }

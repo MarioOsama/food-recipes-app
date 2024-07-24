@@ -23,4 +23,9 @@ abstract class CocktailApiServices {
   Future<CocktailFilterResponseModel> getFilteredData(
     @Query('c') String category,
   );
+
+  @GET(ApiConstant.search)
+  Future<CocktailResponseModel> getByID(
+    @Query('i') String id,
+  );
 }

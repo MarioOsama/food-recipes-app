@@ -7,12 +7,14 @@ import 'package:food_recipes_app/features/see_more/ui/widgets/see_more_header.da
 import 'package:food_recipes_app/features/see_more/ui/widgets/see_more_items_container.dart';
 
 class SeeMoreScreen extends StatelessWidget {
-  const SeeMoreScreen({super.key});
+  const SeeMoreScreen({super.key, required this.categoryName});
+
+  final String categoryName;
 
   @override
   Widget build(BuildContext context) {
     // Get screen data
-    context.read<SeeMoreCubit>().getFoodData();
+    context.read<SeeMoreCubit>().getSeeMoreData(categoryName);
 
     return Scaffold(
       backgroundColor: AppColors.grey,

@@ -1,4 +1,6 @@
-import 'package:bloc/bloc.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:food_recipes_app/core/helpers/app_string.dart';
 import 'package:food_recipes_app/core/models/cocktail_response_model.dart';
 import 'package:food_recipes_app/core/models/food_response_model.dart';
 import 'package:food_recipes_app/core/models/recipe_item_model.dart';
@@ -11,7 +13,7 @@ class HomeCubit extends Cubit<HomeState> {
   final HomeRepo _homeRepo;
 
   // Home sections title
-  final List<String> titles = ['Foods', 'Cocktails'];
+  final List<String> titles = [AppString.foods.tr(), AppString.cocktails.tr()];
 
   List<RecipeItemModel> meals = [];
 
@@ -34,9 +36,16 @@ class HomeCubit extends Cubit<HomeState> {
       final MealModel randomMeal = await _homeRepo.getRandomFoodRecipe();
       meals.add(
         RecipeItemModel(
+          id: randomMeal.id,
           title: randomMeal.name,
           subtitle: randomMeal.country,
           imageUrl: randomMeal.imageUrl,
+          category: randomMeal.category,
+          steps: randomMeal.steps,
+          ingredients: randomMeal.ingredientsList,
+          measures: randomMeal.measuresList,
+          youTubeVideoUrl: randomMeal.youTubeVideoUrl,
+          tags: randomMeal.tags,
         ),
       );
       // Get and store the random cocktail recipe
@@ -44,9 +53,17 @@ class HomeCubit extends Cubit<HomeState> {
           await _homeRepo.getRandomCocktailRecipe();
       cocktails.add(
         RecipeItemModel(
+          id: randomCocktail.id,
           title: randomCocktail.name,
           subtitle: randomCocktail.category,
           imageUrl: randomCocktail.imageUrl,
+          category: randomCocktail.category,
+          steps: randomCocktail.steps,
+          ingredients: randomCocktail.ingredientsList,
+          measures: randomCocktail.measuresList,
+          youTubeVideoUrl: randomCocktail.youTubeVideoUrl,
+          tags: randomCocktail.tags,
+          glass: randomCocktail.glass,
         ),
       );
     }

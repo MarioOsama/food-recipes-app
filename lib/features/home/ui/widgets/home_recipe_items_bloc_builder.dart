@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:food_recipes_app/core/theming/app_colors.dart';
 import 'package:food_recipes_app/core/models/recipe_item_model.dart';
+import 'package:food_recipes_app/core/widgets/shimmer_recipe_item.dart';
 import 'package:food_recipes_app/features/home/logic/cubit/home_cubit.dart';
 import 'package:food_recipes_app/features/home/logic/cubit/home_state.dart';
 import 'package:food_recipes_app/features/home/ui/widgets/home_recipe_item.dart';
@@ -64,9 +64,26 @@ class HomeRecipeItemsBlocBuilder extends StatelessWidget {
   }
 
   _setupLoading() {
-    return const Center(
-      child: CircularProgressIndicator(
-        color: AppColors.orange,
+    return Padding(
+      padding: EdgeInsets.only(left: 15.w),
+      child: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Row(
+          children: _getShimmerItems(),
+        ),
+      ),
+    );
+  }
+
+  _getShimmerItems() {
+    return List.generate(
+      5,
+      (index) => Padding(
+        padding: EdgeInsets.only(right: 15.w),
+        child: const ShimmerRecipeItem(
+          baseColor: Colors.grey,
+          highlightColor: Colors.white,
+        ),
       ),
     );
   }

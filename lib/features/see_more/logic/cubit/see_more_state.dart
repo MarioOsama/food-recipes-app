@@ -21,7 +21,6 @@ final class SeeMoreCategoriesError extends SeeMoreState {
 }
 
 // Recipes
-
 final class SeeMoreRecipesLoading extends SeeMoreState {}
 
 final class SeeMoreRecipesSuccess extends SeeMoreState {
