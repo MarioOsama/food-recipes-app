@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_recipes_app/core/helpers/spacing.dart';
 import 'package:food_recipes_app/core/models/meals_response.dart';
 import 'package:food_recipes_app/core/theming/app_colors.dart';
 import 'package:food_recipes_app/core/theming/app_text_styles.dart';
+import 'package:food_recipes_app/features/favourite/data/logic/cubit/favourite_cubit.dart';
 
 class AppFavouriteListItem extends StatelessWidget {
   const AppFavouriteListItem({super.key, required this.meal});
@@ -13,7 +15,9 @@ class AppFavouriteListItem extends StatelessWidget {
     return Center(
       child: Dismissible(
         onDismissed: (direction) {
-          if (direction == DismissDirection.endToStart) {}
+          if (direction == DismissDirection.endToStart) {
+            context.read<FavouriteCubit>().deleteFavorite(meal.idMeal);
+          }
         },
         key: UniqueKey(),
         direction: DismissDirection.endToStart,

@@ -48,7 +48,9 @@ class SearchScreen extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(vertical: 20),
                   child: Row(children: [
                     IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
                         icon: const Icon(Icons.arrow_back_ios)),
                     horizontalSpace(15),
                     AppSearchBar(
