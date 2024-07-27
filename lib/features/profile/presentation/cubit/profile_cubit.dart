@@ -144,7 +144,7 @@ class ProfileCubit extends Cubit<ProfileState> {
     } catch (e) {
       log(e.toString());
       emit(ResetPasswordFailure(
-          msg: "Please make sure that the information entered is correct"));
+          msg: "Please make sure that the entered password is correct"));
     }
   }
 

@@ -31,6 +31,7 @@ class HomeCubit extends Cubit<HomeState> {
 
   /// Get [numberOfRecipes] random food and cocktail recipes
   void getHomeRecipes(int numberOfRecipes) async {
+    if (meals.isNotEmpty) return;
     for (int i = 0; i < numberOfRecipes; i++) {
       // Get and store the random food recipe
       final MealModel randomMeal = await _homeRepo.getRandomFoodRecipe();

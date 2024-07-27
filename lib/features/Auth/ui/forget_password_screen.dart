@@ -2,13 +2,14 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_recipes_app/core/helpers/app_string.dart';
+import 'package:food_recipes_app/core/helpers/extensions.dart';
 import 'package:food_recipes_app/core/helpers/spacing.dart';
 import 'package:food_recipes_app/core/routing/app_routes.dart';
 import 'package:food_recipes_app/core/theming/app_colors.dart';
 import 'package:food_recipes_app/core/theming/app_text_styles.dart';
-import 'package:food_recipes_app/core/widgets/custom_bottom.dart';
 import 'package:food_recipes_app/features/Auth/logic/auth_cubit.dart';
 import 'package:food_recipes_app/features/Auth/ui/widgets/custom_text_form_field.dart';
+import 'package:food_recipes_app/features/favourite/ui/widgets/app_button.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 
@@ -62,9 +63,9 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                 ),
                 content: SizedBox(
                   height: MediaQuery.of(context).size.height * .08,
-                  child: CustomBottom(
+                  child: AppButton(
                     text: AppString.letStart.tr(),
-                    onPressed: () {
+                    onTap: () {
                       Navigator.pop(context);
                       Navigator.pushReplacementNamed(context, AppRoutes.auth);
                     },
@@ -90,11 +91,9 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                 ),
                 content: SizedBox(
                   height: MediaQuery.of(context).size.height * .08,
-                  child: CustomBottom(
+                  child: AppButton(
                     text: AppString.tryAgain.tr(),
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
+                    onTap: () => context.pop(),
                   ),
                 ),
               );
@@ -149,9 +148,9 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                           controller: forgetPassController),
                       verticalSpace(20),
                       Center(
-                          child: CustomBottom(
+                          child: AppButton(
                               text: AppString.sendLink.tr(),
-                              onPressed: () {
+                              onTap: () {
                                 if (formKey.currentState!.validate()) {
                                   formKey.currentState!.save();
                                   context.read<AuthCubit>().forgotPassword(

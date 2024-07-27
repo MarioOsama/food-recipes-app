@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:food_recipes_app/core/helpers/extensions.dart';
 import 'package:food_recipes_app/core/helpers/spacing.dart';
-import 'package:food_recipes_app/core/theming/app_colors.dart';
 import 'package:food_recipes_app/features/favourite/ui/widgets/FavouriteShimmerItem.dart';
 import 'package:food_recipes_app/features/search/logic/cubit/search_cubit.dart';
 import 'package:food_recipes_app/features/search/logic/cubit/search_state.dart';
@@ -11,7 +9,6 @@ import 'package:food_recipes_app/features/search/ui/widgets/app_search_bar.dart'
 import 'package:food_recipes_app/features/search/ui/widgets/app_search_body.dart';
 import 'package:food_recipes_app/features/search/ui/widgets/items_not_found.dart';
 import 'package:food_recipes_app/features/search/ui/widgets/start_search.dart';
-import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 class SearchScreen extends StatelessWidget {
   const SearchScreen({super.key});
@@ -74,7 +71,8 @@ class SearchScreen extends StatelessWidget {
 
 Widget getShimmerItems() {
   return ListView.builder(
-      itemCount: 10, itemBuilder: (context, index) => FavouriteShimmerItem());
+      itemCount: 10,
+      itemBuilder: (context, index) => const FavouriteShimmerItem());
 }
 
 Widget setupLoading(context) {

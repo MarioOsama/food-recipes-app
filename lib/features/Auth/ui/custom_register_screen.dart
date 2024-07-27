@@ -2,13 +2,13 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:food_recipes_app/core/helpers/app_string.dart';
 import 'package:food_recipes_app/core/helpers/spacing.dart';
-import 'package:food_recipes_app/core/widgets/custom_bottom.dart';
 import 'package:food_recipes_app/features/Auth/logic/auth_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_recipes_app/core/routing/app_routes.dart';
 import 'package:food_recipes_app/core/theming/app_colors.dart';
 import 'package:food_recipes_app/core/theming/app_text_styles.dart';
 import 'package:food_recipes_app/features/Auth/ui/widgets/custom_text_form_field.dart';
+import 'package:food_recipes_app/features/favourite/ui/widgets/app_button.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 
@@ -55,7 +55,7 @@ class _CustomRegisterScreenState extends State<CustomRegisterScreen> {
       if (state is AuthRegisterSuccess) {
         Navigator.pop(context);
         FocusManager.instance.primaryFocus?.unfocus();
-        Navigator.pushReplacementNamed(context, AppRoutes.home);
+        Navigator.pushReplacementNamed(context, AppRoutes.mainScreen);
       }
       if (state is AuthRegisterError) {
         Navigator.pop(context);
@@ -73,11 +73,9 @@ class _CustomRegisterScreenState extends State<CustomRegisterScreen> {
               ),
               content: SizedBox(
                 height: MediaQuery.of(context).size.height * .08,
-                child: CustomBottom(
+                child: AppButton(
                   text: AppString.tryAgain.tr(),
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
+                  onTap: () => Navigator.pop(context),
                 ),
               ),
             );
@@ -154,9 +152,9 @@ class _CustomRegisterScreenState extends State<CustomRegisterScreen> {
                   },
                   controller: passwordController),
               const Expanded(child: SizedBox()),
-              CustomBottom(
+              AppButton(
                   text: AppString.register.tr(),
-                  onPressed: () {
+                  onTap: () {
                     if (formKey.currentState!.validate()) {
                       formKey.currentState!.save();
                       context.read<AuthCubit>().signUpAuth(

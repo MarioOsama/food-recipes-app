@@ -16,7 +16,6 @@ class AppString {
   static const String newPassword = 'newPassword';
   static const String reNewPassword = 'reNewPassword';
   static const String myProfile = 'myprofile';
-  static const String personalDetails = 'personalDetails';
   static const String editProfile = 'editProfile';
   static const String preferences = 'preferences';
   static const String contactUs = 'contactUs';
@@ -33,7 +32,6 @@ class AppString {
   static const String password = "Password";
   static const String forgetPassword = "forget Password";
   static const String name = "name";
-  static const String phoneNumber = "phone number";
   static const String sendLink = "send link";
   static const String enterValidEmail = "enter your email";
   static const String enterValidName = "enter your name";

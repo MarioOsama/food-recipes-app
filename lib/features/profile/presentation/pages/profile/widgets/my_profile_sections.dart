@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:food_recipes_app/core/helpers/extensions.dart';
 import '../../../../../../core/helpers/app_string.dart';
 import '../../../../../../core/routing/app_routes.dart';
 import '../../../../data/models/m_profile_sections.dart';
@@ -13,19 +14,26 @@ class MyProfileSections extends StatelessWidget {
       ProfileSectionsModel(
         title: AppString.editProfile.tr(),
         onTap: () {
-          Navigator.pushNamed(context, AppRoutes.editProfile);
+          context.pushNamed(AppRoutes.editProfile);
         },
       ),
       ProfileSectionsModel(
         title: AppString.preferences.tr(),
+        onTap: () {
+          context.pushNamed(AppRoutes.preferences);
+        },
       ),
       ProfileSectionsModel(
         title: AppString.resetPassword.tr(),
         onTap: () {
-          Navigator.pushNamed(context, AppRoutes.resetPassword);
+          context.pushNamed(AppRoutes.resetPassword);
         },
       ),
-      ProfileSectionsModel(title: AppString.contactUs.tr())
+      ProfileSectionsModel(
+          title: AppString.contactUs.tr(),
+          onTap: () {
+            context.pushNamed(AppRoutes.contactUs);
+          })
     ];
 
     return Column(

@@ -4,7 +4,8 @@ import 'package:food_recipes_app/core/helpers/app_string.dart';
 import 'package:food_recipes_app/core/helpers/spacing.dart';
 import 'package:food_recipes_app/core/theming/app_colors.dart';
 import 'package:food_recipes_app/core/theming/app_text_styles.dart';
-import 'package:food_recipes_app/core/widgets/custom_bottom.dart';
+import 'package:food_recipes_app/features/favourite/ui/widgets/app_button.dart';
+import 'package:food_recipes_app/features/profile/presentation/widgets/custom_app_bar.dart';
 
 class PreferencesScreen extends StatefulWidget {
   const PreferencesScreen({super.key});
@@ -31,24 +32,11 @@ class _PreferencesScreenState extends State<PreferencesScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            verticalSpace(30),
-            IconButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              icon: const Icon(Icons.arrow_back_ios_rounded,
-                  color: AppColors.black, size: 20),
-            ),
-            verticalSpace(10),
-            Padding(
-              padding: const EdgeInsets.only(left: 15.0),
-              child: Text(AppString.preferances.tr(),
-                  style: AppTextStyles.font34BlackRegular),
-            ),
+            CustomAppBar(title: AppString.preferances.tr()),
             verticalSpace(20),
             Center(
               child: Container(
-                width: MediaQuery.of(context).size.width * 0.85,
+                width: MediaQuery.of(context).size.width * 0.9,
                 height: 70,
                 decoration: BoxDecoration(
                   color: AppColors.white,
@@ -79,7 +67,7 @@ class _PreferencesScreenState extends State<PreferencesScreen> {
             verticalSpace(20),
             Center(
               child: Container(
-                width: MediaQuery.of(context).size.width * 0.85,
+                width: MediaQuery.of(context).size.width * 0.9,
                 height: 70,
                 decoration: BoxDecoration(
                   color: AppColors.white,
@@ -113,8 +101,8 @@ class _PreferencesScreenState extends State<PreferencesScreen> {
             ),
             const Expanded(child: SizedBox()),
             Center(
-                child: CustomBottom(
-                    text: AppString.savePreferences.tr(), onPressed: () {}))
+                child: AppButton(
+                    text: AppString.savePreferences.tr(), onTap: () {}))
           ],
         ),
       ),

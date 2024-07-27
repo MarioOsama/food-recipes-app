@@ -10,6 +10,7 @@ class FavouriteCubit extends Cubit<FavouriteState> {
   List<Meals> favouriteMeals = [];
 
   Future<void> getFavouriteMeals() async {
+    if (favouriteMeals.isNotEmpty) return;
     emit(const FavouriteState.loading());
     try {
       for (String i in await getFavoritesIds()) {

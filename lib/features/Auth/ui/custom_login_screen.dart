@@ -6,9 +6,9 @@ import 'package:food_recipes_app/core/routing/app_routes.dart';
 import 'package:food_recipes_app/core/theming/app_colors.dart';
 import 'package:food_recipes_app/core/theming/app_text_styles.dart';
 import 'package:food_recipes_app/core/helpers/spacing.dart';
-import 'package:food_recipes_app/core/widgets/custom_bottom.dart';
 import 'package:food_recipes_app/features/Auth/logic/auth_cubit.dart';
 import 'package:food_recipes_app/features/Auth/ui/widgets/custom_text_form_field.dart';
+import 'package:food_recipes_app/features/favourite/ui/widgets/app_button.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 
@@ -51,7 +51,7 @@ class _CustomLoginScreenState extends State<CustomLoginScreen> {
       if (state is AuthLoginSuccess) {
         Navigator.pop(context);
         FocusManager.instance.primaryFocus?.unfocus();
-        Navigator.pushReplacementNamed(context, AppRoutes.home);
+        Navigator.pushReplacementNamed(context, AppRoutes.mainScreen);
       }
       if (state is AuthLoginError) {
         Navigator.pop(context);
@@ -69,11 +69,9 @@ class _CustomLoginScreenState extends State<CustomLoginScreen> {
               ),
               content: SizedBox(
                 height: MediaQuery.of(context).size.height * .08,
-                child: CustomBottom(
+                child: AppButton(
                   text: AppString.tryAgain.tr(),
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
+                  onTap: () => Navigator.pop(context),
                 ),
               ),
             );
@@ -135,9 +133,9 @@ class _CustomLoginScreenState extends State<CustomLoginScreen> {
                 ],
               ),
               const Expanded(child: SizedBox()),
-              CustomBottom(
+              AppButton(
                   text: AppString.login.tr(),
-                  onPressed: () {
+                  onTap: () {
                     if (formKey.currentState!.validate()) {
                       formKey.currentState!.save();
                       context.read<AuthCubit>().logInAuth(

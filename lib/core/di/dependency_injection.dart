@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:food_recipes_app/core/network/meal_api_service.dart';
 import 'package:food_recipes_app/features/Auth/logic/auth_cubit.dart';
+import 'package:food_recipes_app/features/favourite/data/logic/cubit/favourite_cubit.dart';
 import 'package:food_recipes_app/features/favourite/data/repos/favourite_repo.dart';
 import 'package:food_recipes_app/features/search/data/repos/meals_repo.dart';
 import 'package:food_recipes_app/features/search/logic/cubit/search_cubit.dart';
@@ -23,16 +24,15 @@ Future<void> setupGetIt() async {
   getIt.registerLazySingleton<FoodApiServices>(() => FoodApiServices(dio));
   getIt.registerLazySingleton<CocktailApiServices>(
       () => CocktailApiServices(dio));
-//search
   getIt.registerLazySingleton<MealApiService>(() => MealApiService(dio));
-  getIt.registerLazySingleton<MealsRepo>(() => MealsRepo(getIt()));
-  getIt.registerFactory<SearchCubit>(() => SearchCubit(getIt()));
 
   // Cubits
   getIt.registerFactory<HomeCubit>(() => HomeCubit(getIt()));
   getIt.registerFactory<SeeMoreCubit>(() => SeeMoreCubit(getIt()));
   getIt.registerFactory<RecipeCubit>(() => RecipeCubit(getIt()));
   getIt.registerFactory<AuthCubit>(() => AuthCubit());
+  getIt.registerFactory<SearchCubit>(() => SearchCubit(getIt()));
+  getIt.registerFactory<FavouriteCubit>(() => FavouriteCubit(getIt()));
 
   // Repos
   getIt.registerLazySingleton<HomeRepo>(() => HomeRepo(
@@ -41,6 +41,6 @@ Future<void> setupGetIt() async {
       ));
   getIt.registerLazySingleton<SeeMoreRepo>(() => SeeMoreRepo(getIt(), getIt()));
   getIt.registerLazySingleton<RecipeRepo>(() => RecipeRepo(getIt(), getIt()));
-// favourite
   getIt.registerLazySingleton<FavouriteRepo>(() => FavouriteRepo(getIt()));
+  getIt.registerLazySingleton<MealsRepo>(() => MealsRepo(getIt()));
 }

@@ -55,9 +55,12 @@ class HomeRecipeItem extends StatelessWidget {
   Padding _buildItemImage() {
     return Padding(
       padding: EdgeInsets.only(bottom: 200.h),
-      child: CircleAvatar(
-        radius: 80.r,
-        backgroundImage: NetworkImage(recipe.imageUrl),
+      child: Hero(
+        tag: recipe.imageUrl,
+        child: CircleAvatar(
+          radius: 80.r,
+          backgroundImage: NetworkImage(recipe.imageUrl),
+        ),
       ),
     );
   }

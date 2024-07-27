@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_recipes_app/core/helpers/spacing.dart';
 import '../../../widgets/custom_app_bar.dart';
 import 'custom_btn_ress_pass_bloc_consumer.dart';
 import 'reset_password_data.dart';
@@ -10,7 +11,7 @@ class ResetPassViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 15),
+      padding: const EdgeInsets.symmetric(horizontal: 25),
       child: Form(
         key: keyForm,
         child: Column(
@@ -20,6 +21,7 @@ class ResetPassViewBody extends StatelessWidget {
             const CustomAppBar(
               title: "Reset Password",
             ),
+            verticalSpace(20),
             // * Reset Password Data Field
             const ResetPasswordData(),
             const Expanded(child: SizedBox()),

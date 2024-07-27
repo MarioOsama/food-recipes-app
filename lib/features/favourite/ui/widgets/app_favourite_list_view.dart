@@ -5,15 +5,17 @@ import 'package:food_recipes_app/features/favourite/ui/widgets/app_favourite_lis
 
 class AppFavouriteListView extends StatelessWidget {
   const AppFavouriteListView({super.key, required this.meals});
-final List<Meals> meals ;
+  final List<Meals> meals;
   @override
   Widget build(BuildContext context) {
-    return  SizedBox(
-      height: MediaQuery.of(context).size.height * 0.7,
+    return SizedBox(
+      height: MediaQuery.of(context).size.height * 0.68,
       child: ListView.separated(
         itemCount: meals.length,
         separatorBuilder: (context, index) => verticalSpace(20),
-        itemBuilder: (context, index) =>  AppFavouriteListItem(meal: meals[index],),
+        itemBuilder: (context, index) => AppFavouriteListItem(
+          meal: meals[index],
+        ),
       ),
     );
   }

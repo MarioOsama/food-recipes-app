@@ -12,22 +12,25 @@ class RecipeImage extends StatelessWidget {
     return SliverToBoxAdapter(
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 90.w),
-        child: Container(
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            boxShadow: [
-              BoxShadow(
-                color: AppColors.darkGrey.withOpacity(0.5),
-                offset: const Offset(0, 10),
-                blurRadius: 20,
-                spreadRadius: 1,
+        child: Hero(
+          tag: imageUrl,
+          child: Container(
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              boxShadow: [
+                BoxShadow(
+                  color: AppColors.darkGrey.withOpacity(0.5),
+                  offset: const Offset(0, 10),
+                  blurRadius: 20,
+                  spreadRadius: 1,
+                ),
+              ],
+            ),
+            child: CircleAvatar(
+              radius: 120,
+              backgroundImage: NetworkImage(
+                imageUrl,
               ),
-            ],
-          ),
-          child: CircleAvatar(
-            radius: 120,
-            backgroundImage: NetworkImage(
-              imageUrl,
             ),
           ),
         ),

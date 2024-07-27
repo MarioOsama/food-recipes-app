@@ -5,6 +5,7 @@ import 'package:food_recipes_app/features/Auth/ui/auth_screen.dart';
 import 'package:food_recipes_app/features/Auth/ui/forget_password_screen.dart';
 import 'package:food_recipes_app/features/favourite/data/logic/cubit/favourite_cubit.dart';
 import 'package:food_recipes_app/features/initial/ui/get_started_screen.dart';
+import 'package:food_recipes_app/features/profile/presentation/cubit/profile_cubit.dart';
 import 'package:food_recipes_app/features/recipe/logic/cubit/recipe_cubit.dart';
 import 'package:food_recipes_app/features/recipe/ui/recipe_screen.dart';
 import 'package:food_recipes_app/features/settings/preferances_screen.dart';
@@ -21,6 +22,7 @@ import 'package:food_recipes_app/features/home/ui/home_screen.dart';
 import 'package:food_recipes_app/features/profile/presentation/pages/delete_user/delete_user_view.dart';
 import 'package:food_recipes_app/features/see_more/logic/cubit/see_more_cubit.dart';
 import 'package:food_recipes_app/features/see_more/ui/see_more_screen.dart';
+import 'package:food_recipes_app/main_screen.dart';
 
 import '../../features/profile/presentation/pages/edit_profile/edit_profile_view.dart';
 import '../../features/profile/presentation/pages/profile/profile_view.dart';
@@ -43,6 +45,23 @@ class AppRouter {
           builder: (context) => BlocProvider<AuthCubit>(
             create: (context) => getIt<AuthCubit>(),
             child: const AuthScreen(),
+          ),
+        );
+      case AppRoutes.mainScreen:
+        return MaterialPageRoute(
+          builder: (context) => MultiBlocProvider(
+            providers: [
+              BlocProvider<HomeCubit>(
+                create: (context) => getIt<HomeCubit>(),
+              ),
+              BlocProvider<FavouriteCubit>(
+                create: (context) => getIt<FavouriteCubit>(),
+              ),
+              BlocProvider<ProfileCubit>(
+                create: (context) => getIt<ProfileCubit>(),
+              ),
+            ],
+            child: const MainScreen(),
           ),
         );
       case AppRoutes.preferences:
