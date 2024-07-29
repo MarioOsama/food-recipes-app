@@ -20,7 +20,8 @@ mixin _$FavouriteState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<Meals> data) success,
+    required TResult Function(List<Meals> data, List<CocktailModel> cocktail)
+        success,
     required TResult Function(String message) failure,
   }) =>
       throw _privateConstructorUsedError;
@@ -28,7 +29,7 @@ mixin _$FavouriteState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<Meals> data)? success,
+    TResult? Function(List<Meals> data, List<CocktailModel> cocktail)? success,
     TResult? Function(String message)? failure,
   }) =>
       throw _privateConstructorUsedError;
@@ -36,7 +37,7 @@ mixin _$FavouriteState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Meals> data)? success,
+    TResult Function(List<Meals> data, List<CocktailModel> cocktail)? success,
     TResult Function(String message)? failure,
     required TResult orElse(),
   }) =>
@@ -84,6 +85,9 @@ class _$FavouriteStateCopyWithImpl<$Res, $Val extends FavouriteState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of FavouriteState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -100,6 +104,9 @@ class __$$InitialImplCopyWithImpl<$Res>
   __$$InitialImplCopyWithImpl(
       _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of FavouriteState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -126,7 +133,8 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<Meals> data) success,
+    required TResult Function(List<Meals> data, List<CocktailModel> cocktail)
+        success,
     required TResult Function(String message) failure,
   }) {
     return initial();
@@ -137,7 +145,7 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<Meals> data)? success,
+    TResult? Function(List<Meals> data, List<CocktailModel> cocktail)? success,
     TResult? Function(String message)? failure,
   }) {
     return initial?.call();
@@ -148,7 +156,7 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Meals> data)? success,
+    TResult Function(List<Meals> data, List<CocktailModel> cocktail)? success,
     TResult Function(String message)? failure,
     required TResult orElse(),
   }) {
@@ -214,6 +222,9 @@ class __$$FavouriteLoadingImplCopyWithImpl<$Res>
   __$$FavouriteLoadingImplCopyWithImpl(_$FavouriteLoadingImpl _value,
       $Res Function(_$FavouriteLoadingImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of FavouriteState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -240,7 +251,8 @@ class _$FavouriteLoadingImpl implements FavouriteLoading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<Meals> data) success,
+    required TResult Function(List<Meals> data, List<CocktailModel> cocktail)
+        success,
     required TResult Function(String message) failure,
   }) {
     return loading();
@@ -251,7 +263,7 @@ class _$FavouriteLoadingImpl implements FavouriteLoading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<Meals> data)? success,
+    TResult? Function(List<Meals> data, List<CocktailModel> cocktail)? success,
     TResult? Function(String message)? failure,
   }) {
     return loading?.call();
@@ -262,7 +274,7 @@ class _$FavouriteLoadingImpl implements FavouriteLoading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Meals> data)? success,
+    TResult Function(List<Meals> data, List<CocktailModel> cocktail)? success,
     TResult Function(String message)? failure,
     required TResult orElse(),
   }) {
@@ -320,7 +332,7 @@ abstract class _$$FavouriteSuccessImplCopyWith<$Res> {
           $Res Function(_$FavouriteSuccessImpl) then) =
       __$$FavouriteSuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<Meals> data});
+  $Res call({List<Meals> data, List<CocktailModel> cocktail});
 }
 
 /// @nodoc
@@ -331,16 +343,23 @@ class __$$FavouriteSuccessImplCopyWithImpl<$Res>
       $Res Function(_$FavouriteSuccessImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of FavouriteState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? data = null,
+    Object? cocktail = null,
   }) {
     return _then(_$FavouriteSuccessImpl(
       null == data
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
               as List<Meals>,
+      null == cocktail
+          ? _value._cocktail
+          : cocktail // ignore: cast_nullable_to_non_nullable
+              as List<CocktailModel>,
     ));
   }
 }
@@ -348,7 +367,10 @@ class __$$FavouriteSuccessImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$FavouriteSuccessImpl implements FavouriteSuccess {
-  const _$FavouriteSuccessImpl(final List<Meals> data) : _data = data;
+  const _$FavouriteSuccessImpl(
+      final List<Meals> data, final List<CocktailModel> cocktail)
+      : _data = data,
+        _cocktail = cocktail;
 
   final List<Meals> _data;
   @override
@@ -358,9 +380,17 @@ class _$FavouriteSuccessImpl implements FavouriteSuccess {
     return EqualUnmodifiableListView(_data);
   }
 
+  final List<CocktailModel> _cocktail;
+  @override
+  List<CocktailModel> get cocktail {
+    if (_cocktail is EqualUnmodifiableListView) return _cocktail;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_cocktail);
+  }
+
   @override
   String toString() {
-    return 'FavouriteState.success(data: $data)';
+    return 'FavouriteState.success(data: $data, cocktail: $cocktail)';
   }
 
   @override
@@ -368,14 +398,19 @@ class _$FavouriteSuccessImpl implements FavouriteSuccess {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FavouriteSuccessImpl &&
-            const DeepCollectionEquality().equals(other._data, _data));
+            const DeepCollectionEquality().equals(other._data, _data) &&
+            const DeepCollectionEquality().equals(other._cocktail, _cocktail));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_data),
+      const DeepCollectionEquality().hash(_cocktail));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FavouriteState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$FavouriteSuccessImplCopyWith<_$FavouriteSuccessImpl> get copyWith =>
@@ -387,10 +422,11 @@ class _$FavouriteSuccessImpl implements FavouriteSuccess {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<Meals> data) success,
+    required TResult Function(List<Meals> data, List<CocktailModel> cocktail)
+        success,
     required TResult Function(String message) failure,
   }) {
-    return success(data);
+    return success(data, cocktail);
   }
 
   @override
@@ -398,10 +434,10 @@ class _$FavouriteSuccessImpl implements FavouriteSuccess {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<Meals> data)? success,
+    TResult? Function(List<Meals> data, List<CocktailModel> cocktail)? success,
     TResult? Function(String message)? failure,
   }) {
-    return success?.call(data);
+    return success?.call(data, cocktail);
   }
 
   @override
@@ -409,12 +445,12 @@ class _$FavouriteSuccessImpl implements FavouriteSuccess {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Meals> data)? success,
+    TResult Function(List<Meals> data, List<CocktailModel> cocktail)? success,
     TResult Function(String message)? failure,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success(data);
+      return success(data, cocktail);
     }
     return orElse();
   }
@@ -458,11 +494,16 @@ class _$FavouriteSuccessImpl implements FavouriteSuccess {
 }
 
 abstract class FavouriteSuccess implements FavouriteState {
-  const factory FavouriteSuccess(final List<Meals> data) =
+  const factory FavouriteSuccess(
+          final List<Meals> data, final List<CocktailModel> cocktail) =
       _$FavouriteSuccessImpl;
 
   List<Meals> get data;
-  @JsonKey(ignore: true)
+  List<CocktailModel> get cocktail;
+
+  /// Create a copy of FavouriteState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FavouriteSuccessImplCopyWith<_$FavouriteSuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -484,6 +525,8 @@ class __$$FavouriteErrorImplCopyWithImpl<$Res>
       _$FavouriteErrorImpl _value, $Res Function(_$FavouriteErrorImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of FavouriteState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -522,7 +565,9 @@ class _$FavouriteErrorImpl implements FavouriteError {
   @override
   int get hashCode => Object.hash(runtimeType, message);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FavouriteState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$FavouriteErrorImplCopyWith<_$FavouriteErrorImpl> get copyWith =>
@@ -534,7 +579,8 @@ class _$FavouriteErrorImpl implements FavouriteError {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<Meals> data) success,
+    required TResult Function(List<Meals> data, List<CocktailModel> cocktail)
+        success,
     required TResult Function(String message) failure,
   }) {
     return failure(message);
@@ -545,7 +591,7 @@ class _$FavouriteErrorImpl implements FavouriteError {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<Meals> data)? success,
+    TResult? Function(List<Meals> data, List<CocktailModel> cocktail)? success,
     TResult? Function(String message)? failure,
   }) {
     return failure?.call(message);
@@ -556,7 +602,7 @@ class _$FavouriteErrorImpl implements FavouriteError {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Meals> data)? success,
+    TResult Function(List<Meals> data, List<CocktailModel> cocktail)? success,
     TResult Function(String message)? failure,
     required TResult orElse(),
   }) {
@@ -608,7 +654,10 @@ abstract class FavouriteError implements FavouriteState {
   const factory FavouriteError(final String message) = _$FavouriteErrorImpl;
 
   String get message;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of FavouriteState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FavouriteErrorImplCopyWith<_$FavouriteErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

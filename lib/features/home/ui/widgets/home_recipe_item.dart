@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_recipes_app/core/helpers/extensions.dart';
 import 'package:food_recipes_app/core/routing/app_routes.dart';
@@ -56,10 +55,10 @@ class HomeRecipeItem extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(bottom: 200.h),
       child: Hero(
-        tag: recipe.imageUrl,
+        tag: recipe.imageUrl ?? '',
         child: CircleAvatar(
           radius: 80.r,
-          backgroundImage: NetworkImage(recipe.imageUrl),
+          backgroundImage: NetworkImage(recipe.imageUrl ?? ''),
         ),
       ),
     );

@@ -47,7 +47,7 @@ dependencies:
   validators: ^3.0.0
   image_picker: ^1.1.2
   firebase_storage: ^12.1.1
-  freezed: ^2.5.2
+  freezed: ^2.5.7
   freezed_annotation: ^2.4.3
   loading_animation_widget: ^1.2.1
   url_launcher: ^6.3.0

@@ -32,7 +32,7 @@ Future<void> setupGetIt() async {
   getIt.registerFactory<RecipeCubit>(() => RecipeCubit(getIt()));
   getIt.registerFactory<AuthCubit>(() => AuthCubit());
   getIt.registerFactory<SearchCubit>(() => SearchCubit(getIt()));
-  getIt.registerFactory<FavouriteCubit>(() => FavouriteCubit(getIt()));
+  getIt.registerFactory<FavouriteCubit>(() => FavouriteCubit(getIt(), getIt()));
 
   // Repos
   getIt.registerLazySingleton<HomeRepo>(() => HomeRepo(

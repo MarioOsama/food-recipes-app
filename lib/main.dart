@@ -17,15 +17,12 @@ void main() async {
   );
   await EasyLocalization.ensureInitialized();
   // Initialize dependency injection
-  setupGetIt();
+  await setupGetIt();
   // Check if the user is new
   Bloc.observer = SimpleBlocObserver();
 
   bool isFirstTime = await isNewUser;
   AppRouter appRouter = AppRouter(isFirstTime: isFirstTime);
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
   runApp(
     EasyLocalization(
       supportedLocales: const [Locale('en'), Locale('ar')],

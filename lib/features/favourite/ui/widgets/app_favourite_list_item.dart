@@ -2,21 +2,26 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_recipes_app/core/helpers/spacing.dart';
+import 'package:food_recipes_app/core/models/cocktail_response_model.dart';
 import 'package:food_recipes_app/core/models/meals_response.dart';
 import 'package:food_recipes_app/core/theming/app_colors.dart';
 import 'package:food_recipes_app/core/theming/app_text_styles.dart';
 import 'package:food_recipes_app/features/favourite/data/logic/cubit/favourite_cubit.dart';
 
 class AppFavouriteListItem extends StatelessWidget {
-  const AppFavouriteListItem({super.key, required this.meal});
+  const AppFavouriteListItem(
+      {super.key, required this.meal, required this.cocktail});
   final Meals meal;
+  final CocktailModel cocktail;
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Dismissible(
         onDismissed: (direction) {
           if (direction == DismissDirection.endToStart) {
-            context.read<FavouriteCubit>().deleteFavorite(meal.idMeal);
+            context
+                .read<FavouriteCubit>()
+                .deleteFavorite(meal.idMeal ?? cocktail.id);
           }
         },
         key: UniqueKey(),
@@ -45,7 +50,7 @@ class AppFavouriteListItem extends StatelessWidget {
                     bottomLeft: Radius.circular(20.r)),
                 child: Image(
                   image: NetworkImage(
-                    meal.strMealThumb,
+                    meal.strMealThumb ?? cocktail.imageUrl,
                   ),
                   height: 120.h,
                 ),
@@ -58,7 +63,7 @@ class AppFavouriteListItem extends StatelessWidget {
                   SizedBox(
                       width: 150.w,
                       child: Text(
-                        meal.strMeal,
+                        meal.strMeal ?? cocktail.name,
                         style: AppTextStyles.font17BlackRegular,
                         overflow: TextOverflow.ellipsis,
                         maxLines: 1,

@@ -25,8 +25,11 @@ class FavouriteScreen extends StatelessWidget {
         builder: (context, state) {
           state.whenOrNull(loading: () {
             widget = setupLoading(context);
-          }, success: (data) {
-            widget = AppFavouriteBody(meals: data);
+          }, success: (data, cocktail) {
+            widget = AppFavouriteBody(
+              meals: data,
+              cocktails: cocktail,
+            );
           }, failure: (error) {
             widget = const AddYourFavourite();
           });
