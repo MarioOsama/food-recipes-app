@@ -31,7 +31,10 @@ class FavouriteScreen extends StatelessWidget {
               cocktails: cocktail,
             );
           }, failure: (error) {
-            widget = const AddYourFavourite();
+            widget = const AppFavouriteBody(
+              cocktails: [],
+              meals: [],
+            );
           });
 
           return widget ?? const AddYourFavourite();

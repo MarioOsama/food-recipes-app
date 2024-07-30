@@ -20,7 +20,7 @@ mixin _$FavouriteState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<Meals> data, List<CocktailModel> cocktail)
+    required TResult Function(List<Meals> data, List<DrinksData> cocktail)
         success,
     required TResult Function(String message) failure,
   }) =>
@@ -29,7 +29,7 @@ mixin _$FavouriteState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<Meals> data, List<CocktailModel> cocktail)? success,
+    TResult? Function(List<Meals> data, List<DrinksData> cocktail)? success,
     TResult? Function(String message)? failure,
   }) =>
       throw _privateConstructorUsedError;
@@ -37,7 +37,7 @@ mixin _$FavouriteState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Meals> data, List<CocktailModel> cocktail)? success,
+    TResult Function(List<Meals> data, List<DrinksData> cocktail)? success,
     TResult Function(String message)? failure,
     required TResult orElse(),
   }) =>
@@ -133,7 +133,7 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<Meals> data, List<CocktailModel> cocktail)
+    required TResult Function(List<Meals> data, List<DrinksData> cocktail)
         success,
     required TResult Function(String message) failure,
   }) {
@@ -145,7 +145,7 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<Meals> data, List<CocktailModel> cocktail)? success,
+    TResult? Function(List<Meals> data, List<DrinksData> cocktail)? success,
     TResult? Function(String message)? failure,
   }) {
     return initial?.call();
@@ -156,7 +156,7 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Meals> data, List<CocktailModel> cocktail)? success,
+    TResult Function(List<Meals> data, List<DrinksData> cocktail)? success,
     TResult Function(String message)? failure,
     required TResult orElse(),
   }) {
@@ -251,7 +251,7 @@ class _$FavouriteLoadingImpl implements FavouriteLoading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<Meals> data, List<CocktailModel> cocktail)
+    required TResult Function(List<Meals> data, List<DrinksData> cocktail)
         success,
     required TResult Function(String message) failure,
   }) {
@@ -263,7 +263,7 @@ class _$FavouriteLoadingImpl implements FavouriteLoading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<Meals> data, List<CocktailModel> cocktail)? success,
+    TResult? Function(List<Meals> data, List<DrinksData> cocktail)? success,
     TResult? Function(String message)? failure,
   }) {
     return loading?.call();
@@ -274,7 +274,7 @@ class _$FavouriteLoadingImpl implements FavouriteLoading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Meals> data, List<CocktailModel> cocktail)? success,
+    TResult Function(List<Meals> data, List<DrinksData> cocktail)? success,
     TResult Function(String message)? failure,
     required TResult orElse(),
   }) {
@@ -332,7 +332,7 @@ abstract class _$$FavouriteSuccessImplCopyWith<$Res> {
           $Res Function(_$FavouriteSuccessImpl) then) =
       __$$FavouriteSuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<Meals> data, List<CocktailModel> cocktail});
+  $Res call({List<Meals> data, List<DrinksData> cocktail});
 }
 
 /// @nodoc
@@ -359,7 +359,7 @@ class __$$FavouriteSuccessImplCopyWithImpl<$Res>
       null == cocktail
           ? _value._cocktail
           : cocktail // ignore: cast_nullable_to_non_nullable
-              as List<CocktailModel>,
+              as List<DrinksData>,
     ));
   }
 }
@@ -368,7 +368,7 @@ class __$$FavouriteSuccessImplCopyWithImpl<$Res>
 
 class _$FavouriteSuccessImpl implements FavouriteSuccess {
   const _$FavouriteSuccessImpl(
-      final List<Meals> data, final List<CocktailModel> cocktail)
+      final List<Meals> data, final List<DrinksData> cocktail)
       : _data = data,
         _cocktail = cocktail;
 
@@ -380,9 +380,9 @@ class _$FavouriteSuccessImpl implements FavouriteSuccess {
     return EqualUnmodifiableListView(_data);
   }
 
-  final List<CocktailModel> _cocktail;
+  final List<DrinksData> _cocktail;
   @override
-  List<CocktailModel> get cocktail {
+  List<DrinksData> get cocktail {
     if (_cocktail is EqualUnmodifiableListView) return _cocktail;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_cocktail);
@@ -422,7 +422,7 @@ class _$FavouriteSuccessImpl implements FavouriteSuccess {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<Meals> data, List<CocktailModel> cocktail)
+    required TResult Function(List<Meals> data, List<DrinksData> cocktail)
         success,
     required TResult Function(String message) failure,
   }) {
@@ -434,7 +434,7 @@ class _$FavouriteSuccessImpl implements FavouriteSuccess {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<Meals> data, List<CocktailModel> cocktail)? success,
+    TResult? Function(List<Meals> data, List<DrinksData> cocktail)? success,
     TResult? Function(String message)? failure,
   }) {
     return success?.call(data, cocktail);
@@ -445,7 +445,7 @@ class _$FavouriteSuccessImpl implements FavouriteSuccess {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Meals> data, List<CocktailModel> cocktail)? success,
+    TResult Function(List<Meals> data, List<DrinksData> cocktail)? success,
     TResult Function(String message)? failure,
     required TResult orElse(),
   }) {
@@ -495,11 +495,11 @@ class _$FavouriteSuccessImpl implements FavouriteSuccess {
 
 abstract class FavouriteSuccess implements FavouriteState {
   const factory FavouriteSuccess(
-          final List<Meals> data, final List<CocktailModel> cocktail) =
+          final List<Meals> data, final List<DrinksData> cocktail) =
       _$FavouriteSuccessImpl;
 
   List<Meals> get data;
-  List<CocktailModel> get cocktail;
+  List<DrinksData> get cocktail;
 
   /// Create a copy of FavouriteState
   /// with the given fields replaced by the non-null parameter values.
@@ -579,7 +579,7 @@ class _$FavouriteErrorImpl implements FavouriteError {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<Meals> data, List<CocktailModel> cocktail)
+    required TResult Function(List<Meals> data, List<DrinksData> cocktail)
         success,
     required TResult Function(String message) failure,
   }) {
@@ -591,7 +591,7 @@ class _$FavouriteErrorImpl implements FavouriteError {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<Meals> data, List<CocktailModel> cocktail)? success,
+    TResult? Function(List<Meals> data, List<DrinksData> cocktail)? success,
     TResult? Function(String message)? failure,
   }) {
     return failure?.call(message);
@@ -602,7 +602,7 @@ class _$FavouriteErrorImpl implements FavouriteError {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Meals> data, List<CocktailModel> cocktail)? success,
+    TResult Function(List<Meals> data, List<DrinksData> cocktail)? success,
     TResult Function(String message)? failure,
     required TResult orElse(),
   }) {
