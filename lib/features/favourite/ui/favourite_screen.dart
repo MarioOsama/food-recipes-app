@@ -14,7 +14,6 @@ class FavouriteScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Widget? widget;
-    context.read<FavouriteCubit>().getFavouriteMeals();
     return Scaffold(
       backgroundColor: AppColors.grey,
       body: BlocBuilder<FavouriteCubit, FavouriteState>(
@@ -25,14 +24,12 @@ class FavouriteScreen extends StatelessWidget {
         builder: (context, state) {
           state.whenOrNull(loading: () {
             widget = setupLoading(context);
-          }, success: (data, cocktail) {
+          }, success: (meals) {
             widget = AppFavouriteBody(
-              meals: data,
-              cocktails: cocktail,
+              meals: meals,
             );
           }, failure: (error) {
             widget = const AppFavouriteBody(
-              cocktails: [],
               meals: [],
             );
           });

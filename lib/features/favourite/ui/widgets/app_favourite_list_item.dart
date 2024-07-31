@@ -2,26 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_recipes_app/core/helpers/spacing.dart';
-import 'package:food_recipes_app/core/models/drink_response.dart';
 import 'package:food_recipes_app/core/models/meals_response.dart';
 import 'package:food_recipes_app/core/theming/app_colors.dart';
 import 'package:food_recipes_app/core/theming/app_text_styles.dart';
 import 'package:food_recipes_app/features/favourite/data/logic/cubit/favourite_cubit.dart';
 
 class AppFavouriteListItem extends StatelessWidget {
-  const AppFavouriteListItem(
-      {super.key, required this.meal, required this.cocktail});
+  const AppFavouriteListItem({super.key, required this.meal});
   final Meals meal;
-  final DrinksData cocktail;
+
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Dismissible(
         onDismissed: (direction) {
           if (direction == DismissDirection.endToStart) {
-            context
-                .read<FavouriteCubit>()
-                .deleteFavorite(meal.idMeal ?? cocktail.idDrink);
+            context.read<FavouriteCubit>().deleteFavorite(meal.idMeal);
           }
         },
         key: UniqueKey(),
@@ -50,7 +46,7 @@ class AppFavouriteListItem extends StatelessWidget {
                     bottomLeft: Radius.circular(20.r)),
                 child: Image(
                   image: NetworkImage(
-                    meal.strMealThumb ?? cocktail.strDrinkThumb,
+                    meal.strMealThumb,
                   ),
                   height: 120.h,
                 ),
@@ -63,13 +59,13 @@ class AppFavouriteListItem extends StatelessWidget {
                   SizedBox(
                       width: 150.w,
                       child: Text(
-                        meal.strMeal ?? cocktail.strDrink,
+                        meal.strMeal,
                         style: AppTextStyles.font17BlackRegular,
                         overflow: TextOverflow.ellipsis,
                         maxLines: 1,
                       )),
                   Text(
-                    meal.strArea,
+                    meal.strCategory,
                     style:
                         AppTextStyles.font15OrangeRegular.copyWith(height: 3.h),
                   ),

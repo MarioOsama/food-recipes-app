@@ -102,8 +102,7 @@ class AppRouter {
       case AppRoutes.favorites:
         return MaterialPageRoute(
             builder: (_) => BlocProvider(
-                  create: (context) =>
-                      FavouriteCubit(getIt(), getIt())..getFavouriteMeals(),
+                  create: (context) => FavouriteCubit(getIt())..getFavourite(),
                   child: const FavouriteScreen(),
                 ));
       case AppRoutes.contactUs:
