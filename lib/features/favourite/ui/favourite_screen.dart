@@ -18,7 +18,7 @@ class FavouriteScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColors.grey,
       body: BlocProvider(
-        create: (context) => FavouriteCubit(getIt())..getFavourite(),
+        create: (context) => FavouriteCubit(getIt())..getFavouriteMeals(),
         child: BlocBuilder<FavouriteCubit, FavouriteState>(
           buildWhen: (previous, current) =>
               current is FavouriteLoading ||

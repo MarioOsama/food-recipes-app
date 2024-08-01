@@ -9,9 +9,9 @@ class FavouriteCubit extends Cubit<FavouriteState> {
   FavouriteCubit(this.favouriteRepo) : super(const FavouriteState.initial());
   List<Meals> favouriteMeals = [];
 
-  Future<void> getFavourite() async {
+  Future<void> getFavouriteMeals() async {
     emit(const FavouriteState.loading());
-    final response = await favouriteRepo.getFavourite();
+    final response = await favouriteRepo.getFavouriteMeals();
     response.when(
         success: (meals) {
           favouriteMeals.addAll(meals.meals);

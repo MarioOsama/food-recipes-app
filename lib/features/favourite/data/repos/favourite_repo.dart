@@ -6,7 +6,7 @@ import 'package:food_recipes_app/core/prefs/shared_preferences.dart';
 class FavouriteRepo {
   final MealApiService _mealApiService;
   FavouriteRepo(this._mealApiService);
-  Future<ApiResult<MealsResponse>> getFavourite() async {
+  Future<ApiResult<MealsResponse>> getFavouriteMeals() async {
     try {
       List<Meals> favoriteMeals = [];
       for (String i in await getFavoritesIds()) {

@@ -55,7 +55,7 @@ class AppRouter {
                 create: (context) => getIt<HomeCubit>(),
               ),
               BlocProvider<FavouriteCubit>(
-                create: (context) => FavouriteCubit(getIt())..getFavourite(),
+                create: (context) => FavouriteCubit(getIt()),
               ),
               BlocProvider<ProfileCubit>(
                 create: (context) => getIt<ProfileCubit>(),
