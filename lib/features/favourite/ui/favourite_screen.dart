@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:food_recipes_app/core/di/dependency_injection.dart';
 import 'package:food_recipes_app/core/theming/app_colors.dart';
 import 'package:food_recipes_app/features/favourite/data/logic/cubit/favourite_cubit.dart';
 import 'package:food_recipes_app/features/favourite/data/logic/cubit/favourite_state.dart';
@@ -16,26 +17,27 @@ class FavouriteScreen extends StatelessWidget {
     Widget? widget;
     return Scaffold(
       backgroundColor: AppColors.grey,
-      body: BlocBuilder<FavouriteCubit, FavouriteState>(
-        buildWhen: (previous, current) =>
-            current is FavouriteLoading ||
-            current is FavouriteSuccess ||
-            current is FavouriteError,
-        builder: (context, state) {
-          state.whenOrNull(loading: () {
-            widget = setupLoading(context);
-          }, success: (meals) {
-            widget = AppFavouriteBody(
-              meals: meals,
-            );
-          }, failure: (error) {
-            widget = const AppFavouriteBody(
-              meals: [],
-            );
-          });
+      body: BlocProvider(
+        create: (context) => FavouriteCubit(getIt())..getFavourite(),
+        child: BlocBuilder<FavouriteCubit, FavouriteState>(
+          buildWhen: (previous, current) =>
+              current is FavouriteLoading ||
+              current is FavouriteSuccess ||
+              current is FavouriteError,
+          builder: (context, state) {
+            state.whenOrNull(loading: () {
+              widget = setupLoading(context);
+            }, success: (meals) {
+              widget = AppFavouriteBody(
+                meals: meals,
+              );
+            }, failure: (error) {
+              widget = const AddYourFavourite();
+            });
 
-          return widget ?? const AddYourFavourite();
-        },
+            return widget ?? const AddYourFavourite();
+          },
+        ),
       ),
     );
   }

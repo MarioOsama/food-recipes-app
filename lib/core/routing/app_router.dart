@@ -55,7 +55,7 @@ class AppRouter {
                 create: (context) => getIt<HomeCubit>(),
               ),
               BlocProvider<FavouriteCubit>(
-                create: (context) => getIt<FavouriteCubit>(),
+                create: (context) => FavouriteCubit(getIt())..getFavourite(),
               ),
               BlocProvider<ProfileCubit>(
                 create: (context) => getIt<ProfileCubit>(),
@@ -100,11 +100,7 @@ class AppRouter {
                   child: const SearchScreen(),
                 ));
       case AppRoutes.favorites:
-        return MaterialPageRoute(
-            builder: (_) => BlocProvider(
-                  create: (context) => FavouriteCubit(getIt())..getFavourite(),
-                  child: const FavouriteScreen(),
-                ));
+        return MaterialPageRoute(builder: (_) => const FavouriteScreen());
       case AppRoutes.contactUs:
         return MaterialPageRoute(builder: (_) => const ContactUsScreen());
       case AppRoutes.forgetPassword:

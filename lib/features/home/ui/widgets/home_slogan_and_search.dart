@@ -30,15 +30,6 @@ class HomeSloganAndSearch extends StatelessWidget {
           iconSize: 32.r,
           color: AppColors.black,
         ),
-        const Spacer(),
-        IconButton(
-          onPressed: () {
-            context.pushNamed(AppRoutes.favorites);
-          },
-          icon: const Icon(Icons.favorite_border),
-          iconSize: 32.r,
-          color: AppColors.black,
-        ),
       ],
     );
   }
